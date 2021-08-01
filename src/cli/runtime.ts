@@ -11,7 +11,7 @@ async function getBrowser(): Promise<Browser> {
   const options = process.env.CI
     ? {}
     : {
-        headless: true,
+        headless: false,
         executablePath:
           process.platform === "win32"
             ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"

@@ -5,6 +5,9 @@ import { Meta, Route } from "../types";
 import { getBaseUrl, getLayoutUrl, getOutputFolderPath } from "./util";
 import { toFilename } from "./routes";
 import { getPath } from "./file";
+import getConfig from "./config";
+
+const config = getConfig();
 
 async function extractMeta(browser: Browser, route: Route): Promise<Meta> {
   const page = await browser.newPage();
@@ -63,8 +66,8 @@ async function capturePage(
   const page = await browser.newPage();
 
   await page.setViewport({
-    width: 2000,
-    height: 1200,
+    width: config.width,
+    height: config.height,
   });
 
   await page.goto(url, {
