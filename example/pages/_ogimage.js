@@ -1,6 +1,6 @@
 import { useMeta } from "next-opengraph-image";
 
-export default function Layout() {
+export default function OgImage() {
   const { title, description } = useMeta();
 
   return (

@@ -1,7 +1,6 @@
 {
   "sourceDir": ".next",
-  "layoutRoute": "/layout",
-  "exclude": ["/layout"],
+  "excludePage": [],
   "width": 1200,
   "height": 600
 }

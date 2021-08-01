@@ -11,8 +11,6 @@ function loadFile<T>(path: string, throwError = true): T | undefined {
     const json: T = JSON.parse(file.toString()) as T;
 
     return json;
-
-    //return require(path) as T;
   }
 
   if (throwError) {

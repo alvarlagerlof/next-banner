@@ -6,7 +6,6 @@ import { getPath } from "./file";
 
 const defaultConfig: Partial<IConfig> = {
   sourceDir: ".next",
-  layoutPage: "/layout",
   excludePages: [],
   width: 1200,
   height: 600,

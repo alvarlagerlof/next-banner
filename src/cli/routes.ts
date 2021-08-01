@@ -36,15 +36,23 @@ async function getRoutes(): Promise<Route[]> {
 
 async function filter(routes: Route[]): Promise<Route[]> {
   const builtIn = (route: Route): boolean => {
-    return !["/_app", "/_error", "/500", "/404", ...config.exclude].includes(
-      route
-    );
+    return ![
+      "/_app",
+      "/_error",
+      "/500",
+      "/404",
+      ...config.excludePages,
+    ].includes(route);
   };
   const dynamic = (route: Route): boolean => {
     return !/\/\[.*\]/.test(route);
   };
 
-  return routes.filter(builtIn).filter(dynamic);
+  const ogImage = (route: Route): boolean => {
+    return !/_ogimage/.test(route);
+  };
+
+  return routes.filter(builtIn).filter(dynamic).filter(ogImage);
 }
 
 function toFilename(route: Route): string {

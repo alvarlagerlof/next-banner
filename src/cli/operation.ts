@@ -22,7 +22,7 @@ function getLayoutUrl(server: NextServer, meta: Meta): string {
   const title = encodeURIComponent(meta.title);
   const description = encodeURIComponent(meta.description);
 
-  return `${base}${config.layoutRoute}/?title=${title}&description=${description}`;
+  return `${base}/_ogimage/?title=${title}&description=${description}`;
 }
 
 async function extractMeta(
