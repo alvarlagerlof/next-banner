@@ -2,17 +2,12 @@
   "name": "next-opengraph-image",
   "version": "1.0.0-semantic-release",
   "description": "Generate Open Graph images for Next.js on build",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/alvarlagerlof/next-opengraph-image"
   },
   "author": "Alvar Lagerlöf",
   "license": "MIT",
-  "files": [
-    "dist",
-    "src"
-  ],
   "keywords": [
     "react",
     "next",
@@ -23,17 +18,41 @@
     "generate",
     "build"
   ],
-  "dependencies": {
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "dist/index.js",
+  "bin": "dist/cli/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "ts-types": "tsc --emitDeclarationOnly --outDir dist",
+    "lint": "eslint . --ext .ts,tsx",
+    "build": "rimraf dist && node ./esbuild.js && npm run ts-types"
+  },
+  "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@types/node": "^16.4.8",
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
+    "esbuild": "^0.12.17",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.3.2",
-    "semantic-release": "^17.4.4"
+    "rimraf": "^3.0.2",
+    "semantic-release": "^17.4.4",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@corex/deepmerge": "^2.6.20",
+    "next": "^11.0.1",
+    "puppeteer": "^10.1.0"
   }
 }
