@@ -71,13 +71,16 @@ async function capturePage(
     waitUntil: "networkidle0",
   });
 
-  if (!fs.existsSync(getPath(getOutputFolderPath()))) {
-    await promises.mkdir(getPath(getOutputFolderPath()));
+  const full = `${getOutputFolderPath()}/${toFilename(route)}.png`;
+  const folder = full.replace(/\/[^/]+$/, "");
+
+  if (!fs.existsSync(getPath(folder))) {
+    await promises.mkdir(getPath(folder));
   }
 
   await page.screenshot({
     type: "png",
-    path: `${getOutputFolderPath()}/${toFilename(route)}.png`,
+    path: full,
   });
 
   console.log("Captured:", route);

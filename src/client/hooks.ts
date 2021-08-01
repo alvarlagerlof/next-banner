@@ -4,11 +4,11 @@ import { OUTPUT_DIR } from "../constants";
 import { Meta } from "../types";
 
 function useImage(): string {
-  const { pathname } = useRouter();
+  const { asPath } = useRouter();
 
-  if (pathname == "/") return `${OUTPUT_DIR}/index.png`;
+  if (asPath == "/") return `/${OUTPUT_DIR}/index.png`;
 
-  return `${OUTPUT_DIR}/${pathname}.png`;
+  return `/${OUTPUT_DIR}${asPath}.png`;
 }
 
 function useMeta(): Meta {
