@@ -1,9 +1,8 @@
+import { spawn } from "child_process";
 import puppeteer, { Browser } from "puppeteer";
-import { spawn, ChildProcessWithoutNullStreams } from "child_process";
+import getPort from "get-port";
 
-import getConfig from "./config";
-
-const config = getConfig();
+import { NextServer } from "../types";
 
 async function getBrowser(): Promise<Browser> {
   console.log("Starting browser");
@@ -11,7 +10,7 @@ async function getBrowser(): Promise<Browser> {
   const options = process.env.CI
     ? {}
     : {
-        headless: false,
+        headless: true,
         executablePath:
           process.platform === "win32"
             ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
@@ -23,28 +22,32 @@ async function getBrowser(): Promise<Browser> {
   return await puppeteer.launch(options);
 }
 
-async function getNextServer(): Promise<ChildProcessWithoutNullStreams> {
-  console.log("Starting server at port:", config.serverPort);
-
-  const server = spawn("yarn", ["start", "-p", config.serverPort.toString()]);
+async function getNextServer(): Promise<NextServer> {
+  const port = await getPort();
+  console.log("Starting server at port:", port);
 
   return new Promise((resolve, reject) => {
-    server.stdout.on("data", (data) => {
+    const process = spawn("yarn", ["start", "-p", port.toString()]);
+
+    process.stdout.on("data", (data) => {
       if (data.toString().includes("ready - started server on")) {
-        resolve(server);
+        resolve({
+          process,
+          port,
+        });
       }
     });
 
-    server.stderr.on("data", (data) => {
-      reject(`stderr: ${data}`);
+    process.stderr.on("data", (data) => {
+      reject(new Error(`stderr: ${data}`));
     });
 
-    server.on("error", (error) => {
-      reject(`error: ${error.message}`);
+    process.on("error", (error) => {
+      reject(new Error(`error: ${error.message}`));
     });
 
-    server.on("close", (code) => {
-      reject(`child process exited with code ${code}`);
+    process.on("close", (code) => {
+      reject(new Error(`child process exited with code ${code}`));
     });
   });
 }

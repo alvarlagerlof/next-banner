@@ -3,6 +3,5 @@
   "layoutRoute": "/layout",
   "exclude": ["/layout"],
   "width": 1200,
-  "height": 600,
-  "serverPort": 4000
+  "height": 600
 }

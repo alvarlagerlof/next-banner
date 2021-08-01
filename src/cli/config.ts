@@ -6,11 +6,10 @@ import { getPath } from "./file";
 
 const defaultConfig: Partial<IConfig> = {
   sourceDir: ".next",
-  layoutRoute: "/layout",
-  exclude: [],
+  layoutPage: "/layout",
+  excludePages: [],
   width: 1200,
   height: 600,
-  serverPort: 3099,
 };
 
 function getConfig(): IConfig {

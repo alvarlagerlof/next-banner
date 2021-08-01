@@ -1,18 +1,38 @@
 import { Browser } from "puppeteer";
 import fs, { promises } from "fs";
 
-import { Meta, Route } from "../types";
-import { getBaseUrl, getLayoutUrl, getOutputFolderPath } from "./util";
+import { Meta, NextServer, Route } from "../types";
 import { toFilename } from "./routes";
 import { getPath } from "./file";
 import getConfig from "./config";
+import { OUTPUT_DIR } from "../constants";
 
 const config = getConfig();
 
-async function extractMeta(browser: Browser, route: Route): Promise<Meta> {
+function getOutputFolderPath() {
+  return `public/${OUTPUT_DIR}`;
+}
+
+function getBaseUrl(server: NextServer): string {
+  return `http://localhost:${server.port}`;
+}
+
+function getLayoutUrl(server: NextServer, meta: Meta): string {
+  const base = getBaseUrl(server);
+  const title = encodeURIComponent(meta.title);
+  const description = encodeURIComponent(meta.description);
+
+  return `${base}${config.layoutRoute}/?title=${title}&description=${description}`;
+}
+
+async function extractMeta(
+  browser: Browser,
+  server: NextServer,
+  route: Route
+): Promise<Meta> {
   const page = await browser.newPage();
 
-  const base = getBaseUrl();
+  const base = getBaseUrl(server);
   const url = `${base}${route}`;
 
   await page.goto(url, {
@@ -58,10 +78,11 @@ async function extractMeta(browser: Browser, route: Route): Promise<Meta> {
 
 async function capturePage(
   browser: Browser,
+  server: NextServer,
   route: Route,
   meta: Meta
 ): Promise<void> {
-  const url = getLayoutUrl(meta);
+  const url = getLayoutUrl(server, meta);
 
   const page = await browser.newPage();
 
@@ -86,7 +107,7 @@ async function capturePage(
     path: full,
   });
 
-  console.log("Captured:", route);
+  console.log("Captured og:image for:", route);
   await page.close();
 }
 

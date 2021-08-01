@@ -1,7 +1,6 @@
 export interface IConfig {
   sourceDir: string;
   layoutRoute: string;
-  serverPort: number;
   exclude: string[];
   width: number;
   height: number;

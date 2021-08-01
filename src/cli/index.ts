@@ -11,13 +11,13 @@ async function generate() {
 
   await Promise.all(
     routes.map(async (route) => {
-      const meta = await extractMeta(browser, route);
-      await capturePage(browser, route, meta);
+      const meta = await extractMeta(browser, server, route);
+      await capturePage(browser, server, route, meta);
     })
   );
 
   browser.close();
-  server.kill();
+  server.process.kill();
 }
 
 generate();
