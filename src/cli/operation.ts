@@ -1,7 +1,8 @@
 import { Browser } from "puppeteer";
 import fs, { promises } from "fs";
+import { Buffer } from "buffer";
 
-import { Meta, NextServer, Route } from "../types";
+import { Data, JsonMap, NextServer, Route } from "../types";
 import { toFilename } from "./routes";
 import { getPath } from "./file";
 import getConfig from "./config";
@@ -17,19 +18,25 @@ function getBaseUrl(server: NextServer): string {
   return `http://localhost:${server.port}`;
 }
 
-function getLayoutUrl(server: NextServer, meta: Meta): string {
+function getLayoutUrl(server: NextServer, data: Data): string {
   const base = getBaseUrl(server);
-  const title = encodeURIComponent(meta.title);
-  const description = encodeURIComponent(meta.description);
 
-  return `${base}/_ogimage/?title=${title}&description=${description}`;
+  const meta = Buffer.from(JSON.stringify(data.meta), "utf-8").toString(
+    "base64"
+  );
+  const custom = Buffer.from(
+    JSON.stringify(data.custom ?? {}),
+    "utf-8"
+  ).toString("base64");
+
+  return `${base}/_ogimage/?meta=${meta}&custom=${custom}`;
 }
 
 async function extractMeta(
   browser: Browser,
   server: NextServer,
   route: Route
-): Promise<Meta> {
+): Promise<Data> {
   const page = await browser.newPage();
 
   const base = getBaseUrl(server);
@@ -39,50 +46,66 @@ async function extractMeta(
     waitUntil: "networkidle0",
   });
 
-  return new Promise(async (resolve, reject) => {
-    try {
-      const title = await page.evaluate(() => {
-        const selector = document.head.querySelector("title");
-        if (!selector) throw new Error(`${route} No title tag found`);
+  try {
+    const title = await page.evaluate(() => {
+      const selector = document.head.querySelector("title");
+      if (!selector) throw new Error(`No title tag found`);
 
-        const content = selector.textContent;
-        if (!content) throw new Error(`${route} No title content found`);
+      const content = selector.textContent;
+      if (!content) throw new Error(`No title content found`);
 
-        return content;
-      });
+      return content;
+    });
 
-      const description = await page.evaluate(() => {
+    const description = await page.evaluate(() => {
+      const selector = document.head.querySelector('meta[name="description"]');
+      if (!selector) throw new Error(`No description tag found on route`);
+
+      const content = selector.getAttribute("content");
+      if (!content) throw new Error(`No description content found`);
+
+      return content;
+    });
+
+    const custom =
+      (await page.evaluate(() => {
         const selector = document.head.querySelector(
-          'meta[name="description"]'
+          'meta[name="next-opengraph-image"]'
         );
-        if (!selector)
-          throw new Error(`${route} No description tag found on route`);
+
+        if (!selector) return null;
 
         const content = selector.getAttribute("content");
-        if (!content) throw new Error(`${route} No description content found`);
+        if (!content) return null;
 
         return content;
-      });
+      })) ?? Buffer.from("{}", "utf-8").toString("base64");
 
-      await page.close();
-      resolve({
+    const customDecoded = JSON.parse(
+      Buffer.from(custom, "base64").toString("utf-8")
+    ) as JsonMap;
+    await page.close();
+
+    return {
+      meta: {
         title,
         description,
-      });
-    } catch (e) {
-      await page.close();
-      reject(e);
-    }
-  });
+      },
+      custom: customDecoded,
+    };
+  } catch (e) {
+    page.close();
+    throw new Error(`Route ${route}: ${e.message}`);
+  }
 }
 
 async function capturePage(
   browser: Browser,
   server: NextServer,
   route: Route,
-  meta: Meta
+  data: Data
 ): Promise<void> {
-  const url = getLayoutUrl(server, meta);
+  const url = getLayoutUrl(server, data);
 
   const page = await browser.newPage();
 
@@ -93,6 +116,10 @@ async function capturePage(
 
   await page.goto(url, {
     waitUntil: "networkidle0",
+  });
+
+  page.on("pageerror", function (err) {
+    console.log("Page error: " + err.toString());
   });
 
   const full = `${getOutputFolderPath()}/${toFilename(route)}.png`;
