@@ -5,7 +5,7 @@ import {
   IBuildManifest,
   INextManifest,
   IPreRenderManifest,
-} from "../interfaces";
+} from "./interfaces";
 
 const config = getConfig();
 

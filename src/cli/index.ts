@@ -11,8 +11,8 @@ async function generate() {
 
   await Promise.all(
     routes.map(async (route) => {
-      const meta = await extractMeta(browser, server, route);
-      await capturePage(browser, server, route, meta);
+      const data = await extractMeta(browser, server, route);
+      await capturePage(browser, server, route, data);
     })
   );
 

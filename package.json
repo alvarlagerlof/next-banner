@@ -22,38 +22,53 @@
     "dist",
     "src"
   ],
-  "main": "dist/index.js",
+  "main": "dist/client/index.js",
   "bin": "dist/cli/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "ts-types": "tsc --emitDeclarationOnly --outDir dist",
     "lint": "eslint . --ext .ts,tsx",
-    "build": "rimraf dist && node ./esbuild.js && npm run ts-types"
+    "build:esbuild": "rimraf dist && node ./esbuild.js",
+    "build:swc:watch": "rimraf dist && swc src -w -d dist",
+    "build:swc": "rimraf dist && swc src -d dist",
+    "build:babel": "rimraf dist && babel src --extensions '.ts,.tsx' -d dist",
+    "build:ts": "tsc --outDir dist",
+    "build": "rimraf dist && yarn build:esbuild && yarn build:ts"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": ">=16",
+    "next": "^>=10"
   },
   "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
+    "@swc/cli": "^0.1.46",
+    "@swc/core": "^1.2.71",
     "@types/node": "^16.4.8",
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
+    "chokidar": "^3.5.2",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "esbuild": "^0.12.17",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.24.0",
+    "next": "^11.0.1",
     "prettier": "^2.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
+    "rollup": "^2.55.1",
     "semantic-release": "^17.4.4",
     "typescript": "^4.3.5"
   },
   "dependencies": {
     "@corex/deepmerge": "^2.6.20",
     "get-port": "^5.1.1",
-    "next": "^11.0.1",
     "puppeteer": "^10.1.0"
   }
 }

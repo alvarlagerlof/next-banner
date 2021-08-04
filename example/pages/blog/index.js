@@ -1,9 +1,16 @@
 import Link from "next/link";
 import Head from "next/head";
-import { useImage } from "next-opengraph-image";
+import { useImageUrl } from "next-opengraph-image";
 
 export default function Blog({ posts }) {
-  const image = useImage();
+  const image = useImageUrl({
+    layout: "blog",
+    data: {
+      title: "Blog",
+      description: "This is the blog page",
+      author: "Alvar Lagerlöf",
+    },
+  });
 
   return (
     <div>

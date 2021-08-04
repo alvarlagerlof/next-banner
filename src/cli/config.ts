@@ -1,6 +1,6 @@
 import { merge } from "@corex/deepmerge";
 
-import { IConfig } from "../interfaces";
+import { IConfig } from "./interfaces";
 import { loadFile } from "./file";
 import { getPath } from "./file";
 
