@@ -22,7 +22,12 @@ function getUrl(path: string, layout: string) {
 
 function getBase64(data: JsonMap) {
   const json = JSON.stringify(data);
-  return btoa(json);
+
+  if (typeof window !== "undefined") {
+    return btoa(json);
+  }
+
+  return Buffer.from(json, "utf-8").toString("base64");
 }
 
 export default function useOgImage(params: Options | undefined): Tag {
