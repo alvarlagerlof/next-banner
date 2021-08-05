@@ -51,7 +51,7 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Build
-        uses: yarn build
+        run: yarn build
 
       - name: Release
         run: npx semantic-release@17
