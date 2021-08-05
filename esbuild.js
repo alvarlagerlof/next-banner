@@ -6,7 +6,7 @@ require("esbuild")
     minify: false,
     sourcemap: true,
     target: "esnext",
-    format: "esm",
+    format: "cjs",
     outdir: "dist/client",
     platform: "neutral",
   })
