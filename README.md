@@ -22,6 +22,12 @@ npm install next-opengraph-image
 yarn add next-opengraph-image
 ```
 
+Add this to your scripts in package.json
+
+```json
+"postbuild": "next-opengraph-image",
+```
+
 ### Setup on pages
 
 Import the `useOgImage` hook in every page
