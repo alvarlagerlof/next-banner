@@ -28,7 +28,6 @@
   "scripts": {
     "lint": "eslint . --ext .ts,tsx",
     "build:esbuild": "rimraf dist && node ./esbuild.js",
-    "build:babel": "rimraf dist && babel src --extensions '.ts,.tsx' -d dist",
     "build:ts": "tsc --outDir dist",
     "build": "rimraf dist && yarn build:esbuild && yarn build:ts",
     "commit": "cz"
