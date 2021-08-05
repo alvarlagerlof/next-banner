@@ -61,8 +61,6 @@ export async function getStaticProps({ params }) {
 
   const post = posts.find((post) => post.id.toString() === params.id);
 
-  console.log(post);
-
   return {
     props: {
       ...post,
