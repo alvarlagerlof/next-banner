@@ -1,23 +1,23 @@
-export interface IConfig {
+export interface Config {
   sourceDir: string;
   excludePages: string[];
   width: number;
   height: number;
 }
 
-export interface IBuildManifest {
+export interface BuildManifest {
   pages: {
     [key: string]: string[];
   };
 }
 
-export interface IPreRenderManifest {
+export interface PreRenderManifest {
   routes: {
     [key: string]: unknown;
   };
 }
 
-export interface INextManifest {
-  build?: IBuildManifest;
-  preRender?: IPreRenderManifest;
+export interface NextManifest {
+  build?: BuildManifest;
+  preRender?: PreRenderManifest;
 }

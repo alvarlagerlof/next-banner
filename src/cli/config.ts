@@ -1,36 +1,36 @@
 import { merge } from "@corex/deepmerge";
 
-import { IConfig } from "./interfaces";
+import { Config } from "./interfaces";
 import { loadFile } from "./file";
 import { getPath } from "./file";
 
-const defaultConfig: Partial<IConfig> = {
+const defaultConfig: Partial<Config> = {
   sourceDir: ".next",
   excludePages: [],
   width: 1200,
   height: 630,
 };
 
-function getConfig(): IConfig {
+function getConfig(): Config {
   return loadConfig(getPath("./next-opengraph-image.json"));
 }
 
-function loadConfig(path: string): IConfig {
-  const baseConfig = loadFile<Partial<IConfig>>(path);
+function loadConfig(path: string): Config {
+  const baseConfig = loadFile<Partial<Config>>(path);
   return mergeWithDefault(defaultConfig, baseConfig);
 }
 
 function mergeWithDefault(
-  current: Partial<IConfig>,
-  next: Partial<IConfig> | undefined
-): IConfig {
+  current: Partial<Config>,
+  next: Partial<Config> | undefined
+): Config {
   if (next === undefined) {
-    return current as IConfig;
+    return current as Config;
   }
 
   return merge([current, next], {
     arrayMergeType: "overwrite",
-  }) as IConfig;
+  }) as Config;
 }
 
 export default getConfig;
