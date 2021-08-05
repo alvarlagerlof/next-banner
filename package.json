@@ -28,11 +28,10 @@
   "scripts": {
     "lint": "eslint . --ext .ts,tsx",
     "build:esbuild": "rimraf dist && node ./esbuild.js",
-    "build:swc:watch": "rimraf dist && swc src -w -d dist",
-    "build:swc": "rimraf dist && swc src -d dist",
     "build:babel": "rimraf dist && babel src --extensions '.ts,.tsx' -d dist",
     "build:ts": "tsc --outDir dist",
-    "build": "rimraf dist && yarn build:esbuild && yarn build:ts"
+    "build": "rimraf dist && yarn build:esbuild && yarn build:ts",
+    "commit": "cz"
   },
   "peerDependencies": {
     "next": "^>=10",

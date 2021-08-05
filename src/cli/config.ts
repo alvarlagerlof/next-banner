@@ -8,7 +8,7 @@ const defaultConfig: Partial<IConfig> = {
   sourceDir: ".next",
   excludePages: [],
   width: 1200,
-  height: 600,
+  height: 630,
 };
 
 function getConfig(): IConfig {

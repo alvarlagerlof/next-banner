@@ -1,6 +1,5 @@
 import { Browser } from "puppeteer";
 import fs from "fs";
-import ora, { Ora } from "ora";
 
 import { Data, NextServer } from "./types";
 import { getPath } from "./file";

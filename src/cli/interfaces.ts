@@ -13,7 +13,7 @@ export interface IBuildManifest {
 
 export interface IPreRenderManifest {
   routes: {
-    [key: string]: any;
+    [key: string]: unknown;
   };
 }
 

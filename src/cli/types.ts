@@ -1,4 +1,4 @@
-import { ChildProcess, ChildProcessWithoutNullStreams } from "child_process";
+import { ChildProcess } from "child_process";
 
 type AnyJson = boolean | number | string | null | JsonArray | JsonMap;
 type JsonArray = Array<AnyJson>;

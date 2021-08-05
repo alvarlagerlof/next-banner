@@ -15,7 +15,7 @@ export default function OgImage() {
         padding: "100px",
         background: "#ededed",
         width: "1200px",
-        height: "600px",
+        height: "630px",
       }}
     >
       <img src={image} height="100px" alt="" />

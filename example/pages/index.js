@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useOgImage } from "next-opengraph-image";
 
 export default function Home() {
-  const ogImage = useOgImage({});
+  const ogImage = useOgImage();
 
   return (
     <div>
