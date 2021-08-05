@@ -41,17 +41,18 @@ async function generate() {
     );
 
     bar.stop();
-    console.log(
-      `\n${chalk.green("✔")} Rendered ${
-        routes.length - errors.length
-      } pages successfully`
-    );
 
-    if (errors) {
+    if (errors.length > 0) {
+      console.log(
+        `\n${chalk.green("✔")} Captured ${routes.length - errors.length} pages`
+      );
+
       console.log(`${chalk.red("✗")} Errors`);
       errors.forEach((e) => {
         console.error(chalk.grey("  - " + e.message));
       });
+    } else {
+      console.log(`\n${chalk.green("✔")} Captured all pages successfully`);
     }
 
     browser.close();

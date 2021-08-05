@@ -16,6 +16,13 @@ export default function Blog({ posts }) {
 
       <h1>Posts</h1>
 
+      <p>
+        Proident incididunt amet irure non duis veniam exercitation nostrud do
+        laboris. Ad veniam tempor pariatur amet occaecat pariatur duis sint do
+        exercitation ad. Cillum occaecat mollit est irure commodo quis nisi
+        minim sit irure nisi.
+      </p>
+
       <ul>
         {posts.map((post) => {
           return (

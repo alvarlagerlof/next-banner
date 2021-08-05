@@ -1,13 +1,11 @@
 import Head from "next/head";
 import { useOgImage } from "next-opengraph-image";
 
-export default function Post({ title, body }) {
+export default function Post({ title, body, image }) {
   const ogImage = useOgImage({
     layout: "blogpost",
     data: {
-      author: "me",
-      image:
-        "https://images.unsplash.com/photo-1597840637868-417c13c7e962?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1926&q=80",
+      image,
     },
   });
 
@@ -21,6 +19,28 @@ export default function Post({ title, body }) {
       </Head>
 
       <h1>{title}</h1>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          gap: "16px",
+        }}
+      >
+        <em>Written by</em>
+
+        <img
+          src={image}
+          alt="Author"
+          style={{
+            objectFit: "cover",
+            width: "50px",
+            height: "50px",
+            borderRadius: "50%",
+          }}
+        />
+      </div>
+
       <p>{body}</p>
     </div>
   );
@@ -31,7 +51,9 @@ async function fetchPosts() {
     await fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
       res.json()
     )
-  ).splice(0, 10);
+  ).map((item, index) => {
+    return { ...item, image: `http://placekitten.com/200/${200 + index}` };
+  });
 }
 
 export async function getStaticProps({ params }) {
