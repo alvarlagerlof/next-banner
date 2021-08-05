@@ -14,7 +14,10 @@ export default function Default() {
         padding: "100px",
         background: "#ededed",
         width: "1200px",
-        height: "600px",
+        height: "630px",
+        position: "fixed",
+        top: "0",
+        left: "0",
       }}
     >
       <img src="/vercel.svg" alt="" style={{ marginBottom: "70px" }} />

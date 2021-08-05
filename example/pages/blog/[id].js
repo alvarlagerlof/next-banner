@@ -5,7 +5,7 @@ export default function Post({ title, body, image }) {
   const ogImage = useOgImage({
     layout: "blogpost",
     data: {
-      image,
+      image: image,
     },
   });
 
@@ -60,6 +60,8 @@ export async function getStaticProps({ params }) {
   const posts = await fetchPosts();
 
   const post = posts.find((post) => post.id.toString() === params.id);
+
+  console.log(post);
 
   return {
     props: {

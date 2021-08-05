@@ -16,9 +16,19 @@ export default function OgImage() {
         background: "#ededed",
         width: "1200px",
         height: "630px",
+        position: "fixed",
+        top: "0",
+        left: "0",
       }}
     >
-      <img src={image} height="100px" alt="" />
+      <img
+        src={image}
+        alt=""
+        style={{
+          width: "100px",
+          height: "100px",
+        }}
+      />
 
       <div>
         <h1 style={{ fontSize: "5em" }}>{title}</h1>

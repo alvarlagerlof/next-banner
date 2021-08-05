@@ -77,7 +77,7 @@ const ogImage = useOgImage({
 
 Create a folder called `_ogimage` in your `/pages` folder. Then create a file called default.js there.
 
-An example of a layout file looks like this. Notice the fixed height and width.
+An example of a layout file looks like this. Notice the position and size.
 
 ```jsx
 export default function Default() {
@@ -95,6 +95,9 @@ export default function Default() {
         background: "#ededed",
         width: "1200px",
         height: "630px",
+        position: "fixed",
+        top: "0",
+        left: "0",
       }}
     >
       <img src="/vercel.svg" alt="" style={{ marginBottom: "70px" }} />
