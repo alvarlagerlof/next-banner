@@ -26,7 +26,7 @@
   "bin": "dist/cli/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "lint": "eslint . --ext .ts,tsx",
+    "lint": "eslint ./src --ext .ts,tsx",
     "build:esbuild": "rimraf dist && node ./esbuild.js",
     "build:ts": "tsc --outDir dist",
     "build": "rimraf dist && yarn build:esbuild && yarn build:ts",
