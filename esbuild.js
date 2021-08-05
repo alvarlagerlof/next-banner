@@ -8,6 +8,7 @@ require("esbuild")
     target: "esnext",
     format: "esm",
     outdir: "dist/client",
+    platform: "neutral",
   })
   .catch(() => process.exit(1));
 

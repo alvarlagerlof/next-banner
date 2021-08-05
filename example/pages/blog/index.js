@@ -1,14 +1,12 @@
 import Link from "next/link";
 import Head from "next/head";
-import { useImageUrl } from "next-opengraph-image";
+import { useOgImage } from "next-opengraph-image";
 
 export default function Blog({ posts }) {
-  const image = useImageUrl({
-    layout: "blog",
+  const ogImage = useOgImage({
     data: {
       title: "Blog",
       description: "This is the blog page",
-      author: "Alvar Lagerlöf",
     },
   });
 
@@ -17,7 +15,8 @@ export default function Blog({ posts }) {
       <Head>
         <title>Blog</title>
         <meta name="description" content="This is the blog page" />
-        <meta name="og:image" content={image} />
+
+        <meta {...ogImage} />
       </Head>
 
       <h1>Posts</h1>

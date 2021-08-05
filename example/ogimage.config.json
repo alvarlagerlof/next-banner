@@ -1,6 +1,6 @@
 {
   "sourceDir": ".next",
-  "excludePage": [],
+  "excludePages": [],
   "width": 1200,
   "height": 600
 }

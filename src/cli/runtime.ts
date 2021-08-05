@@ -1,8 +1,10 @@
-import { spawn } from "child_process";
+import { ChildProcessWithoutNullStreams, spawn } from "child_process";
 import puppeteer, { Browser } from "puppeteer";
 import getPort from "get-port";
 
-import { NextServer } from "../types";
+import { NextServer } from "./types";
+import { ENV_VAR } from "../constants";
+import process from "process";
 
 async function getBrowser(): Promise<Browser> {
   console.log("Starting browser");
@@ -27,26 +29,26 @@ async function getNextServer(): Promise<NextServer> {
   console.log("Starting server at port:", port);
 
   return new Promise((resolve, reject) => {
-    const process = spawn("yarn", ["start", "-p", port.toString()]);
+    const serverProcess = spawn("yarn", ["start", "-p", port.toString()], {});
 
-    process.stdout.on("data", (data) => {
-      if (data.toString().includes("ready - started server on")) {
+    serverProcess.stdout?.on("data", (data) => {
+      if (data.toString().includes("started server on")) {
         resolve({
-          process,
+          serverProcess,
           port,
         });
       }
     });
 
-    process.stderr.on("data", (data) => {
+    serverProcess.stderr?.on("data", (data) => {
       reject(new Error(`stderr: ${data}`));
     });
 
-    process.on("error", (error) => {
+    serverProcess.on("error", (error) => {
       reject(new Error(`error: ${error.message}`));
     });
 
-    process.on("close", (code) => {
+    serverProcess.on("close", (code) => {
       reject(new Error(`child process exited with code ${code}`));
     });
   });

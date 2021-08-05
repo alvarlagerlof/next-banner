@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { getBrowser, getNextServer } from "./runtime";
-import { getRoutes } from "./routes";
+import getRoutes from "./routes";
 import { extractMeta, capturePage } from "./operation";
 
 async function generate() {
@@ -11,13 +11,17 @@ async function generate() {
 
   await Promise.all(
     routes.map(async (route) => {
-      const data = await extractMeta(browser, server, route);
-      await capturePage(browser, server, route, data);
+      try {
+        const meta = await extractMeta(browser, server, route);
+        await capturePage(browser, server, route, meta.layout, meta.data);
+      } catch (e) {
+        console.log(e.message);
+      }
     })
   );
 
   browser.close();
-  server.process.kill();
+  server.serverProcess.kill();
 }
 
 generate();

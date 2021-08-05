@@ -1,4 +1,3 @@
-import { Route } from "../types";
 import { getPath, loadFile } from "./file";
 import getConfig from "./config";
 import {
@@ -9,7 +8,7 @@ import {
 
 const config = getConfig();
 
-async function getRoutes(): Promise<Route[]> {
+async function getRoutes(): Promise<string[]> {
   const MANIFESETS: INextManifest = {
     build: loadFile<IBuildManifest>(
       getPath(config.sourceDir, "build-manifest.json")
@@ -19,23 +18,23 @@ async function getRoutes(): Promise<Route[]> {
     ),
   };
 
-  const staticRoutes: Route[] = Object.keys(MANIFESETS?.build?.pages ?? []).map(
-    (key) => {
-      return key as Route;
-    }
-  );
+  const staticRoutes: string[] = Object.keys(
+    MANIFESETS?.build?.pages ?? []
+  ).map((key) => {
+    return key as string;
+  });
 
-  const dynamicRoutes: Route[] = Object.keys(
+  const dynamicRoutes: string[] = Object.keys(
     MANIFESETS?.preRender?.routes ?? []
   ).map((key) => {
-    return key as Route;
+    return key as string;
   });
 
   return filter([...staticRoutes, ...dynamicRoutes]);
 }
 
-async function filter(routes: Route[]): Promise<Route[]> {
-  const builtIn = (route: Route): boolean => {
+async function filter(routes: string[]): Promise<string[]> {
+  const builtIn = (route: string): boolean => {
     return ![
       "/_app",
       "/_error",
@@ -44,21 +43,16 @@ async function filter(routes: Route[]): Promise<Route[]> {
       ...config.excludePages,
     ].includes(route);
   };
-  const dynamic = (route: Route): boolean => {
+
+  const dynamic = (route: string): boolean => {
     return !/\/\[.*\]/.test(route);
   };
 
-  const ogImage = (route: Route): boolean => {
+  const ogImage = (route: string): boolean => {
     return !/_ogimage/.test(route);
   };
 
   return routes.filter(builtIn).filter(dynamic).filter(ogImage);
 }
 
-function toFilename(route: Route): string {
-  if (route === "/") return "index";
-
-  return route.replace("/", "");
-}
-
-export { getRoutes, toFilename };
+export default getRoutes;

@@ -1,5 +1,4 @@
-import useImageUrl from "./useImageUrl";
-import useUrlData from "./useUrlData";
-import useCustomMetaTag from "./useCustomMetaTag";
+import useOgImage from "./useOgImage";
+import useData from "./useData";
 
-export { useImageUrl, useUrlData, useCustomMetaTag };
+export { useOgImage, useData };

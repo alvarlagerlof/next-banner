@@ -35,8 +35,8 @@
     "build": "rimraf dist && yarn build:esbuild && yarn build:ts"
   },
   "peerDependencies": {
-    "react": ">=16",
-    "next": "^>=10"
+    "next": "^>=10",
+    "react": ">=16"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",

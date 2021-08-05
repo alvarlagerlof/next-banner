@@ -1,20 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Test() {
-  //   useEffect(() => {
-  //     new Proxy(window.test, {
-  //       set: function (target, key, value) {
-  //         console.log(`${key} set to ${value}`);
-  //         target[key] = value;
+  const [test, setTest] = useState("Nothing yet");
 
-  //         setTest(value);
+  const onClick = () => {
+    setTest(window.test);
+  };
 
-  //         return true;
-  //       },
-  //     });
-  //   }, []);
-
-  if (typeof window === "undefined") return null;
-
-  return <div>Test is: {window.test}</div>;
+  return (
+    <div>
+      Test: {test}
+      <button onClick={onClick}>Calulate</button>
+    </div>
+  );
 }

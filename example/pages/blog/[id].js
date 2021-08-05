@@ -1,12 +1,16 @@
 import Head from "next/head";
-import { useCustomMetaTag, useImageUrl } from "next-opengraph-image";
+import { useOgImage } from "next-opengraph-image";
 
 export default function Post({ title, body }) {
-  const image = useImageUrl();
-  const custom = useCustomMetaTag({
-    author: "me",
-    image:
-      "https://images.unsplash.com/photo-1597840637868-417c13c7e962?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1926&q=80",
+  const ogImage = useOgImage({
+    layout: "blogpost",
+    data: {
+      title: title,
+      body: body.substring(0, 50),
+      author: "me",
+      image:
+        "https://images.unsplash.com/photo-1597840637868-417c13c7e962?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1926&q=80",
+    },
   });
 
   return (
@@ -14,9 +18,8 @@ export default function Post({ title, body }) {
       <Head>
         <title>{title}</title>
         <meta name="description" content={body.substring(0, 50)} />
-        <meta property="og:image" content={image}></meta>
 
-        <meta {...custom} />
+        <meta {...ogImage} />
       </Head>
 
       <h1>{title}</h1>
