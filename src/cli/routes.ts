@@ -1,19 +1,15 @@
 import { getPath, loadFile } from "./file";
 import getConfig from "./config";
-import {
-  IBuildManifest,
-  INextManifest,
-  IPreRenderManifest,
-} from "./interfaces";
+import { BuildManifest, NextManifest, PreRenderManifest } from "./interfaces";
 
 const config = getConfig();
 
 async function getRoutes(): Promise<string[]> {
-  const MANIFESETS: INextManifest = {
-    build: loadFile<IBuildManifest>(
+  const MANIFESETS: NextManifest = {
+    build: loadFile<BuildManifest>(
       getPath(config.sourceDir, "build-manifest.json")
     ),
-    preRender: loadFile<IPreRenderManifest>(
+    preRender: loadFile<PreRenderManifest>(
       getPath(getPath(config.sourceDir, "prerender-manifest.json"))
     ),
   };
