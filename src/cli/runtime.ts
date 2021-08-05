@@ -1,9 +1,8 @@
-import { ChildProcessWithoutNullStreams, spawn } from "child_process";
+import { spawn } from "child_process";
 import puppeteer, { Browser } from "puppeteer";
 import getPort from "get-port";
 
 import { NextServer } from "./types";
-import { ENV_VAR } from "../constants";
 import process from "process";
 
 async function getBrowser(): Promise<Browser> {

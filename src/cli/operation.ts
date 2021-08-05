@@ -16,6 +16,11 @@ function getLayoutUrl(server: NextServer, layout: string): string {
   return `http://localhost:${server.port}/_ogimage/${layout}`;
 }
 
+type MetaDefaults = {
+  title?: string;
+  description?: string;
+};
+
 type DataAndLayout = {
   data: Data;
   layout: string;
@@ -35,7 +40,20 @@ async function extractMeta(
   });
 
   try {
-    const tag: DataAndLayout = await page.evaluate((DATA_NAMES) => {
+    const meta: MetaDefaults = await page.evaluate(() => {
+      const title = document.head.querySelector("title");
+
+      const description = document.head.querySelector(
+        'meta[name="description"]'
+      );
+
+      return {
+        title: title?.textContent ?? undefined,
+        description: description?.getAttribute("content") ?? undefined,
+      };
+    });
+
+    const ogImage: DataAndLayout = await page.evaluate((DATA_NAMES) => {
       const selector = document.head.querySelector('meta[property="og:image"]');
 
       if (!selector) throw new Error("No tag found");
@@ -55,8 +73,8 @@ async function extractMeta(
     await page.close();
 
     return {
-      data: tag.data,
-      layout: tag.layout,
+      data: { ...meta, ...ogImage.data },
+      layout: ogImage.layout,
     };
   } catch (e) {
     page.close();

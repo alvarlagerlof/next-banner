@@ -11,7 +11,7 @@ export type Tag = {
 };
 
 export type Options = {
-  layout?: string;
+  layout: string;
   data: JsonMap;
 };
 
@@ -25,8 +25,11 @@ function getBase64(data: JsonMap) {
   return btoa(json);
 }
 
-export default function useOgImage({ layout = "default", data }: Options): Tag {
+export default function useOgImage(params: Options | undefined): Tag {
   const { asPath } = useRouter();
+
+  const layout = params?.layout ?? "default";
+  const data = params?.data ?? {};
 
   return {
     property: "og:image",

@@ -3,12 +3,7 @@ import Head from "next/head";
 import { useOgImage } from "next-opengraph-image";
 
 export default function Blog({ posts }) {
-  const ogImage = useOgImage({
-    data: {
-      title: "Blog",
-      description: "This is the blog page",
-    },
-  });
+  const ogImage = useOgImage({});
 
   return (
     <div>
