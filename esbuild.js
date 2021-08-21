@@ -19,7 +19,7 @@ require("esbuild")
     bundle: true,
     minify: false,
     sourcemap: true,
-    target: "esnext",
+    target: ["es2020", "node12"],
     format: "cjs",
     outdir: "dist/cli",
   })
