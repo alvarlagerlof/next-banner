@@ -33,12 +33,8 @@ function getBase64(data: JsonMap) {
 export default function useOgImage(params: Options | undefined): Tag {
   const { asPath } = useRouter();
 
-  const layout = params
-    ? params.layout
-      ? params.layout
-      : "default"
-    : "default";
-  const data = params ? (params.data ? params.data : {}) : {};
+  const layout = params?.layout ?? "default";
+  const data = params?.data ?? {};
 
   return {
     property: "og:image",
