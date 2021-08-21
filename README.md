@@ -75,7 +75,7 @@ const ogImage = useOgImage({
 
 ### Layout files
 
-Create a folder called `_ogimage` in your `/pages` folder. Then create a file called default.js there.
+Create a folder called `_ogimage` in your `/pages` folder. Then create a file called `default.js` there.
 
 An example of a layout file looks like this. Notice the position and size.
 
