@@ -1,10 +1,22 @@
 import { Browser } from "puppeteer";
 import fs from "fs";
 
-import { Data, NextServer } from "./types";
+import {
+  NextServer,
+  MetaResult,
+  Logs,
+  MetaDefaults,
+  CaptureResult,
+} from "./types";
 import { getPath } from "./file";
 import getConfig from "./config";
-import { DATA_NAMES, OUTPUT_DIR, WINDOW_VAR } from "../constants";
+import {
+  DATA_NAMES,
+  DEFAULT_LAYOUT,
+  OUTPUT_DIR,
+  WINDOW_VAR,
+} from "../constants";
+import { JsonMap } from "../types";
 
 const config = getConfig();
 
@@ -16,25 +28,31 @@ function getLayoutUrl(server: NextServer, layout: string): string {
   return `http://localhost:${server.port}/_ogimage/${layout}`;
 }
 
-type MetaDefaults = {
-  title?: string;
-  description?: string;
-};
-
-type DataAndLayout = {
-  data: Data;
-  layout: string;
-};
-
 async function extractMeta(
   browser: Browser,
   server: NextServer,
   route: string
-): Promise<DataAndLayout> {
+): Promise<MetaResult> {
   try {
+    const logs: Logs = [];
+
     const page = await browser.newPage();
 
     const url = getMetaUrl(server, route);
+
+    page
+      .on("console", (message) =>
+        logs.push({
+          route,
+          message: `${message.type().toUpperCase()} ${message.text()}`,
+        })
+      )
+      .on("pageerror", ({ message }) =>
+        logs.push({
+          route,
+          message,
+        })
+      );
 
     await page.goto(url, {
       waitUntil: "networkidle0",
@@ -54,30 +72,35 @@ async function extractMeta(
         };
       });
 
-      const ogImage: DataAndLayout = await page.evaluate((DATA_NAMES) => {
-        const selector = document.head.querySelector(
-          'meta[property="og:image"]'
-        );
+      const ogImageTag: Partial<MetaResult> = await page.evaluate(
+        (DATA_NAMES) => {
+          const selector = document.head.querySelector(
+            'meta[property="og:image"]'
+          );
 
-        if (!selector) throw new Error("No tag found");
+          if (!selector) throw new Error("No tag found");
 
-        const data = JSON.parse(
-          atob(selector.getAttribute(DATA_NAMES.base64) ?? btoa("{}"))
-        ) as Data;
+          const data = JSON.parse(
+            atob(selector.getAttribute(DATA_NAMES.base64) ?? btoa("{}"))
+          ) as JsonMap;
 
-        const layout = selector.getAttribute(DATA_NAMES.layout) ?? "default";
+          const layout =
+            selector.getAttribute(DATA_NAMES.layout) ?? DEFAULT_LAYOUT;
 
-        return {
-          data,
-          layout,
-        };
-      }, DATA_NAMES);
+          return {
+            data,
+            layout,
+          };
+        },
+        DATA_NAMES
+      );
 
       await page.close();
 
       return {
-        data: { ...meta, ...ogImage.data },
-        layout: ogImage.layout,
+        data: { ...meta, ...ogImageTag.data },
+        layout: ogImageTag.layout ?? DEFAULT_LAYOUT,
+        logs,
       };
     } catch (e) {
       page.close();
@@ -106,9 +129,11 @@ async function capturePage(
   server: NextServer,
   route: string,
   layout: string,
-  data: Data
-): Promise<void> {
+  data: JsonMap
+): Promise<CaptureResult> {
   try {
+    const logs: Logs = [];
+
     const url = getLayoutUrl(server, layout);
 
     const page = await browser.newPage();
@@ -120,12 +145,14 @@ async function capturePage(
 
     page
       .on("console", (message) =>
-        console.log(
-          `${message.type().substr(0, 3).toUpperCase()} ${message.text()}`
-        )
+        logs.push({
+          route,
+          message: `${message.type().toUpperCase()} ${message.text()}`,
+        })
       )
-      .on("pageerror", ({ message }) => console.log(message));
+      .on("pageerror", ({ message }) => logs.push({ route, message }));
 
+    // Insert extreacted data
     await page.evaluateOnNewDocument(
       (WINDOW_VAR, data) => {
         window[WINDOW_VAR] = data;
@@ -160,8 +187,9 @@ async function capturePage(
       path: getPath(file),
     });
 
-    //console.log("Captured og:image for:", route);
     await page.close();
+
+    return { logs };
   } catch (e) {
     throw new Error(e);
   }

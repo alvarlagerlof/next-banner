@@ -5,7 +5,8 @@ import chalk from "chalk";
 
 import { getBrowser, getNextServer } from "./runtime";
 import getRoutes from "./routes";
-import { extractMeta, capturePage } from "./operation";
+import { extractMeta, capturePage as captureRoute } from "./operation";
+import { CaptureResult, Logs, MetaResult } from "./types";
 
 async function generate() {
   console.log("✨ next-opengraph-image ✨");
@@ -22,16 +23,30 @@ async function generate() {
       },
       cliProgress.Presets.shades_classic
     );
-
+    console.log("");
     bar.start(routes.length, 0);
 
     const errors: Error[] = [];
+    const logs: Logs = [];
 
     await Promise.all(
       routes.map(async (route) => {
         try {
-          const meta = await extractMeta(browser, server, route);
-          await capturePage(browser, server, route, meta.layout, meta.data);
+          const metaResult: MetaResult = await extractMeta(
+            browser,
+            server,
+            route
+          );
+          const captureResult: CaptureResult = await captureRoute(
+            browser,
+            server,
+            route,
+            metaResult.layout,
+            metaResult.data
+          );
+
+          logs.push(...metaResult.logs);
+          logs.push(...captureResult.logs);
 
           bar.increment();
         } catch (e) {
@@ -42,17 +57,24 @@ async function generate() {
 
     bar.stop();
 
-    if (errors.length > 0) {
-      console.log(
-        `\n${chalk.green("✔")} Captured ${routes.length - errors.length} pages`
-      );
+    if (logs.length > 0) {
+      console.log(`\Console log ${chalk.blue("ⓘ")}`);
+      logs.forEach((log) => {
+        console.error(chalk.dim(`- ${log.route}: ${log.message}`));
+      });
+    }
 
-      console.log(`${chalk.red("✗")} Errors`);
+    if (errors.length > 0) {
+      console.log(`Captured ${routes.length - errors.length} pages`);
+
+      console.log(`Errors ${chalk.red("✗")}`);
       errors.forEach((e) => {
-        console.error(chalk.grey("  - " + e.message));
+        console.error(chalk.dim(`- ${e.message}`));
       });
     } else {
-      console.log(`\n${chalk.green("✔")} Captured all pages successfully`);
+      console.log(
+        `\n${chalk.green("✔")} Captured ${routes.length} pages successfully`
+      );
     }
 
     browser.close();
