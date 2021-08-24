@@ -58,7 +58,7 @@ async function generate() {
     bar.stop();
 
     if (logs.length > 0) {
-      console.log(`\Console log ${chalk.blue("ⓘ")}`);
+      console.log(`\nConsole log ${chalk.blue("ⓘ")}`);
       logs.forEach((log) => {
         console.error(chalk.dim(`- ${log.route}: ${log.message}`));
       });
