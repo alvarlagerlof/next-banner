@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
-import { DATA_NAMES, OUTPUT_DIR } from "../constants";
-import { JsonMap } from "./types";
+import { DATA_NAMES, DEFAULT_LAYOUT, OUTPUT_DIR } from "../constants";
+import { JsonMap } from "../types";
 
 export type Tag = {
   property: "og:image";
@@ -33,7 +33,7 @@ function getBase64(data: JsonMap) {
 export default function useOgImage(params: Options | undefined): Tag {
   const { asPath } = useRouter();
 
-  const layout = params?.layout ?? "default";
+  const layout = params?.layout ?? DEFAULT_LAYOUT;
   const data = params?.data ?? {};
 
   return {

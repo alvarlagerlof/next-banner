@@ -1,14 +1,29 @@
 import { ChildProcess } from "child_process";
+import { JsonMap } from "../types";
 
-type AnyJson = boolean | number | string | null | JsonArray | JsonMap;
-type JsonArray = Array<AnyJson>;
-export interface JsonMap {
-  [key: string]: AnyJson;
-}
-
-export type Data = JsonMap;
-
-export type NextServer = {
+export interface NextServer {
   port: number;
   serverProcess: ChildProcess;
-};
+}
+
+export interface MetaDefaults {
+  title?: string;
+  description?: string;
+}
+
+export interface Log {
+  route: string;
+  message: string;
+}
+
+export type Logs = Log[];
+
+export interface MetaResult {
+  data: JsonMap;
+  layout: string;
+  logs: Logs;
+}
+
+export interface CaptureResult {
+  logs: Logs;
+}
