@@ -9,11 +9,9 @@ async function getBrowser(): Promise<Browser> {
   const spinner = ora("Starting browser").start();
 
   try {
-    const options = { headless: true };
+    console.log("no sandbox");
 
-    console.log("using local");
-
-    const browser = await puppeteer.launch(options);
+    const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
     spinner.succeed();
 
     return browser;
