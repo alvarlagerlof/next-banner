@@ -11,6 +11,8 @@ async function getBrowser(): Promise<Browser> {
   try {
     const options = { headless: true };
 
+    console.log("using local");
+
     const browser = await puppeteer.launch(options);
     spinner.succeed();
 
