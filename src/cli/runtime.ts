@@ -9,9 +9,9 @@ async function getBrowser(): Promise<Browser> {
   const spinner = ora("Starting browser").start();
 
   try {
-    console.log("no sandbox");
-
-    const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
+    const browser = await puppeteer.launch({
+      ignoreDefaultArgs: ["--disable-extensions"],
+    });
     spinner.succeed();
 
     return browser;
