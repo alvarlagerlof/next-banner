@@ -3,7 +3,7 @@ require("esbuild")
     entryPoints: ["src/client/index.ts"],
     external: ["react", "react-dom", "next"],
     bundle: true,
-    minify: false,
+    minify: true,
     sourcemap: true,
     target: ["es2020", "node12"],
     format: "cjs",
@@ -17,10 +17,11 @@ require("esbuild")
     entryPoints: ["src/cli/index.ts"],
     platform: "node",
     bundle: true,
-    minify: false,
+    minify: true,
     sourcemap: true,
     target: ["es2020", "node12"],
     format: "cjs",
     outdir: "dist/cli",
+    external: ["puppeteer"],
   })
   .catch(() => process.exit(1));

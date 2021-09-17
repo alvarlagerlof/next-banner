@@ -10,7 +10,8 @@
     "outDir": "dist",
     "jsx": "react",
     "emitDeclarationOnly": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "useUnknownInCatchVariables": false
   },
-  "exclude": ["example", "node_modules"]
+  "exclude": ["example", "node_modules", "dist"]
 }

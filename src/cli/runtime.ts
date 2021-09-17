@@ -4,31 +4,24 @@ import getPort from "get-port";
 import ora from "ora";
 
 import { NextServer } from "./types";
-import process from "process";
 
 async function getBrowser(): Promise<Browser> {
   const spinner = ora("Starting browser").start();
 
   try {
-    const options = process.env.CI
-      ? {}
-      : {
-          headless: true,
-          executablePath:
-            process.platform === "win32"
-              ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
-              : process.platform === "linux"
-              ? "/usr/bin/google-chrome"
-              : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-        };
+    const browser = await puppeteer.launch({
+      headless: true,
+      args: ["--no-sandbox"],
+    });
 
-    const browser = await puppeteer.launch(options);
     spinner.succeed();
 
     return browser;
   } catch (e) {
-    spinner.fail(e.message);
-    throw new Error(e);
+    if (e instanceof Error) {
+      spinner.fail(e.message);
+    }
+    throw e;
   }
 }
 

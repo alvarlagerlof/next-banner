@@ -29,8 +29,7 @@
     "lint": "eslint ./src --ext .ts,tsx",
     "build:esbuild": "rimraf dist && node ./esbuild.js",
     "build:ts": "tsc --outDir dist",
-    "build": "rimraf dist && yarn build:esbuild && yarn build:ts",
-    "commit": "cz"
+    "build": "rimraf dist && yarn build:esbuild && yarn build:ts"
   },
   "peerDependencies": {
     "next": "^>=10",
@@ -44,9 +43,6 @@
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
-    "chalk": "^4.1.2",
-    "chokidar": "^3.5.2",
-    "cli-progress": "^3.9.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "esbuild": "^0.12.17",
@@ -54,7 +50,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.24.0",
     "next": "^11.0.1",
-    "ora": "^5.4.1",
     "prettier": "^2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -64,7 +59,10 @@
   },
   "dependencies": {
     "@corex/deepmerge": "^2.6.20",
+    "chalk": "^4.1.2",
+    "cli-progress": "^3.9.0",
     "get-port": "^5.1.1",
+    "ora": "^5.4.1",
     "puppeteer": "^10.1.0"
   }
 }
