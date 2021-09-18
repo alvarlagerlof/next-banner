@@ -11,13 +11,17 @@ export type Tag = {
 };
 
 export type Options = {
-  layout: string;
-  data: JsonMap;
+  layout?: string;
+  data?: JsonMap;
+  baseUrl?: string;
 };
 
-function getUrl(path: string, layout: string) {
+function getUrl(path: string, layout: string, baseUrl?: string) {
   const modifiedPath = path == "/" ? "/index" : path;
-  return `/${OUTPUT_DIR}/${layout}${modifiedPath}.png`;
+  const baseUrlWithDefaults =
+    process.env.VERCEL_URL ?? process.env.DEPLOY_PRIME_URL ?? baseUrl ?? "";
+
+  return `${baseUrlWithDefaults}/${OUTPUT_DIR}/${layout}${modifiedPath}.png`;
 }
 
 function getBase64(data: JsonMap) {
@@ -30,7 +34,7 @@ function getBase64(data: JsonMap) {
   return Buffer.from(json, "utf-8").toString("base64");
 }
 
-export default function useOgImage(params: Options | undefined): Tag {
+export default function useOgImage(params: Options): Tag {
   const { asPath } = useRouter();
 
   const layout = params?.layout ?? DEFAULT_LAYOUT;
@@ -38,7 +42,7 @@ export default function useOgImage(params: Options | undefined): Tag {
 
   return {
     property: "og:image",
-    content: getUrl(asPath, layout),
+    content: getUrl(asPath, layout, params?.baseUrl),
     [DATA_NAMES.base64]: getBase64(data),
     [DATA_NAMES.layout]: layout,
   };
