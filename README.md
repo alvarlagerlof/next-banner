@@ -73,6 +73,14 @@ const ogImage = useOgImage({
 });
 ```
 
+If you aren't using Vercel or Netlify, you need to specify a base url to prefix the image urls with.
+
+```jsx
+const ogImage = useOgImage({
+  baseUrl: "https://example.com",
+});
+```
+
 ### Layout files
 
 Create a folder called `_ogimage` in your `/pages` folder. Then create a file called `default.js` there.
