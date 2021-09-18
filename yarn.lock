@@ -4201,6 +4201,18 @@ nerf-dart@^1.0.0:
   resolved "https://registry.yarnpkg.com/nerf-dart/-/nerf-dart-1.0.0.tgz#e6dab7febf5ad816ea81cf5c629c5a0ebde72c1a"
   integrity sha1-5tq3/r9a2Bbqgc9cYpxaDr3nLBo=
 
+next-opengraph-image@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/next-opengraph-image/-/next-opengraph-image-1.3.1.tgz#2d083b205dc1c395a5c5c3f8d41eacffad9f203a"
+  integrity sha512-v6UCe7oY5mHrBCtIWJwLNcIxx4k23Clxpv/CRAFwv+LXab3FEawSf096GFJ0rPg6xAG5d9uS4ROSn0VXCC54uQ==
+  dependencies:
+    "@corex/deepmerge" "^2.6.20"
+    chalk "^4.1.2"
+    cli-progress "^3.9.0"
+    get-port "^5.1.1"
+    ora "^5.4.1"
+    puppeteer "^10.1.0"
+
 next@^11.0.1:
   version "11.1.0"
   resolved "https://registry.yarnpkg.com/next/-/next-11.1.0.tgz#767d4c4fa0b9b0c768cdbd6c9f03dd86b5d701c0"
