@@ -30,7 +30,7 @@ Add this to your scripts in package.json
 
 ### Setup on pages
 
-Import the `useOgImage` hook in every page
+Import the `useOgImage` hook in every page. The baseurl is so that images work well on all social platforms.
 
 ```jsx
 // Step 1
@@ -38,7 +38,9 @@ import { useOgImage } from "next-opengraph-image";
 
 export default function Home() {
   // Step 2
-  const ogImage = useOgImage();
+  const ogImage = useOgImage({
+    baseUrl: "https://example.com"
+  });
 
   return (
     <div>
@@ -59,6 +61,7 @@ By default, the html title and meta description tag will be picked up and includ
 
 ```jsx
 const ogImage = useOgImage({
+  baseUrl: "https://example.com",
   data: {
     /* anything here */
   },
@@ -69,15 +72,8 @@ You can also specify a custom layout like this.
 
 ```jsx
 const ogImage = useOgImage({
-  layout: "blogpost",
-});
-```
-
-If you aren't using Vercel or Netlify, you need to specify a base url to prefix the image urls with.
-
-```jsx
-const ogImage = useOgImage({
   baseUrl: "https://example.com",
+  layout: "blogpost",
 });
 ```
 
