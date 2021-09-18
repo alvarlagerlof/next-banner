@@ -19,7 +19,10 @@ export type Options = {
 function getUrl(path: string, layout: string, baseUrl?: string) {
   const modifiedPath = path == "/" ? "/index" : path;
   const baseUrlWithDefaults =
-    process.env.VERCEL_URL ?? process.env.DEPLOY_PRIME_URL ?? baseUrl ?? "";
+    process.env.NEXT_PUBLIC_VERCEL_URL ??
+    process.env.DEPLOY_PRIME_URL ??
+    baseUrl ??
+    "";
 
   return `${baseUrlWithDefaults}/${OUTPUT_DIR}/${layout}${modifiedPath}.png`;
 }
