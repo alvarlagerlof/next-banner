@@ -60,6 +60,8 @@ First you need to import and use the `useOgImage` hook on every page. If you hav
 
 The baseurl is needed becasue some social media platforms do prefix the domain to the url and fail to load the og:image.
 
+You may also want to add `<meta name="twitter:card" content="summary_large_image">` in your `_document` or `_app` to make the image large.
+
 ```jsx
 // Step 1
 import { useOgImage } from "next-opengraph-image";
