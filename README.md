@@ -2,14 +2,25 @@
 
 # Next Opengraph Image
 
-Generate opengraph images (og:image) at build using puppeteer.
+Generate opengraph images (og:image) at build using Puppeteer.
+
+## What is an opengraph image?
+
+Open Graph is a protocol for strucuted metadata for websites. Part of tha is a specification for preview images reffered to as "og:image". When using that, your website gets a nice preview in social media and messaging apps. For an example, check out [ogimage.gallery](https://www.ogimage.gallery/).
+
+## Why this library?
+
+Most current existing solutions currently run on-demand either in a serverless function or in a service. This is wasteful and might be expensive if demand is high. To counteract this a CDN can be used, which further increases the amount of things needing setup.
+
+With next-opengraph-image, mone of that is needed. In real JAMStack fashion, this library generates images at build, making use of existing infrastructure that you already have.
 
 ## Features
 
-- Speed. It uses puppeteer to render pages, but only on instace meaning there is only one cold start. On an M1, 100 pages are captured in 14s.
-- Multiple layouts. Pages can specify different layouts.
-- Easy setup. Set up is easy and does not require you to touch any render logic.
-- Pass any data. Title and meta description is passed to the layout pages by default, but you can include any data you want.
+- **Speed.** It uses Puppeteer to render pages, but only on instace, meaning there is only one cold start. On an M1, 100 pages are renrered and captured in 14s.
+- **Easy setup.** Does not require you to touch puppeteer, CDNs, or serveless funcitons.
+- **Render using React.** Your images are captures pages that you code in React just like you are used to. No svg or special template language.
+- **Multuple layouts.** You could have one layout for a start page and another for blog posts.
+- **Pass any data.** Page title and meta description is passed to the layout pages by default, but you can include any data in any structure you want.
 
 ## Usage
 
@@ -28,9 +39,24 @@ Add this to your scripts in package.json
 "postbuild": "next-opengraph-image",
 ```
 
+### Configuration
+
+The config file is called `next-opengraph-image.json` and may be placed at the root of your directiory. You do not need it unless you want to change any of the options.
+
+```json
+{
+  "sourceDir": ".next",
+  "excludePages": [],
+  "width": 1200,
+  "height": 630
+}
+```
+
 ### Setup on pages
 
-Import the `useOgImage` hook in every page. The baseurl is so that images work well on all social platforms.
+First you need to import and use the `useOgImage` hook on every page. If you have many, I reccomend making a wrapper around that takes in your desired data and uses the hook.
+
+The baseurl is needed becasue some social media platforms do prefix the domain to the url and fail to load the og:image.
 
 ```jsx
 // Step 1
@@ -57,7 +83,7 @@ export default function Home() {
 }
 ```
 
-By default, the html title and meta description tag will be picked up and included and sent as data to the layout pages. If you want to include custom data, use the hook like this.
+By default, the page title and meta description tag will be picked up and included and sent as data to the layout pages. If you want to include custom data, use the hook like this.
 
 ```jsx
 const ogImage = useOgImage({
@@ -81,7 +107,9 @@ const ogImage = useOgImage({
 
 Create a folder called `_ogimage` in your `/pages` folder. Then create a file called `default.js` there.
 
-An example of a layout file looks like this. Notice the position and size.
+An example of a layout file looks like this. Notice the fixed css position and size. If you have styles in your \_\_app (which affects all pages) you may need something like this.
+
+The placeholder is used in development and should match what is returned from the hook. In production it returns whaterver data was extracted from the actual or the useOgImage hook data.
 
 ```jsx
 export default function Default() {
@@ -114,8 +142,6 @@ export default function Default() {
   );
 }
 ```
-
-The placeholder is used in development and should match what is returned from the hook. In production it returns whaterver data was extracted from the actual or the useOgImage hook data.
 
 ## Example
 
