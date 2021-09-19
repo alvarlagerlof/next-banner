@@ -14,7 +14,7 @@ You might think that you can just design an image in Figma. This is entierly doa
 
 Most current existing solutions currently run on-demand either in a serverless function or in a service. This is wasteful and might be expensive if demand is high. For example, cold starting puppeteer to take a screenshot of page can take 8s per visitor. To counteract this a CDN can be used, which further increases the amount of things needing setup.
 
-With next-opengraph-image, mone of that is needed. In real JAMStack fashion, this library generates images at build, making use of existing infrastructure that you already have.
+With next-opengraph-image, mone of that is needed. In true Jamstack fashion, this library generates images at build, making use of existing infrastructure that you already have.
 
 ## Features
 
