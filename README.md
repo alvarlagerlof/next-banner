@@ -10,7 +10,9 @@ Open Graph is a protocol for strucuted metadata for websites. Part of tha is a s
 
 ## Why this library?
 
-Most current existing solutions currently run on-demand either in a serverless function or in a service. This is wasteful and might be expensive if demand is high. To counteract this a CDN can be used, which further increases the amount of things needing setup.
+You might think that you can just design an image in Figma. This is entierly doable, but quickly becomes tedious if you have a lot of pages (like blog posts) or want to change the design. Generating images is much more effective.
+
+Most current existing solutions currently run on-demand either in a serverless function or in a service. This is wasteful and might be expensive if demand is high. For example, cold starting puppeteer to take a screenshot of page can take 8s per visitor. To counteract this a CDN can be used, which further increases the amount of things needing setup.
 
 With next-opengraph-image, mone of that is needed. In real JAMStack fashion, this library generates images at build, making use of existing infrastructure that you already have.
 
