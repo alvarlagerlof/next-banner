@@ -18,7 +18,7 @@ With next-opengraph-image, mone of that is needed. In real JAMStack fashion, thi
 
 ## Features
 
-- **Speed.** It uses Puppeteer to render pages, but only on instace, meaning there is only one cold start. On an M1, 100 pages are renrered and captured in 14s.
+- **Speed.** It uses Puppeteer to render pages, but only on instace, meaning there is only one cold start. On an M1, 100 pages are renrered and captured in 18s.
 - **Easy setup.** Does not require you to touch puppeteer, CDNs, or serveless funcitons.
 - **Render using React.** Your images are captures pages that you code in React just like you are used to. No svg or special template language.
 - **Multuple layouts.** You could have one layout for a start page and another for blog posts.
