@@ -3,6 +3,7 @@ import { useOgImage } from "next-opengraph-image";
 
 export default function Post({ title, body, image }) {
   const ogImage = useOgImage({
+    baseUrl: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
     layout: "blogpost",
     data: {
       image: image,

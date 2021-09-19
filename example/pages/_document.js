@@ -1,4 +1,13 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import { useOgImage } from "next-opengraph-image";
+
+export const OgImage = ({ children }) => {
+  const ogImage = useOgImage({
+    baseUrl: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+  });
+
+  return children(ogImage);
+};
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {

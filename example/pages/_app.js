@@ -1,4 +1,15 @@
 import Link from "next/link";
+import Head from "next/head";
+import { useOgImage } from "next-opengraph-image";
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <div>
+      <Nav />
+      <Component {...pageProps} />
+    </div>
+  );
+}
 
 function Nav() {
   return (
@@ -38,15 +49,6 @@ function Nav() {
         </li>
       </ul>
     </nav>
-  );
-}
-
-function MyApp({ Component, pageProps }) {
-  return (
-    <div>
-      <Nav />
-      <Component {...pageProps} />
-    </div>
   );
 }
 

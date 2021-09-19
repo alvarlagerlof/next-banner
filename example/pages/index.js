@@ -1,10 +1,10 @@
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import { useOgImage } from "next-opengraph-image";
 
 export default function Home() {
-  const ogImage = useOgImage();
+  const ogImage = useOgImage({
+    baseUrl: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+  });
 
   return (
     <div>

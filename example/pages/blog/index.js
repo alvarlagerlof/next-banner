@@ -3,8 +3,9 @@ import Head from "next/head";
 import { useOgImage } from "next-opengraph-image";
 
 export default function Blog({ posts }) {
-  const ogImage = useOgImage();
-
+  const ogImage = useOgImage({
+    baseUrl: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+  });
   return (
     <div>
       <Head>
