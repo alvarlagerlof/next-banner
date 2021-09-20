@@ -28,7 +28,10 @@
   "scripts": {
     "lint": "eslint ./src --ext .ts,tsx",
     "build:esbuild": "rimraf dist && node ./esbuild.js",
+    "build:esbuild:watch": "rimraf dist && node ./esbuild.js watch",
     "build:ts": "tsc --outDir dist",
+    "build:ts:watch": "tsc --watch",
+    "build:watch": "concurrently \"yarn build:esbuild:watch\" \"yarn build:ts:watch\"",
     "build": "rimraf dist && yarn build:esbuild && yarn build:ts"
   },
   "peerDependencies": {
@@ -44,6 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "commitizen": "^4.2.4",
+    "concurrently": "^6.2.1",
     "cz-conventional-changelog": "^3.3.0",
     "esbuild": "^0.12.17",
     "eslint": "^7.32.0",

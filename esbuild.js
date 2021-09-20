@@ -1,3 +1,18 @@
+const [watch] = process.argv.slice(2);
+
+let watchModeOptions = {};
+
+if (watch) {
+  watchModeOptions = {
+    watch: {
+      onRebuild(error, result) {
+        if (error) console.error("watch build failed:", error);
+        else console.log("watch build succeeded:", result);
+      },
+    },
+  };
+}
+
 require("esbuild")
   .build({
     entryPoints: ["src/client/index.ts"],
@@ -9,6 +24,7 @@ require("esbuild")
     format: "cjs",
     outdir: "dist/client",
     platform: "neutral",
+    ...watchModeOptions,
   })
   .catch(() => process.exit(1));
 
@@ -23,5 +39,6 @@ require("esbuild")
     format: "cjs",
     outdir: "dist/cli",
     external: ["puppeteer"],
+    ...watchModeOptions,
   })
   .catch(() => process.exit(1));
