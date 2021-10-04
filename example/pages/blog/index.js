@@ -1,18 +1,12 @@
 import Link from "next/link";
 import Head from "next/head";
-import { useOgImage } from "next-opengraph-image";
 
 export default function Blog({ posts }) {
-  const ogImage = useOgImage({
-    baseUrl: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
-  });
   return (
     <div>
       <Head>
         <title>Blog</title>
         <meta name="description" content="This is the blog page" />
-
-        <meta {...ogImage} />
       </Head>
 
       <h1>Posts</h1>

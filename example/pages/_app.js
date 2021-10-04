@@ -1,13 +1,12 @@
 import Link from "next/link";
-import Head from "next/head";
-import { useOgImage } from "next-opengraph-image";
+import { Provider } from "next-opengraph-image";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <Provider baseUrl={`https://${process.env.NEXT_PUBLIC_VERCEL_URL}`}>
       <Nav />
       <Component {...pageProps} />
-    </div>
+    </Provider>
   );
 }
 

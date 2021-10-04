@@ -1,12 +1,11 @@
 import Head from "next/head";
-import { useOgImage } from "next-opengraph-image";
+import { setOgImageData } from "next-opengraph-image";
 
 export default function Post({ title, body, image }) {
-  const ogImage = useOgImage({
-    baseUrl: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+  setOgImageData({
     layout: "blogpost",
     data: {
-      image: image,
+      image,
     },
   });
 
@@ -15,8 +14,6 @@ export default function Post({ title, body, image }) {
       <Head>
         <title>{title}</title>
         <meta name="description" content={body.substring(0, 50)} />
-
-        <meta {...ogImage} />
       </Head>
 
       <h1>{title}</h1>

@@ -1,7 +1,7 @@
-import { useData } from "next-opengraph-image";
+import { getOgImageData } from "next-opengraph-image";
 
 export default function OgImage() {
-  const { title, description, image } = useData({
+  const { title, description, image } = getOgImageData({
     placeholder: {
       title: "Placeholder title",
       description: "Placeholder description",

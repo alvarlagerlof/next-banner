@@ -1,7 +1,10 @@
-type AnyJson = boolean | number | string | null | JsonArray | JsonMap;
+declare global {
+  interface Window {
+    NextOpengraphImage: Payload;
+  }
+}
 
-type JsonArray = Array<AnyJson>;
-
-export interface JsonMap {
-  [key: string]: AnyJson;
+export interface Payload {
+  data: Record<string, unknown>;
+  layout: string;
 }

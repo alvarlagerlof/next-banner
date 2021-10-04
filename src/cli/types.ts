@@ -1,5 +1,5 @@
 import { ChildProcess } from "child_process";
-import { JsonMap } from "../types";
+import { Payload } from "../types";
 
 export interface NextServer {
   port: number;
@@ -19,8 +19,7 @@ export interface Log {
 export type Logs = Log[];
 
 export interface MetaResult {
-  data: JsonMap;
-  layout: string;
+  payload: Payload;
   logs: Logs;
 }
 

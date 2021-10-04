@@ -1,11 +1,6 @@
 import Head from "next/head";
-import { useOgImage } from "next-opengraph-image";
 
 export default function Home() {
-  const ogImage = useOgImage({
-    baseUrl: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
-  });
-
   return (
     <div>
       <Head>
@@ -15,9 +10,6 @@ export default function Home() {
           content="Sunt excepteur elit aliquip mollit irure minim velit. Laboris commodo
           exercitation."
         />
-        <link rel="icon" href="/favicon.ico" />
-
-        <meta {...ogImage} />
       </Head>
 
       <main>

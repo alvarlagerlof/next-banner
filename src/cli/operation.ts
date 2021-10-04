@@ -10,13 +10,8 @@ import {
 } from "./types";
 import { getPath } from "./file";
 import getConfig from "./config";
-import {
-  DATA_NAMES,
-  DEFAULT_LAYOUT,
-  OUTPUT_DIR,
-  WINDOW_VAR,
-} from "../constants";
-import { JsonMap } from "../types";
+import { DEFAULT_LAYOUT, OUTPUT_DIR } from "../constants";
+import { Payload } from "../types";
 
 const config = getConfig();
 
@@ -45,7 +40,7 @@ async function extractMeta(
           message: `${message.type().toUpperCase()} ${message.text()}`,
         })
       )
-      .on("pageerror", ({ message }) =>
+      .on("pageerror", (message) =>
         logs.push({
           route,
           message,
@@ -69,47 +64,40 @@ async function extractMeta(
       };
     });
 
-    const ogImageTag: Partial<MetaResult> = await page.evaluate(
-      (DATA_NAMES) => {
-        const selector = document.head.querySelector(
-          'meta[property="og:image"]'
-        );
+    const ogImageData: Payload = await page.evaluate((DEFAULT_LAYOUT) => {
+      const base = {
+        data: {},
+        layout: DEFAULT_LAYOUT,
+      };
 
-        if (!selector) throw new Error("No tag found");
+      if (window.NextOpengraphImage) {
+        return window.NextOpengraphImage as Payload;
+      }
 
-        const data = JSON.parse(
-          atob(selector.getAttribute(DATA_NAMES.base64) ?? btoa("{}"))
-        ) as JsonMap;
-
-        const layout =
-          selector.getAttribute(DATA_NAMES.layout) ?? DEFAULT_LAYOUT;
-
-        return {
-          data,
-          layout,
-        };
-      },
-      DATA_NAMES
-    );
+      return base;
+    }, DEFAULT_LAYOUT);
 
     await page.close();
 
     return {
-      data: { ...meta, ...ogImageTag.data },
-      layout: ogImageTag.layout ?? DEFAULT_LAYOUT,
+      payload: {
+        data: { ...meta, ...ogImageData.data },
+        layout: ogImageData.layout,
+      },
       logs,
     };
   } catch (e) {
+    console.log(e);
     await page.close();
     throw new Error(`Route ${route}: ${e.message}`);
   }
 }
 
-function getOutput(route: string, layout: string) {
+function getOutput(route: string) {
   const outputFolder = `public/${OUTPUT_DIR}`;
   const indexFixedRoute = route === "/" ? "index" : route.replace("/", "");
 
-  const file = `${outputFolder}/${layout}/${indexFixedRoute}.png`;
+  const file = `${outputFolder}/${indexFixedRoute}.png`;
   const folder = file.replace(/\/[^/]+$/, "");
 
   return {
@@ -122,12 +110,9 @@ async function capturePage(
   browser: Browser,
   server: NextServer,
   route: string,
-  layout: string,
-  data: JsonMap
+  payload: Payload
 ): Promise<CaptureResult> {
   const logs: Logs = [];
-
-  const url = getLayoutUrl(server, layout);
 
   const page = await browser.newPage();
 
@@ -146,15 +131,12 @@ async function capturePage(
     .on("pageerror", ({ message }) => logs.push({ route, message }));
 
   // Insert extreacted data
-  await page.evaluateOnNewDocument(
-    (WINDOW_VAR, data) => {
-      window[WINDOW_VAR] = data;
-    },
-    WINDOW_VAR,
-    data
-  );
+  await page.evaluateOnNewDocument(async (payload) => {
+    window.NextOpengraphImage = payload;
+    await new Promise((r) => setTimeout(r, 10000));
+  }, payload);
 
-  await page.goto(url, {
+  await page.goto(getLayoutUrl(server, payload.layout), {
     waitUntil: "networkidle0",
   });
 
@@ -172,7 +154,7 @@ async function capturePage(
       })
     );
   });
-  const { file, folder } = getOutput(route, layout);
+  const { file, folder } = getOutput(route);
   fs.mkdirSync(getPath(folder), { recursive: true });
 
   await page.screenshot({

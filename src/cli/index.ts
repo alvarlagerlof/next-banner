@@ -41,8 +41,7 @@ async function generate() {
             browser,
             server,
             route,
-            metaResult.layout,
-            metaResult.data
+            metaResult.payload
           );
 
           logs.push(...metaResult.logs);
@@ -77,7 +76,7 @@ async function generate() {
       );
     }
 
-    browser.close();
+    await browser.close();
     server.serverProcess.kill("SIGINT");
     process.exit();
   } catch (e) {
