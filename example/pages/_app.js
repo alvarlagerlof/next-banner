@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Provider } from "next-opengraph-image";
 
+import "../styles.css";
+
 function MyApp({ Component, pageProps }) {
   return (
     <Provider baseUrl={`https://${process.env.NEXT_PUBLIC_VERCEL_URL}`}>
