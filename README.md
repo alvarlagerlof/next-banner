@@ -1,5 +1,7 @@
 ![Logo](banner.png)
 
+**READ: I AM IM THE PROCESS OF MAKING A NEW API. It's working but not pushed and documenting. It's much simpler to implement. If you want to know more, contact me.**
+
 # Next Opengraph Image
 
 Generate opengraph images (og:image) at build using Puppeteer.
