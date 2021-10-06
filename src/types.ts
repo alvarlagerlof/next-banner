@@ -4,7 +4,14 @@ declare global {
   }
 }
 
+export interface Meta {
+  title?: string;
+  description?: string;
+}
+
+export type Data = Meta & Record<string, unknown>;
+
 export interface Payload {
-  data: Record<string, unknown>;
+  data: Data;
   layout: string;
 }

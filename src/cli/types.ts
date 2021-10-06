@@ -1,16 +1,8 @@
 import { ChildProcess } from "child_process";
-import { Payload } from "../types";
-
 export interface NextServer {
   port: number;
   serverProcess: ChildProcess;
 }
-
-export interface MetaDefaults {
-  title?: string;
-  description?: string;
-}
-
 export interface Log {
   route: string;
   message: string;
@@ -18,11 +10,26 @@ export interface Log {
 
 export type Logs = Log[];
 
-export interface MetaResult {
-  payload: Payload;
-  logs: Logs;
+export interface Config {
+  nextDir: string;
+  excludePages: string[];
+  width: number;
+  height: number;
 }
 
-export interface CaptureResult {
-  logs: Logs;
+export interface BuildManifest {
+  pages: {
+    [key: string]: string[];
+  };
+}
+
+export interface PreRenderManifest {
+  routes: {
+    [key: string]: unknown;
+  };
+}
+
+export interface NextManifest {
+  build?: BuildManifest;
+  preRender?: PreRenderManifest;
 }

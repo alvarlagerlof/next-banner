@@ -2,7 +2,7 @@
 
 ## Reporting Issues
 
-If you have found what you think is a bug, please [file an issue](https://github.com/alvarlagerlof/next-opengraph-image/issues/new).
+If you have found what you think is a bug, please [file an issue](https://github.com/alvarlagerlof/next-banner/issues/new).
 
 ## Suggesting new features
 
@@ -14,18 +14,18 @@ If you have been assigned to fix an issue or develop a new feature, please follo
 
 - Fork this repository
 - Install dependencies by running `yarn`
-- Link `next-opengraph-image` locally by running `yarn link`
+- Link `next-banner` locally by running `yarn link`
 - Build the library using `yarn build`
 - Implement your changes and tests to files in the `src/` directory and corresponding test files
 - Make sure that your code is formatted by Prettier
 - To run examples use `yarn && yarn build`.
-- To run examples using your local build, link to the local `next-opengraph-image` by running `yarn link next-opengraph-image` from the example's directory
+- To run examples using your local build, link to the local `next-banner` by running `yarn link next-banner` from the example's directory
 - Git stage your required changes and commit (see below commit guidelines)
 - Submit PR for review
 
 ## Commit message conventions
 
-`next-opengraph-image` is using [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines).
+`next-banner` is using [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines).
 
 We have very precise rules over how our git commit messages can be formatted. This leads to **more readable messages** that are easy to follow when looking through the **project history**.
 

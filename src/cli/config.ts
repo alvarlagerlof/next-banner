@@ -1,18 +1,19 @@
 import { merge } from "@corex/deepmerge";
 
-import { Config } from "./interfaces";
+import { Config } from "./types";
 import { loadFile } from "./file";
 import { getPath } from "./file";
+import { CONFIG_FILE } from "../constants";
 
 const defaultConfig: Partial<Config> = {
-  sourceDir: ".next",
+  nextDir: ".next",
   excludePages: [],
   width: 1200,
   height: 630,
 };
 
 function getConfig(): Config {
-  return loadConfig(getPath("./next-opengraph-image.json"));
+  return loadConfig(getPath(`./${CONFIG_FILE}`));
 }
 
 function loadConfig(path: string): Config {
