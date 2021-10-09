@@ -22,7 +22,7 @@ function getOutput(route: string) {
   };
 }
 
-async function capturePage(
+async function captureScreenshot(
   browser: Browser,
   server: NextServer,
   logs: Logs,
@@ -47,7 +47,7 @@ async function capturePage(
 
   // Insert extreacted data
   await page.evaluateOnNewDocument(async (payload) => {
-    window.NextOpengraphImage = payload;
+    window.NextBanner = payload;
     await new Promise((r) => setTimeout(r, 10000));
   }, payload);
 
@@ -83,4 +83,4 @@ async function capturePage(
   await page.close();
 }
 
-export default capturePage;
+export default captureScreenshot;

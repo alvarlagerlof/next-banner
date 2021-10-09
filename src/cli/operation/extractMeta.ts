@@ -12,61 +12,92 @@ async function extractMeta(
   const page = await browser.newPage();
   const url = `http://localhost:${server.port}${route}`;
 
-  try {
-    page
-      .on("console", (message) =>
-        logs.push({
-          route,
-          message: `${message.type().toUpperCase()} ${message.text()}`,
-        })
-      )
-      .on("pageerror", (message) =>
-        logs.push({
-          route,
-          message,
-        })
-      );
+  page
+    .on("console", (message) =>
+      logs.push({
+        route,
+        message: `${message.type().toUpperCase()} ${message.text()}`,
+      })
+    )
+    .on("pageerror", (message) =>
+      logs.push({
+        route,
+        message,
+      })
+    );
 
-    await page.goto(url, {
-      waitUntil: "networkidle0",
-    });
+  await page.goto(url, {
+    waitUntil: "networkidle0",
+  });
 
-    const meta: Meta = await page.evaluate(() => {
-      const title = document.head.querySelector("title");
+  // const meta: Meta = await page.evaluate(() => {
+  //   const title = document.head.querySelector("title");
 
-      const description = document.head.querySelector(
-        'meta[name="description"]'
-      );
+  //   const description = document.head.querySelector('meta[name="description"]');
 
-      return {
-        title: title?.textContent ?? undefined,
-        description: description?.getAttribute("content") ?? undefined,
-      };
-    });
+  //   return {
+  //     title: title?.textContent ?? undefined,
+  //     description: description?.getAttribute("content") ?? undefined,
+  //   };
+  // });
 
-    const ogImageData: Payload = await page.evaluate((DEFAULT_LAYOUT) => {
-      const base = {
-        data: {},
-        layout: DEFAULT_LAYOUT,
-      };
+  // const ogImageData: Payload = await page.evaluate((DEFAULT_LAYOUT) => {
+  //   const base = {
+  //     data: {},
+  //     layout: DEFAULT_LAYOUT,
+  //   };
 
-      if (window.NextOpengraphImage) {
-        return window.NextOpengraphImage as Payload;
-      }
+  //   if (window.NextBanner) {
+  //     return window.NextBanner as Payload;
+  //   }
 
-      return base;
-    }, DEFAULT_LAYOUT);
+  //   return base;
+  // }, DEFAULT_LAYOUT);
 
-    await page.close();
-
-    return {
-      data: { ...meta, ...ogImageData.data },
-      layout: ogImageData.layout,
+  const payload = await page.evaluate((DEFAULT_LAYOUT) => {
+    // Base data to use in case no thing is found
+    const base: Payload = {
+      layout: "de",
+      data: {},
     };
-  } catch (e) {
-    await page.close();
-    throw new Error(`Route ${route}: ${e.message}`);
-  }
+
+    // Extract relevant meta tags for easier default use
+    const title =
+      document.head.querySelector("title")?.textContent ?? undefined;
+    const description =
+      document.head
+        .querySelector('meta[name="description"]')
+        ?.getAttribute("content") ?? undefined;
+
+    const meta: Meta = {
+      title,
+      description,
+    };
+
+    // Read potential custom data from window
+    const payload = (window.NextBanner as Payload) ?? {};
+
+    const r = {
+      ...base,
+    };
+
+    return r;
+
+    // return {
+    //   //...base,
+    //   // ...{ data: meta },
+    //   // ...payload,
+    // };
+  }, DEFAULT_LAYOUT);
+
+  await page.close();
+
+  return payload;
+
+  // return {
+  //   data: { ...meta, ...ogImageData.data },
+  //   layout: ogImageData.layout,
+  // };
 }
 
 export default extractMeta;

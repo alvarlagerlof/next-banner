@@ -1,72 +1,59 @@
 #!/usr/bin/env node
 
-import cliProgress from "cli-progress";
-import chalk from "chalk";
+import task from "tasuku";
 
 import getBrowser from "./runtime/browser";
-import getNextServer from "./runtime/nextserver";
-
+import getNextServer from "./runtime/nextServer";
 import getRoutes from "./routes";
-import extractMeta from "./operation/extractMeta";
-import capture from "./operation/capture";
-
-import { Logs } from "./types";
+import operation from "./operation";
+import { Log, Logs } from "./types";
 
 async function generate() {
-  console.log("✨ next-banner ✨");
-
   try {
-    const browser = await getBrowser();
-    const server = await getNextServer();
-    const routes = await getRoutes();
-
-    const bar = new cliProgress.SingleBar(
-      {
-        format:
-          "Capturing [{bar}] {percentage}% | ETA: {eta}s | {value}/{total} pages",
-      },
-      cliProgress.Presets.shades_classic
-    );
-    console.log("");
-    bar.start(routes.length, 0);
-
-    const errors: Error[] = [];
-    const logs: Logs = [];
-
-    await Promise.all(
-      routes.map(async (route) => {
-        try {
-          const payload = await extractMeta(browser, server, logs, route);
-          await capture(browser, server, logs, route, payload);
-
-          bar.increment();
-        } catch (e) {
-          errors.push(e);
-        }
-      })
-    );
-
-    bar.stop();
-
-    if (logs.length > 0) {
-      console.log(`\nConsole log ${chalk.blue("ⓘ")}`);
-      logs.forEach((log) => {
-        console.error(chalk.dim(`- ${log.route}: ${log.message}`));
+    const {
+      result: { browser, server, routes },
+    } = await task("Starting", async ({ task }) => {
+      const { result: browser } = await task("Browser", async () => {
+        return await getBrowser();
       });
-    }
 
-    if (errors.length > 0) {
-      console.log(`Captured ${routes.length - errors.length} pages`);
-
-      console.log(`Errors ${chalk.red("✗")}`);
-      errors.forEach((e) => {
-        console.error(chalk.dim(`- ${e.message}`));
+      const { result: server } = await task("Next.js server", async () => {
+        return await getNextServer();
       });
-    } else {
-      console.log(
-        `\n${chalk.green("✔")} Captured ${routes.length} pages successfully`
+
+      const { result: routes } = await task("Routes", async () => {
+        return await getRoutes();
+      });
+
+      return { browser, server, routes };
+    });
+
+    await task("Screenshot pages", async ({ setStatus, setOutput }) => {
+      let counter = 0;
+      const logs: Logs = [];
+
+      await Promise.all(
+        routes.map(async (route) => {
+          try {
+            logs.push(...(await operation(browser, server, route)));
+
+            setOutput(
+              logs.reduce(
+                (acc: string, curr: Log) =>
+                  acc + `${curr.route} ${curr.message}\n`,
+                ""
+              )
+            );
+
+            counter++;
+          } catch (e) {
+            throw new Error(`Route ${route}: ${e.message}`);
+          }
+
+          setStatus(`${counter}/${routes.length}`);
+        })
       );
-    }
+    });
 
     await browser.close();
     server.serverProcess.kill("SIGINT");

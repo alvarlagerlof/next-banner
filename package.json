@@ -65,6 +65,7 @@
     "cli-progress": "^3.9.0",
     "get-port": "^5.1.1",
     "ora": "^5.4.1",
-    "puppeteer": "^10.1.0"
+    "puppeteer": "^10.1.0",
+    "tasuku": "^1.0.2"
   }
 }

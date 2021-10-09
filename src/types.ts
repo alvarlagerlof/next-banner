@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    NextOpengraphImage: Payload;
+    NextBanner: Payload;
   }
 }
 
@@ -9,7 +9,11 @@ export interface Meta {
   description?: string;
 }
 
-export type Data = Meta & Record<string, unknown>;
+interface Custom {
+  custom?: Record<string, unknown>;
+}
+
+export type Data = Meta & Custom;
 
 export interface Payload {
   data: Data;
