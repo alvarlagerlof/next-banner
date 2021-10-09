@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { useOgImage } from "next-opengraph-image";
+import { useOgImage } from "next-banner";
 
 export const OgImage = ({ children }) => {
   const ogImage = useOgImage({

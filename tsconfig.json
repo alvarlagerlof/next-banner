@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "declaration": true,
+    "emitDeclarationOnly": true,
     "target": "esnext",
     "lib": ["esnext", "dom"],
     "strict": true,
@@ -9,9 +10,8 @@
     "moduleResolution": "node",
     "outDir": "dist",
     "jsx": "react",
-    "emitDeclarationOnly": true,
     "isolatedModules": true,
     "useUnknownInCatchVariables": false
   },
-  "exclude": ["example", "node_modules", "dist"]
+  "exclude": ["example", "example-ts", "node_modules", "dist"]
 }

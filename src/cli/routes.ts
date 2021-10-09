@@ -1,16 +1,17 @@
 import { getPath, loadFile } from "./file";
 import getConfig from "./config";
-import { BuildManifest, NextManifest, PreRenderManifest } from "./interfaces";
+import { BuildManifest, NextManifest, PreRenderManifest } from "./types";
+import { LAYOUT_DIR as BANNER_DIR } from "../constants";
 
 const config = getConfig();
 
 async function getRoutes(): Promise<string[]> {
   const MANIFESETS: NextManifest = {
     build: loadFile<BuildManifest>(
-      getPath(config.sourceDir, "build-manifest.json")
+      getPath(config.nextDir, "build-manifest.json")
     ),
     preRender: loadFile<PreRenderManifest>(
-      getPath(getPath(config.sourceDir, "prerender-manifest.json"))
+      getPath(getPath(config.nextDir, "prerender-manifest.json"))
     ),
   };
 
@@ -44,11 +45,11 @@ async function filter(routes: string[]): Promise<string[]> {
     return !/\/\[.*\]/.test(route);
   };
 
-  const ogImage = (route: string): boolean => {
-    return !/_ogimage/.test(route);
+  const banners = (route: string): boolean => {
+    return !route.includes(BANNER_DIR);
   };
 
-  return routes.filter(builtIn).filter(dynamic).filter(ogImage);
+  return routes.filter(builtIn).filter(dynamic).filter(banners);
 }
 
 export default getRoutes;

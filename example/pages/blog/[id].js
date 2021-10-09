@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { setOgImageData } from "next-opengraph-image";
+import { setOgImageData } from "next-banner";
 
 export default function Post({ title, body, image }) {
   setOgImageData({

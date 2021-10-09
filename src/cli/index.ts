@@ -3,13 +3,17 @@
 import cliProgress from "cli-progress";
 import chalk from "chalk";
 
-import { getBrowser, getNextServer } from "./runtime";
+import getBrowser from "./runtime/browser";
+import getNextServer from "./runtime/nextserver";
+
 import getRoutes from "./routes";
-import { extractMeta, capturePage as captureRoute } from "./operation";
-import { CaptureResult, Logs, MetaResult } from "./types";
+import extractMeta from "./operation/extractMeta";
+import capture from "./operation/capture";
+
+import { Logs } from "./types";
 
 async function generate() {
-  console.log("✨ next-opengraph-image ✨");
+  console.log("✨ next-banner ✨");
 
   try {
     const browser = await getBrowser();
@@ -32,20 +36,8 @@ async function generate() {
     await Promise.all(
       routes.map(async (route) => {
         try {
-          const metaResult: MetaResult = await extractMeta(
-            browser,
-            server,
-            route
-          );
-          const captureResult: CaptureResult = await captureRoute(
-            browser,
-            server,
-            route,
-            metaResult.payload
-          );
-
-          logs.push(...metaResult.logs);
-          logs.push(...captureResult.logs);
+          const payload = await extractMeta(browser, server, logs, route);
+          await capture(browser, server, logs, route, payload);
 
           bar.increment();
         } catch (e) {

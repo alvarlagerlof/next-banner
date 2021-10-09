@@ -14,7 +14,7 @@ You might think you can design an images in Figma. This is entirely doable, but 
 
 Most currently existing solutions run on-demand either in a serverless function or in a service. This is wasteful and could be expensive if demand is high. For example, cold starting puppeteer to take a screenshot of the page can take 8s per visitor. To counteract this, a CDN can be used, which further increases the amount of things needing setup.
 
-With next-opengraph-image, none of that is needed. In true Jamstack fashion, this library generates images at build, using existing infrastructure that you already have.
+With next-banner, none of that is needed. In true Jamstack fashion, this library generates images at build, using existing infrastructure that you already have.
 
 ## Features
 
@@ -31,19 +31,19 @@ With next-opengraph-image, none of that is needed. In true Jamstack fashion, thi
 Use npm or yarn
 
 ```bash
-npm install next-opengraph-image
-yarn add next-opengraph-image
+npm install next-banner
+yarn add next-banner
 ```
 
 Add this to your scripts in package.json
 
 ```json
-"postbuild": "next-opengraph-image",
+"postbuild": "next-banner",
 ```
 
 ### Configuration
 
-The config file is called `next-opengraph-image.json` and may be placed at the root of your directory. You do not need it unless you want to change any of the options.
+The config file is called `next-banner.json` and may be placed at the root of your directory. You do not need it unless you want to change any of the options.
 
 ```json
 {
@@ -64,7 +64,7 @@ You may also want to add `<meta name="twitter:card" content="summary_large_image
 
 ```jsx
 // Step 1
-import { useOgImage } from "next-opengraph-image";
+import { useOgImage } from "next-banner";
 
 export default function Home() {
   // Step 2
@@ -109,7 +109,7 @@ const ogImage = useOgImage({
 
 ### Layout files
 
-Create a folder called `_ogimage` in your `/pages` folder. Then create a file called `default.js` there.
+Create a folder called `_banner` in your `/pages` folder. Then create a file called `default.js` there.
 
 An example of a layout file looks like this. Notice the fixed CSS position and size. If you have styles in your `_app` (which affects all pages) you may need something like this.
 
@@ -163,4 +163,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for ways to get started.
 
 ## Feedback
 
-If you have any feedback, please [create an issue](https://github.com/alvarlagerlof/next-opengraph-image/issues/new) reach me on [twitter](https://twitter.com/alvarlagerlof).
+If you have any feedback, please [create an issue](https://github.com/alvarlagerlof/next-banner/issues/new) reach me on [twitter](https://twitter.com/alvarlagerlof).

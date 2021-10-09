@@ -1,12 +1,10 @@
-import { getOgImageData } from "next-opengraph-image";
+import { getOgImageData } from "next-banner";
 
 export default function OgImage() {
   const { title, description, image } = getOgImageData({
-    placeholder: {
-      title: "Placeholder title",
-      description: "Placeholder description",
-      image: "https://placekitten.com/200/200",
-    },
+    title: "Placeholder title",
+    description: "Placeholder description",
+    image: "https://placekitten.com/200/200",
   });
 
   return (

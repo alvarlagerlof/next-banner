@@ -1,6 +1,6 @@
 import React from "react";
 import { ScreenshotCanvas } from ".";
-import { getOgImageData } from ".";
+import { getBannerData } from ".";
 
 interface TemplateProps {
   siteName?: string;
@@ -13,14 +13,9 @@ export default function Template({
   backgroundColor = "#d9ebff",
   textColor = "#000000",
 }: TemplateProps): JSX.Element {
-  const { title, description } = getOgImageData<{
-    title: string;
-    description: string;
-  }>({
-    placeholder: {
-      title: "Placeholder title",
-      description: "Placeholder description",
-    },
+  const { title, description } = getBannerData({
+    title: "Placeholder title",
+    description: "Placeholder description",
   });
 
   return (

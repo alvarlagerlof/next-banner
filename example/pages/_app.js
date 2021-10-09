@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Provider } from "next-opengraph-image";
+import { Provider } from "next-banner";
 
 import "../styles.css";
 
@@ -23,7 +23,7 @@ function Nav() {
       }}
     >
       <Link href="/" passHref>
-        <a>next-opengraph-image</a>
+        <a>next-banner</a>
       </Link>
       <ul
         style={{

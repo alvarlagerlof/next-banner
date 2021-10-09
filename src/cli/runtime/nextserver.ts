@@ -1,29 +1,8 @@
 import { spawn } from "child_process";
-import puppeteer, { Browser } from "puppeteer";
 import getPort from "get-port";
 import ora from "ora";
 
-import { NextServer } from "./types";
-
-async function getBrowser(): Promise<Browser> {
-  const spinner = ora("Starting browser").start();
-
-  try {
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ["--no-sandbox"],
-    });
-
-    spinner.succeed();
-
-    return browser;
-  } catch (e) {
-    if (e instanceof Error) {
-      spinner.fail(e.message);
-    }
-    throw e;
-  }
-}
+import { NextServer } from "../types";
 
 async function getNextServer(): Promise<NextServer> {
   const port = await getPort();
@@ -60,4 +39,4 @@ async function getNextServer(): Promise<NextServer> {
   });
 }
 
-export { getBrowser, getNextServer };
+export default getNextServer;

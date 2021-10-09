@@ -1,8 +1,8 @@
-import { Template } from "next-opengraph-image";
+import { Template } from "next-banner";
 
 export default Template;
 
-// import { getOgImageData } from "next-opengraph-image";
+// import { getOgImageData } from "next-banner";
 
 // export default function Default() {
 //   const { title, description } = getOgImageData({
