@@ -4,8 +4,8 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  console.log("hejsan");
-  console.log("svejsan");
+  // console.log("hejsan");
+  // console.log("svejsan");
 
   return (
     <div className={styles.container}>

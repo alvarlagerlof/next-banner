@@ -5,4 +5,13 @@ import ScreenshotCanvas from "./ScreenshotCanvas";
 import getBannerData from "./getBannerData";
 import setBannerData from "./setBannerData";
 
-export { Provider, Template, ScreenshotCanvas, getBannerData, setBannerData };
+import withBannerOptions from "./withBannerOptions";
+
+export {
+  Provider,
+  Template,
+  ScreenshotCanvas,
+  getBannerData,
+  setBannerData,
+  withBannerOptions,
+};

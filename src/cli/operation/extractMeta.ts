@@ -57,7 +57,7 @@ async function extractMeta(
   const payload = await page.evaluate((DEFAULT_LAYOUT) => {
     // Base data to use in case no thing is found
     const base: Payload = {
-      layout: "de",
+      layout: DEFAULT_LAYOUT,
       data: {},
     };
 
@@ -77,17 +77,19 @@ async function extractMeta(
     // Read potential custom data from window
     const payload = (window.NextBanner as Payload) ?? {};
 
-    const r = {
-      ...base,
-    };
-
-    return r;
-
-    // return {
-    //   //...base,
-    //   // ...{ data: meta },
-    //   // ...payload,
+    // const r = {
+    //   ...base,
     // };
+
+    // return r;
+
+    // return base;
+
+    return {
+      ...base,
+      ...{ data: meta },
+      ...payload,
+    };
   }, DEFAULT_LAYOUT);
 
   await page.close();

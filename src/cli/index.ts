@@ -2,11 +2,12 @@
 
 import task from "tasuku";
 
+import { Logs } from "./types";
+
 import getBrowser from "./runtime/browser";
 import getNextServer from "./runtime/nextServer";
 import getRoutes from "./routes";
 import operation from "./operation";
-import { Log, Logs } from "./types";
 
 async function generate() {
   try {
@@ -39,8 +40,7 @@ async function generate() {
 
             setOutput(
               logs.reduce(
-                (acc: string, curr: Log) =>
-                  acc + `${curr.route} ${curr.message}\n`,
+                (acc: string, curr) => acc + `${curr.route} ${curr.message}\n`,
                 ""
               )
             );

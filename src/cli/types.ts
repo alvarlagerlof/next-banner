@@ -3,19 +3,11 @@ export interface NextServer {
   port: number;
   serverProcess: ChildProcess;
 }
-export interface Log {
+
+export type Logs = Array<{
   route: string;
   message: string;
-}
-
-export type Logs = Log[];
-
-export interface Config {
-  nextDir: string;
-  excludePages: string[];
-  width: number;
-  height: number;
-}
+}>;
 
 export interface BuildManifest {
   pages: {

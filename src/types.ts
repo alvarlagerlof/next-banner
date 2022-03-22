@@ -19,3 +19,11 @@ export interface Payload {
   data: Data;
   layout: string;
 }
+
+export interface BannerConfig {
+  nextDir: string;
+  outputDir: string;
+  excludePages: string[];
+  width: number;
+  height: number;
+}

@@ -18,7 +18,13 @@
     "generate",
     "build"
   ],
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "files": [
+    "dist",
     "dist",
     "src"
   ],
@@ -66,6 +72,8 @@
     "get-port": "^5.1.1",
     "ora": "^5.4.1",
     "puppeteer": "^10.1.0",
-    "tasuku": "^1.0.2"
+    "tasuku": "^1.0.2",
+    "webpack": "^5.58.1",
+    "webpack-shell-plugin-next": "^2.2.2"
   }
 }
