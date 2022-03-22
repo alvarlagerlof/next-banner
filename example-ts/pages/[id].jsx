@@ -1,8 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import { setBannerData } from "next-banner";
 
 export default function Post({ title, body, image }) {
   setBannerData({
+    layout: "image",
     data: {
       image,
     },
@@ -48,8 +50,12 @@ async function fetchPosts() {
     await fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
       res.json()
     )
-  ).map((item, index) => {
-    return { ...item, image: `http://placekitten.com/200/${200 + index}` };
+  )
+  .filter((_, index) => {
+    return index < 10
+  })
+  .map((item, index) => {
+    return { ...item, image: `https://placem.at/people?w=${400 + index}` };
   });
 }
 

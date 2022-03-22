@@ -1,11 +1,9 @@
-import { merge } from "@corex/deepmerge";
+import { merge } from "merge-anything";
 
 import { BannerConfig } from "../types";
 import { loadFile } from "./file";
 import { getPath } from "./file";
-// import { CONFIG_FILE } from "../constants";
-
-const CONFIG_FILE = "heksan";
+import { CONFIG_FILE } from "../constants";
 
 const defaultConfig: Partial<BannerConfig> = {
   nextDir: ".next",
@@ -31,9 +29,7 @@ function mergeWithDefault(
     return current as BannerConfig;
   }
 
-  return merge([current, next], {
-    arrayMergeType: "overwrite",
-  }) as BannerConfig;
+  return merge(current, next) as BannerConfig;
 }
 
 export default getConfig;

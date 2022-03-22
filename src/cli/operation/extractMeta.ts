@@ -1,4 +1,6 @@
 import { Browser } from "puppeteer";
+import { merge } from "merge-anything";
+
 import { NextServer, Logs } from "../types";
 import { DEFAULT_LAYOUT } from "../../constants";
 import { Meta, Payload } from "../../types";
@@ -30,38 +32,8 @@ async function extractMeta(
     waitUntil: "networkidle0",
   });
 
-  // const meta: Meta = await page.evaluate(() => {
-  //   const title = document.head.querySelector("title");
-
-  //   const description = document.head.querySelector('meta[name="description"]');
-
-  //   return {
-  //     title: title?.textContent ?? undefined,
-  //     description: description?.getAttribute("content") ?? undefined,
-  //   };
-  // });
-
-  // const ogImageData: Payload = await page.evaluate((DEFAULT_LAYOUT) => {
-  //   const base = {
-  //     data: {},
-  //     layout: DEFAULT_LAYOUT,
-  //   };
-
-  //   if (window.NextBanner) {
-  //     return window.NextBanner as Payload;
-  //   }
-
-  //   return base;
-  // }, DEFAULT_LAYOUT);
-
-  const payload = await page.evaluate((DEFAULT_LAYOUT) => {
-    // Base data to use in case no thing is found
-    const base: Payload = {
-      layout: DEFAULT_LAYOUT,
-      data: {},
-    };
-
-    // Extract relevant meta tags for easier default use
+  // Extract relevant meta tags for easier default use
+  const meta = await page.evaluate(() => {
     const title =
       document.head.querySelector("title")?.textContent ?? undefined;
     const description =
@@ -74,31 +46,34 @@ async function extractMeta(
       description,
     };
 
-    // Read potential custom data from window
-    const payload = (window.NextBanner as Payload) ?? {};
+    return meta;
+  });
 
-    // const r = {
-    //   ...base,
-    // };
+  // Read potential custom data from window
+  const payload = await page.evaluate(() => {
+    return (window.NextBanner as Payload) ?? {};
+  });
 
-    // return r;
-
-    // return base;
-
-    return {
-      ...base,
-      ...{ data: meta },
-      ...payload,
-    };
-  }, DEFAULT_LAYOUT);
+  console.log(payload);
 
   await page.close();
 
-  return payload;
+  return merge(
+    {
+      layout: DEFAULT_LAYOUT,
+      data: {},
+    },
+    { data: meta },
+    payload
+  );
 
   // return {
-  //   data: { ...meta, ...ogImageData.data },
-  //   layout: ogImageData.layout,
+  //   ...{
+  //     layout: DEFAULT_LAYOUT,
+  //     data: {},
+  //   },
+  //   ...{ data: meta },
+  //   ...payload,
   // };
 }
 

@@ -18,6 +18,7 @@ export default function Template({
     description: "Placeholder description",
   });
 
+
   return (
     <ScreenshotCanvas
       style={{

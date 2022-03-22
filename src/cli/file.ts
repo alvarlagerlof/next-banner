@@ -5,6 +5,8 @@ function getPath(...pathSegment: string[]): string {
   return path.resolve(process.cwd(), ...pathSegment);
 }
 
+console;
+
 function loadFile<T>(path: string, throwError = true): T | undefined {
   if (fs.existsSync(path)) {
     const file = fs.readFileSync(path);
