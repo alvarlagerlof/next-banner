@@ -2,11 +2,18 @@
 import { getBannerData, ScreenshotCanvas } from "next-banner";
 
 export default function Banner() {
-  const { title, description, image } = getBannerData({
-    title: "Placeholder title",
-    description: "Placeholder description",
-    image: "https://placekitten.com/200/2001",
-  });
+  // const { title, description, image } = getBannerData({
+  //   title: "Placeholder title",
+  //   description: "Placeholder description",
+  //   image: "https://placekitten.com/200/2001",
+  // });
+
+  const {
+    title = "Placeholder title",
+    description = "Placeholder description",
+    image = "https://placekitten.com/200/200"
+  } = getBannerData();
+
 
   console.log(title);
   console.log(description);
@@ -29,6 +36,7 @@ export default function Banner() {
           marginBlockEnd: "30px",
         }}
       >
+
         <img
           src={image}
           alt=""
@@ -38,8 +46,11 @@ export default function Banner() {
           }}
         />
 
+
+
         <div>
           <h1>{image}</h1>
+
           <h1 style={{ fontSize: "5em" }}>{title}</h1>
           <h2 style={{ fontSize: "2em" }}>{description}</h2>
         </div>

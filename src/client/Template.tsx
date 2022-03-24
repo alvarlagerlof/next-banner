@@ -13,10 +13,10 @@ export default function Template({
   backgroundColor = "#d9ebff",
   textColor = "#000000",
 }: TemplateProps): JSX.Element {
-  const { title, description } = getBannerData({
-    title: "Placeholder title",
-    description: "Placeholder description",
-  });
+  const {
+    title = "Placeholder title",
+    description = "Placeholder description"
+  } = getBannerData();
 
 
   return (

@@ -54,7 +54,7 @@ async function extractMeta(
     return (window.NextBanner as Payload) ?? {};
   });
 
-  console.log(payload);
+  // console.log(payload);
 
   await page.close();
 

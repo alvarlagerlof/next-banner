@@ -1,12 +1,23 @@
 import { Data } from "../types";
 
-export default function setBannerData<T>(placeholder: T): T | Data {
+// export default function setBannerData<T>(placeholder: T): T | Data {
+//   if (
+//     typeof window !== "undefined" &&
+//     typeof window.NextBanner !== "undefined"
+//   ) {
+//     return window.NextBanner.data as T | Data;
+//   }
+
+//   return placeholder as T;
+// }
+
+export default function getBannerData(): Data {
   if (
     typeof window !== "undefined" &&
     typeof window.NextBanner !== "undefined"
   ) {
-    return window.NextBanner.data as T | Data;
+    return window.NextBanner.data as Data;
   }
 
-  return placeholder as T;
+  return {} as Data;
 }
