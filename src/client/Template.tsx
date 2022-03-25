@@ -1,6 +1,6 @@
 import React from "react";
 import { ScreenshotCanvas } from ".";
-import { getBannerData } from ".";
+import { useBannerData } from ".";
 
 interface TemplateProps {
   siteName?: string;
@@ -16,8 +16,7 @@ export default function Template({
   const {
     title = "Placeholder title",
     description = "Placeholder description"
-  } = getBannerData();
-
+  } = useBannerData();
 
   return (
     <ScreenshotCanvas

@@ -36,9 +36,8 @@ class HelloWorldPlugin {
             // if (asset == "../pages/index.js") {
             //   console.log(assets[asset]);
             // }
-
-            console.log("-----");
-            console.log(asset);
+            //console.log("-----");
+            //console.log(asset);
             //console.log(assets[asset]?._source?._children);
           }
           // console.log(assets._source._children);
