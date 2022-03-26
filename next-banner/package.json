@@ -27,9 +27,9 @@
     "dist",
     "src"
   ],
-  "main": "dist/client/index.js",
-  "types": "dist/client/index.d.ts",
-  "bin": "dist/cli/index.js",
+  "main": "./dist/client/index.js",
+  "types": "./dist/client/index.d.ts",
+  "bin": "./dist/cli/index.js",
   "scripts": {
     "lint": "eslint ./src --ext .ts,tsx",
     "build:esbuild": "rimraf dist && node ./esbuild.js",

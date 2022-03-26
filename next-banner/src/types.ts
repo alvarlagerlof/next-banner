@@ -9,11 +9,12 @@ export interface Meta {
   description?: string;
 }
 
-interface Custom {
-  custom?: Record<string, unknown>;
-}
+export type Data = {
+  meta: Meta;
+  custom?: any;
+};
 
-export type Data = Meta & Custom;
+// Record<string, unknown>
 
 export interface Payload {
   data: Data;

@@ -14,9 +14,11 @@ export default function Template({
   textColor = "#000000",
 }: TemplateProps): JSX.Element {
   const {
-    title = "Placeholder title",
-    description = "Placeholder description"
-  } = useBannerData();
+    meta: {
+      title = "Placeholder title",
+      description = "Placeholder description"
+    },
+  } = useBannerData()
 
   return (
     <ScreenshotCanvas

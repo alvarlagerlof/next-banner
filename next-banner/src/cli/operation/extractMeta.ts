@@ -54,27 +54,18 @@ async function extractMeta(
     return (window.NextBanner as Payload) ?? {};
   });
 
-  // console.log(payload);
-
   await page.close();
 
   return merge(
     {
       layout: DEFAULT_LAYOUT,
-      data: {},
+      data: {
+        meta,
+        custom: {},
+      },
     },
-    { data: meta },
     payload
   );
-
-  // return {
-  //   ...{
-  //     layout: DEFAULT_LAYOUT,
-  //     data: {},
-  //   },
-  //   ...{ data: meta },
-  //   ...payload,
-  // };
 }
 
 export default extractMeta;

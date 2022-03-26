@@ -41,6 +41,7 @@ async function getBrowser(): Promise<Browser> {
 
   const browser = await puppeteer.launch({
     headless: true,
+    dumpio: true,
     args: minimal_args,
   });
 
