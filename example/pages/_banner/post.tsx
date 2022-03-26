@@ -2,16 +2,6 @@
 import { useBannerData, ScreenshotCanvas } from "next-banner";
 
 export default function Banner() {
-  // const {
-  //   meta: {
-  //     title = "Placeholder title",
-  //     description = "Placeholder description",
-  //   },
-  //   custom: {
-  //     image = "https://placekitten.com/200/200"
-  //   }
-  // } = useBannerData();
-
   const {
     meta: {
       title = "Placeholder title",

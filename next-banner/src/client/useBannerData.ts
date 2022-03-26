@@ -7,9 +7,9 @@ export function useBannerData(): Data {
   useEffect(() => {
     if (
       typeof window !== "undefined" &&
-      typeof window.NextBanner !== "undefined"
+      typeof window.NextBannerPayload !== "undefined"
     ) {
-      setData(window.NextBanner.data);
+      setData(window.NextBannerPayload);
     }
   }, []);
 

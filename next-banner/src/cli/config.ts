@@ -6,7 +6,6 @@ import { getPath } from "./file";
 import { CONFIG_FILE } from "../constants";
 
 const defaultConfig: Partial<BannerConfig> = {
-  nextDir: ".next",
   excludePages: [],
   width: 1200,
   height: 630,

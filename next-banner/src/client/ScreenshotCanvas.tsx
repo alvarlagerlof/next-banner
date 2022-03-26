@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ProviderContext } from "./Provider";
 
 interface ScreenshotCanvasProps {
   style?: React.CSSProperties;
@@ -11,6 +12,8 @@ export default function ScreenshotCanvas({
   className,
   children,
 }: ScreenshotCanvasProps): JSX.Element {
+  const { width, height } = useContext(ProviderContext);
+
   return (
     <div
       style={{
@@ -25,8 +28,8 @@ export default function ScreenshotCanvas({
       <div
         className={className}
         style={{
-          width: "1200px",
-          height: "630px",
+          width,
+          height,
           ...style,
         }}
       >

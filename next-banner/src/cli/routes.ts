@@ -7,11 +7,9 @@ const config = getConfig();
 
 async function getRoutes(): Promise<string[]> {
   const MANIFESETS: NextManifest = {
-    build: loadFile<BuildManifest>(
-      getPath(config.nextDir, "build-manifest.json")
-    ),
+    build: loadFile<BuildManifest>(getPath(".next", "build-manifest.json")),
     preRender: loadFile<PreRenderManifest>(
-      getPath(getPath(config.nextDir, "prerender-manifest.json"))
+      getPath(getPath(".next", "prerender-manifest.json"))
     ),
   };
 

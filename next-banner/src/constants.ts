@@ -1,6 +1,6 @@
 const OUTPUT_DIR = "next-banner";
 const LAYOUT_DIR = "_banner";
-const CONFIG_FILE = "next-banner.config.json";
+const CONFIG_FILE = "./.next/next-banner.json";
 
 const DEFAULT_LAYOUT = "default";
 

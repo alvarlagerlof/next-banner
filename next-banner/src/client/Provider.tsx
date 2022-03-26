@@ -7,11 +7,15 @@ import { OUTPUT_DIR } from "../constants";
 interface ProviderProps {
   baseUrl: string;
   children: React.ReactNode;
+  width?: number;
+  height?: number;
 }
 
 export default function Provider({
   baseUrl,
   children,
+  width = 1200,
+  height = 630,
 }: ProviderProps): JSX.Element {
   const { asPath } = useRouter();
 
@@ -21,13 +25,32 @@ export default function Provider({
     }.png`;
   };
 
+  if (typeof window !== "undefined") {
+    window.NextBannerConfig = {
+      width,
+      height,
+    };
+  }
+
   return (
     <>
       <Head>
         <meta property="og:image" content={getUrl(baseUrl, asPath)} />
       </Head>
 
-      {children}
+      <ProviderContext.Provider value={{ width, height }}>
+        {children}
+      </ProviderContext.Provider>
     </>
   );
 }
+
+interface Size {
+  width: number;
+  height: number;
+}
+
+export const ProviderContext = React.createContext<Size>({
+  width: 1200,
+  height: 630,
+});

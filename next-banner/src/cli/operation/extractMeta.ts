@@ -1,9 +1,7 @@
 import { Browser } from "puppeteer";
-import { merge } from "merge-anything";
-
 import { NextServer, Logs } from "../types";
 import { DEFAULT_LAYOUT } from "../../constants";
-import { Meta, Payload } from "../../types";
+import { Meta, Payload, Custom } from "../../types";
 
 async function extractMeta(
   browser: Browser,
@@ -41,31 +39,26 @@ async function extractMeta(
         .querySelector('meta[name="description"]')
         ?.getAttribute("content") ?? undefined;
 
-    const meta: Meta = {
+    return {
       title,
       description,
-    };
-
-    return meta;
+    } as Meta;
   });
 
   // Read potential custom data from window
-  const payload = await page.evaluate(() => {
-    return (window.NextBanner as Payload) ?? {};
+  const custom = await page.evaluate(() => {
+    return (window.NextBannerPayload?.custom as Custom) ?? {};
   });
 
-  await page.close();
+  const layout = await page.evaluate((DEFAULT_LAYOUT) => {
+    return (window.NextBannerPayload?.layout as string) ?? DEFAULT_LAYOUT;
+  }, DEFAULT_LAYOUT);
 
-  return merge(
-    {
-      layout: DEFAULT_LAYOUT,
-      data: {
-        meta,
-        custom: {},
-      },
-    },
-    payload
-  );
+  return {
+    layout,
+    meta,
+    custom,
+  };
 }
 
 export default extractMeta;

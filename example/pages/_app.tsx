@@ -4,9 +4,10 @@ import { Provider } from "next-banner";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider baseUrl="example.com">
+    <Provider baseUrl="example.com" width={1200} height={630}>
       <Component {...pageProps} />
     </Provider>
   );
 }
+
 export default MyApp;

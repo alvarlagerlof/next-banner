@@ -16,9 +16,9 @@ export default function Template({
   const {
     meta: {
       title = "Placeholder title",
-      description = "Placeholder description"
+      description = "Placeholder description",
     },
-  } = useBannerData()
+  } = useBannerData();
 
   return (
     <ScreenshotCanvas
