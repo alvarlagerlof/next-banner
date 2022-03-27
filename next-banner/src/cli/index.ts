@@ -8,6 +8,8 @@ import getBrowser from "./runtime/browser";
 import getNextServer from "./runtime/nextServer";
 import getRoutes from "./routes";
 import operation from "./operation";
+import extractMeta from "./operation/extractMeta";
+import captureScreenshot from "./operation/captureScreenshot";
 
 async function generate() {
   await task("Starting", async ({ task }) => {
@@ -42,11 +44,14 @@ async function generate() {
 
           await Promise.all(
             routes.map(async (route) => {
-              await operation(browser, server, route);
+              // await operation(browser, server, route);
 
               counter++;
 
-              logs.push(...(await operation(browser, server, route)));
+              const payload = await extractMeta(browser, server, logs, route);
+              await captureScreenshot(browser, server, logs, route, payload);
+
+              // logs.push(...(await operation(browser, server, route)));
 
               setOutput(
                 logs.reduce(
@@ -59,20 +64,13 @@ async function generate() {
               setStatus(`${counter}/${routes.length}`);
             })
           );
-        })
-          .catch((e) => {
-            throw new Error(e);
-          })
-          .finally(async () => {
-            await browser.close();
-            server.serverProcess.kill("SIGINT");
-            process.exit();
-          });
+        }).finally(async () => {
+          await browser.close();
+          server.serverProcess.kill("SIGINT");
+          process.exit();
+        });
       }
     )
-    .catch((e) => {
-      console.log("Top-level error", e.message);
-    })
     .finally(async () => {
       process.exit();
     });
