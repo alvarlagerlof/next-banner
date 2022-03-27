@@ -3,11 +3,9 @@ import fs from "fs";
 
 import { NextServer, Logs } from "../types";
 import { getPath } from "../file";
-import getConfig from "../config";
 import { Payload } from "../../types";
 import { LAYOUT_DIR, OUTPUT_DIR } from "../../constants";
-
-// const config = getConfig();
+import getConfig from "../config";
 
 function getOutput(route: string) {
   const outputFolder = `public/${OUTPUT_DIR}`;
@@ -62,20 +60,14 @@ async function captureScreenshot(
     window.NextBannerPayload = payload;
   }, payload);
 
-  const layoutUrl = `http://localhost:${server.port}/${LAYOUT_DIR}/${payload.layout}`;
+  await page.goto(
+    `http://localhost:${server.port}/${LAYOUT_DIR}/${payload.layout}`,
+    {
+      waitUntil: "networkidle0",
+    }
+  );
 
-  await page.goto(layoutUrl, {
-    waitUntil: "networkidle0",
-  });
-
-  const { width, height } = await page.evaluate(async () => {
-    await new Promise((r) => setTimeout(r, 20000));
-
-    return {
-      width: window.NextBannerConfig.width,
-      height: window.NextBannerConfig.height,
-    };
-  });
+  const { width, height } = getConfig();
 
   await page.setViewport({
     width,

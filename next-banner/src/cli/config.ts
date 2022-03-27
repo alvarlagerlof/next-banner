@@ -6,18 +6,15 @@ import { getPath } from "./file";
 import { CONFIG_FILE } from "../constants";
 
 const defaultConfig: Partial<BannerConfig> = {
+  domain: "example.com",
   excludePages: [],
   width: 1200,
   height: 630,
 };
 
 function getConfig(): BannerConfig {
-  return loadConfig(getPath(`./${CONFIG_FILE}`));
-}
-
-function loadConfig(path: string): BannerConfig {
-  const baseConfig = loadFile<Partial<BannerConfig>>(path);
-  return mergeWithDefault(defaultConfig, baseConfig);
+  const config = loadFile<Partial<BannerConfig>>(getPath(`./${CONFIG_FILE}`));
+  return mergeWithDefault(defaultConfig, config);
 }
 
 function mergeWithDefault(

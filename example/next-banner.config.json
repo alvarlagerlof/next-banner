@@ -1,8 +1,0 @@
-{
-  "domain": "example.com",
-  "banner": {
-    "width": 1200,
-    "height": 630
-  },
-  "reactStrictMode": true
-}

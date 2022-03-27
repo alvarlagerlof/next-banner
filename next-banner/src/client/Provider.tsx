@@ -3,20 +3,22 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 import { OUTPUT_DIR } from "../constants";
+// import { BannerConfig } from "../types";
+import getConfig from "next/config";
 
 interface ProviderProps {
-  baseUrl: string;
+  // domain: string;
   children: React.ReactNode;
-  width?: number;
-  height?: number;
+  // width?: number;
+  // height?: number;
 }
 
 export default function Provider({
-  baseUrl,
+  // domain,
   children,
-  width = 1200,
-  height = 630,
-}: ProviderProps): JSX.Element {
+}: // width = 1200,
+// height = 630,
+ProviderProps): JSX.Element {
   const { asPath } = useRouter();
 
   const getUrl = (baseUrl: string, path: string) => {
@@ -25,32 +27,34 @@ export default function Provider({
     }.png`;
   };
 
-  if (typeof window !== "undefined") {
-    window.NextBannerConfig = {
-      width,
-      height,
-    };
-  }
+  // if (typeof window !== "undefined") {
+  //   window.NextBannerConfig = {
+  //     domain,
+  //     width,
+  //     height,
+  //   };
+  // }
+
+  const { publicRuntimeConfig } = getConfig();
+  const domain = publicRuntimeConfig.nextBannerOptions.domain;
 
   return (
     <>
       <Head>
-        <meta property="og:image" content={getUrl(baseUrl, asPath)} />
+        <meta property="og:image" content={getUrl(domain, asPath)} />
       </Head>
 
-      <ProviderContext.Provider value={{ width, height }}>
-        {children}
-      </ProviderContext.Provider>
+      {/* <ProviderContext.Provider value={{ domain, width, height }}>
+
+      </ProviderContext.Provider> */}
+
+      {children}
     </>
   );
 }
 
-interface Size {
-  width: number;
-  height: number;
-}
-
-export const ProviderContext = React.createContext<Size>({
-  width: 1200,
-  height: 630,
-});
+// export const ProviderContext = React.createContext<BannerConfig>({
+//   domain: "example.com",
+//   width: 1200,
+//   height: 630,
+// });

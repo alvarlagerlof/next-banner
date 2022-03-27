@@ -1,13 +1,8 @@
 declare global {
   interface Window {
     NextBannerPayload: Payload;
-    NextBannerConfig: NextBannerConfig;
+    NextBannerConfig: BannerConfig;
   }
-}
-
-interface NextBannerConfig {
-  width: number;
-  height: number;
 }
 
 export interface Meta {
@@ -31,7 +26,8 @@ export interface Payload {
 }
 
 export interface BannerConfig {
-  excludePages: string[];
+  domain: string;
+  excludePages: [];
   width: number;
   height: number;
 }

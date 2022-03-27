@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { ProviderContext } from "./Provider";
+import getConfig from "next/config";
+import React from "react";
 
 interface ScreenshotCanvasProps {
   style?: React.CSSProperties;
@@ -12,29 +12,24 @@ export default function ScreenshotCanvas({
   className,
   children,
 }: ScreenshotCanvasProps): JSX.Element {
-  const { width, height } = useContext(ProviderContext);
+  const { publicRuntimeConfig } = getConfig();
+  const width = publicRuntimeConfig.nextBannerOptions.width;
+  const height = publicRuntimeConfig.nextBannerOptions.height;
 
   return (
     <div
+      className={className}
       style={{
-        width: "100%",
-        height: "100%",
+        width,
+        height,
         position: "fixed",
         background: "white",
         top: "0",
         left: "0",
+        ...style,
       }}
     >
-      <div
-        className={className}
-        style={{
-          width,
-          height,
-          ...style,
-        }}
-      >
-        {children}
-      </div>
+      {children}
     </div>
   );
 }
