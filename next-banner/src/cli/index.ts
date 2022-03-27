@@ -48,10 +48,10 @@ async function generate() {
 
               counter++;
 
-              const payload = await extractMeta(browser, server, logs, route);
-              await captureScreenshot(browser, server, logs, route, payload);
+              // const payload = await extractMeta(browser, server, logs, route);
+              // await captureScreenshot(browser, server, logs, route, payload);
 
-              // logs.push(...(await operation(browser, server, route)));
+              logs.push(...(await operation(browser, server, route)));
 
               setOutput(
                 logs.reduce(
