@@ -24,4 +24,5 @@ export interface BannerConfig {
   excludePages: [];
   width: number;
   height: number;
+  concurrency: number;
 }

@@ -2,7 +2,7 @@ import fs from "node:fs";
 
 import { Page } from "puppeteer";
 import { DEFAULT_LAYOUT, OUTPUT_DIR } from "../constants";
-import { Custom, Meta, Data, DataWithLayout } from "../types";
+import { Custom, Meta, DataWithLayout } from "../types";
 import getConfig from "./config";
 import { getPath } from "./file";
 import { Logs } from "./types";

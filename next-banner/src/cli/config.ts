@@ -10,6 +10,7 @@ const defaultConfig: Partial<BannerConfig> = {
   excludePages: [],
   width: 1200,
   height: 630,
+  concurrency: 5,
 };
 
 function getConfig(): BannerConfig {

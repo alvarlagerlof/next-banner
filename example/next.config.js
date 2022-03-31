@@ -3,7 +3,6 @@
 const { withBannerOptions } = require("next-banner");
 
 module.exports = withBannerOptions({
-  domain: "alvar.dev",
-  width: 1200,
-  height: 630,
+  domain: "example.com",
+  concurrency: 10,
 });
