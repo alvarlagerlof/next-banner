@@ -4,5 +4,5 @@ const { withBannerOptions } = require("next-banner");
 
 module.exports = withBannerOptions({
   domain: "example.com",
-  concurrency: 10,
+  concurrency: 1,
 });
