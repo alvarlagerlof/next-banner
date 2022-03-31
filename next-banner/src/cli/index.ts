@@ -7,9 +7,9 @@ import { Logs } from "./types";
 import getBrowser from "./runtime/browser";
 import getNextServer from "./runtime/nextServer";
 import getRoutes from "./routes";
-import operation from "./operation";
-import extractMeta from "./operation/extractMeta";
-import captureScreenshot from "./operation/captureScreenshot";
+
+import { CaptureScreenshot, ExtractData } from "./operation";
+import { LAYOUT_DIR } from "../constants";
 
 async function generate() {
   await task("Starting", async ({ task }) => {
@@ -39,29 +39,25 @@ async function generate() {
         },
       }) => {
         await task("Screenshot pages", async ({ setStatus, setOutput }) => {
-          let counter = 0;
           const logs: Logs = [];
+          let counter = 0;
 
           await Promise.all(
             routes.map(async (route) => {
-              // await operation(browser, server, route);
+              const extractData = new ExtractData(await browser.newPage());
+              await extractData.loadUrl(`http://localhost:${server.port}${route}`);
+              const { layout, meta, custom } = await extractData.extract();
+              await extractData.close();
 
-              counter++;
+              const captureScreenshot = new CaptureScreenshot(await browser.newPage());
+              await captureScreenshot.insertData({ layout, meta, custom });
+              await captureScreenshot.loadUrl(`http://localhost:${server.port}/${LAYOUT_DIR}/${layout}`);
+              await captureScreenshot.capture(route);
+              await captureScreenshot.close();
 
-              // const payload = await extractMeta(browser, server, logs, route);
-              // await captureScreenshot(browser, server, logs, route, payload);
-
-              logs.push(...(await operation(browser, server, route)));
-
-              setOutput(
-                logs.reduce(
-                  (acc: string, curr) =>
-                    acc + `${curr.route} ${curr.message}\n`,
-                  ""
-                )
-              );
-
-              setStatus(`${counter}/${routes.length}`);
+              logs.push(...extractData.logs, ...captureScreenshot.logs);
+              setOutput(renderLogs(route, logs));
+              setStatus(`${++counter}/${routes.length}`);
             })
           );
         }).finally(async () => {
@@ -77,3 +73,13 @@ async function generate() {
 }
 
 generate();
+
+function renderLogs(route, logs: Logs) {
+  let output = "";
+
+  for (const message of logs) {
+    output += `${route} ${message}\n`;
+  }
+
+  return output;
+}

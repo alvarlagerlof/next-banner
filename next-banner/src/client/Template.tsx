@@ -14,10 +14,7 @@ export default function Template({
   textColor = "#000000",
 }: TemplateProps): JSX.Element {
   const {
-    meta: {
-      title = "Placeholder title",
-      description = "Placeholder description",
-    },
+    meta: { title = "Placeholder title", description = "Placeholder description" },
   } = useBannerData();
 
   return (
@@ -37,11 +34,7 @@ export default function Template({
           marginBlockEnd: "30px",
         }}
       >
-        <img
-          src="/favicon.ico"
-          alt=""
-          style={{ width: "50px", height: "50px" }}
-        />
+        <img src="/favicon.ico" alt="" style={{ width: "50px", height: "50px" }} />
         <p
           style={{
             fontSize: "2.4em",

@@ -4,10 +4,7 @@ export interface NextServer {
   serverProcess: ChildProcess;
 }
 
-export type Logs = Array<{
-  route: string;
-  message: string;
-}>;
+export type Logs = string[];
 
 export interface BuildManifest {
   pages: {

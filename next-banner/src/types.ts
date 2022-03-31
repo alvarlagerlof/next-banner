@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    NextBannerPayload: Payload;
+    NextBannerPayload: DataWithLayout;
     NextBannerConfig: BannerConfig;
   }
 }
@@ -10,20 +10,14 @@ export interface Meta {
   description?: string;
 }
 
-export type Custom = any;
+export type Custom = Record<string, any>;
 
-export type Data = {
+export interface Data {
   meta: Meta;
-  custom?: Custom;
-};
-
-// Record<string, unknown>
-
-export interface Payload {
-  meta: Meta;
-  custom?: Custom;
-  layout: string;
+  custom: Custom;
 }
+
+export type DataWithLayout = Data & { layout: string };
 
 export interface BannerConfig {
   domain: string;
