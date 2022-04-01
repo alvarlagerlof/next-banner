@@ -1,8 +1,6 @@
 import { getPath, loadFile } from "./file";
 import { getConfig } from "../config";
 
-const { layoutDir, excludePages, nextDir: nextDir } = getConfig();
-
 interface BuildManifest {
   pages: {
     [key: string]: string[];
@@ -20,10 +18,12 @@ interface NextManifest {
   preRender?: PreRenderManifest;
 }
 
-async function getRoutes(): Promise<string[]> {
+async function readRoutes(): Promise<string[]> {
+  const { nextDir } = await getConfig();
+
   const MANIFESETS: NextManifest = {
-    build: loadFile<BuildManifest>(getPath(nextDir, "build-manifest.json")),
-    preRender: loadFile<PreRenderManifest>(getPath(getPath(nextDir, "prerender-manifest.json"))),
+    build: await loadFile<BuildManifest>(getPath(nextDir, "build-manifest.json")),
+    preRender: await loadFile<PreRenderManifest>(getPath(getPath(nextDir, "prerender-manifest.json"))),
   };
 
   const staticRoutes: string[] = Object.keys(MANIFESETS?.build?.pages ?? []).map((key) => {
@@ -38,6 +38,8 @@ async function getRoutes(): Promise<string[]> {
 }
 
 async function filter(routes: string[]): Promise<string[]> {
+  const { layoutDir, excludePages } = await getConfig();
+
   const builtIn = (route: string): boolean => {
     return !["/_app", "/_error", "/500", "/404", ...excludePages].includes(route);
   };
@@ -53,4 +55,4 @@ async function filter(routes: string[]): Promise<string[]> {
   return routes.filter(builtIn).filter(dynamic).filter(layouts);
 }
 
-export default getRoutes;
+export default readRoutes;

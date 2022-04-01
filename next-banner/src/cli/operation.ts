@@ -6,8 +6,6 @@ import { Custom, Meta, DataWithLayout } from "../types";
 import { getConfig } from "../config";
 import { getPath } from "./file";
 
-const { outputDir, width, height } = getConfig();
-
 class BasePuppeteerOperation {
   page: Page;
   logs: string[];
@@ -89,12 +87,14 @@ export class CaptureScreenshot extends BasePuppeteerOperation {
   }
 
   async capture(route: string) {
+    const { width, height } = await getConfig();
+
     await this.page.setViewport({
       width,
       height,
     });
 
-    const { file, folder } = getOutput(route);
+    const { file, folder } = await getOutput(route);
     fs.mkdirSync(getPath(folder), { recursive: true });
 
     await this.page.screenshot({
@@ -104,7 +104,9 @@ export class CaptureScreenshot extends BasePuppeteerOperation {
   }
 }
 
-function getOutput(route: string) {
+async function getOutput(route: string) {
+  const { outputDir } = await getConfig();
+
   const outputFolder = `public/${outputDir}`;
   const indexFixedRoute = route === "/" ? "index" : route.replace("/", "");
 

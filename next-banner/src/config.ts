@@ -17,8 +17,8 @@ const defaultConfig: BannerConfig = {
   concurrency: 10,
 };
 
-function getConfig(): BannerConfig {
-  return loadFile<BannerConfig>(getPath(`./${CONFIG_FILE}`)) as BannerConfig;
+async function getConfig(): Promise<BannerConfig> {
+  return (await loadFile<BannerConfig>(getPath(`./${CONFIG_FILE}`))) as BannerConfig;
 }
 
 type CombinedConfig = { nextBanner: Partial<BannerConfig> } & NextConfig;

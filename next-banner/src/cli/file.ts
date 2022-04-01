@@ -5,17 +5,18 @@ function getPath(...pathSegment: string[]): string {
   return path.resolve(process.cwd(), ...pathSegment);
 }
 
-function loadFile<T>(path: string, throwError = true): T | undefined {
-  if (fs.existsSync(path)) {
-    const file = fs.readFileSync(path);
-    const json: T = JSON.parse(file.toString()) as T;
+function loadFile<T>(path: string): Promise<T | undefined> {
+  return new Promise((resolve, reject) => {
+    fs.readFile(path, (err, file) => {
+      if (err) {
+        reject(err);
+      }
 
-    return json;
-  }
+      const json: T = JSON.parse(file.toString()) as T;
 
-  if (throwError) {
-    new Error(`${path} does not exist.`);
-  }
+      resolve(json);
+    });
+  });
 }
 
 export { getPath, loadFile };

@@ -2,9 +2,8 @@
 
 import task from "tasuku";
 
-import getBrowser from "./runtime/browser";
-import getNextServer from "./runtime/nextServer";
-import getRoutes from "./routes";
+import { startBrowser, startNextServer } from "./runtime";
+import readRoutes from "./routes";
 
 import { CaptureScreenshot, ExtractData } from "./operation";
 import { getConfig } from "../config";
@@ -12,21 +11,21 @@ import { getConfig } from "../config";
 export type LogsWithRoute = Array<{ route: string; message: string }>;
 
 (async function generate() {
-  const { layoutDir, concurrency } = getConfig();
+  const { layoutDir, concurrency } = await getConfig();
 
   await task("Starting", async ({ task }) => {
     return await task.group(
       (task) => [
         task("Browser", async () => {
-          return await getBrowser();
+          return await startBrowser();
         }),
 
         task("Next.js server", async () => {
-          return await getNextServer();
+          return await startNextServer();
         }),
 
         task("Routes", async () => {
-          return await getRoutes();
+          return await readRoutes();
         }),
       ],
       {
