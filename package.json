@@ -1,4 +1,7 @@
 {
   "private": true,
-  "workspaces": ["next-banner", "example"]
+  "workspaces": [
+    "next-banner",
+    "example"
+  ]
 }
