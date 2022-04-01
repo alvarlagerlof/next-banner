@@ -5,13 +5,12 @@ import { DEFAULT_LAYOUT } from "../constants";
 import { Custom, Meta, DataWithLayout } from "../types";
 import { getConfig } from "../config";
 import { getPath } from "./file";
-import { Logs } from "./types";
 
 const { outputDir, width, height } = getConfig();
 
 class BasePuppeteerOperation {
   page: Page;
-  logs: Logs;
+  logs: string[];
 
   constructor(page: Page) {
     this.page = page;

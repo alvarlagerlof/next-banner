@@ -1,8 +1,24 @@
 import { getPath, loadFile } from "./file";
 import { getConfig } from "../config";
-import { BuildManifest, NextManifest, PreRenderManifest } from "./types";
 
 const { layoutDir, excludePages, nextDir: nextDir } = getConfig();
+
+interface BuildManifest {
+  pages: {
+    [key: string]: string[];
+  };
+}
+
+interface PreRenderManifest {
+  routes: {
+    [key: string]: unknown;
+  };
+}
+
+interface NextManifest {
+  build?: BuildManifest;
+  preRender?: PreRenderManifest;
+}
 
 async function getRoutes(): Promise<string[]> {
   const MANIFESETS: NextManifest = {

@@ -1,7 +1,11 @@
 import { spawn } from "child_process";
 import getPort from "get-port";
 
-import { NextServer } from "../types";
+import { ChildProcess } from "child_process";
+export interface NextServer {
+  port: number;
+  serverProcess: ChildProcess;
+}
 
 async function getNextServer(): Promise<NextServer> {
   const port = await getPort();

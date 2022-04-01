@@ -2,14 +2,14 @@
 
 import task from "tasuku";
 
-import { LogsWithRoute } from "./types";
-
 import getBrowser from "./runtime/browser";
 import getNextServer from "./runtime/nextServer";
 import getRoutes from "./routes";
 
 import { CaptureScreenshot, ExtractData } from "./operation";
 import { getConfig } from "../config";
+
+export type LogsWithRoute = Array<{ route: string; message: string }>;
 
 (async function generate() {
   const { layoutDir, concurrency } = getConfig();
@@ -60,7 +60,7 @@ import { getConfig } from "../config";
 
                 // Add route to logs array
                 const combined = [...extractData.logs, ...captureScreenshot.logs];
-                const withRoute = combined.map((log) => ({ route, message: log }));
+                const withRoute: LogsWithRoute = combined.map((log) => ({ route, message: log }));
                 logs.push(...withRoute);
                 setOutput(renderLogs(logs));
               });
