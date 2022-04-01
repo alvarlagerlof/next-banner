@@ -1,0 +1,80 @@
+{
+  "name": "next-banner",
+  "version": "1.0.0-semantic-release",
+  "description": "Generate Open Graph images for Next.js on build",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alvarlagerlof/next-banner"
+  },
+  "author": "Alvar Lagerlöf",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "next",
+    "next.js",
+    "og",
+    "og:image",
+    "opengraph",
+    "generate",
+    "build"
+  ],
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "./dist/client/index.js",
+  "types": "./dist/client/index.d.ts",
+  "bin": "./dist/cli/index.js",
+  "scripts": {
+    "lint": "eslint ./src --ext .ts,tsx",
+    "build:esbuild": "rimraf dist && node ./esbuild.js",
+    "build:esbuild:watch": "rimraf dist && node ./esbuild.js watch",
+    "build:ts": "tsc",
+    "build:ts:watch": "tsc --watch",
+    "build:watch": "concurrently \"yarn build:esbuild:watch\" \"yarn build:ts:watch\"",
+    "build": "rimraf dist && yarn build:esbuild && yarn build:ts"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "commitizen": "^4.2.4",
+    "concurrently": "^7.0.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "esbuild": "^0.14.27",
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.29.4",
+    "get-port": "^6.1.2",
+    "next": "12.1.1",
+    "prettier": "^2.6.1",
+    "react": "^18.0.0",
+    "react-dom": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^19.0.2",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "cli-progress": "^3.10.0",
+    "get-port-please": "^2.4.3",
+    "merge-anything": "^5.0.2",
+    "object-merge-advanced": "^13.0.12",
+    "ora": "^6.1.0",
+    "puppeteer": "^13.5.1",
+    "tasuku": "^1.0.2",
+    "webpack": "^5.70.0",
+    "webpack-shell-plugin-next": "^2.2.2"
+  }
+}
