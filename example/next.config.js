@@ -3,5 +3,7 @@
 const { withBannerOptions } = require("next-banner");
 
 module.exports = withBannerOptions({
-  domain: "example.com",
+  nextBanner: {
+    domain: "example.com",
+  },
 });

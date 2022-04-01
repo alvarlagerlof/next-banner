@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { OUTPUT_DIR } from "../constants";
 import getConfig from "next/config";
 
 interface ProviderProps {
@@ -12,18 +11,19 @@ interface ProviderProps {
 export default function Provider({ children }: ProviderProps): JSX.Element {
   const { asPath } = useRouter();
 
-  const getUrl = (baseUrl: string, path: string) => {
-    return `${baseUrl}/${OUTPUT_DIR}/${
-      path == "/" ? "index" : path.replace("/", "")
-    }.png`;
-  };
-  const { publicRuntimeConfig } = getConfig();
-  const domain = publicRuntimeConfig.nextBannerOptions.domain;
+  const {
+    publicRuntimeConfig: {
+      nextBannerOptions: { domain, outputDir },
+    },
+  } = getConfig();
+
+  // Replace "/" with "index"
+  const url = `${domain}/${outputDir}/${asPath == "/" ? "index" : asPath.replace("/", "")}.jpg`;
 
   return (
     <>
       <Head>
-        <meta property="og:image" content={getUrl(domain, asPath)} />
+        <meta property="og:image" content={url} />
       </Head>
 
       {children}

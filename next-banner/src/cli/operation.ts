@@ -1,13 +1,15 @@
 import fs from "node:fs";
 
 import { Page } from "puppeteer";
-import { DEFAULT_LAYOUT, OUTPUT_DIR } from "../constants";
+import { DEFAULT_LAYOUT } from "../constants";
 import { Custom, Meta, DataWithLayout } from "../types";
-import { getConfig } from "./config";
+import { getConfig } from "../config";
 import { getPath } from "./file";
 import { Logs } from "./types";
 
-class PuppeteerRun {
+const { outputDir, width, height } = getConfig();
+
+class BasePuppeteerOperation {
   page: Page;
   logs: Logs;
 
@@ -36,7 +38,7 @@ class PuppeteerRun {
   }
 }
 
-export class ExtractData extends PuppeteerRun {
+export class ExtractData extends BasePuppeteerOperation {
   async extract(): Promise<DataWithLayout> {
     const meta = await this.extractMeta();
     const custom = await this.extractCustom();
@@ -60,22 +62,22 @@ export class ExtractData extends PuppeteerRun {
 
   private async extractCustom(): Promise<Custom> {
     return await this.page.evaluate(() => {
-      return (window.NextBannerPayload?.custom as Custom) ?? ({} as Custom);
+      return (window.NextBannerData?.custom as Custom) ?? ({} as Custom);
     });
   }
 
   private async extractLayout(): Promise<string> {
     return await this.page.evaluate((DEFAULT_LAYOUT) => {
-      return (window.NextBannerPayload?.layout as string) ?? DEFAULT_LAYOUT;
+      return (window.NextBannerData?.layout as string) ?? DEFAULT_LAYOUT;
     }, DEFAULT_LAYOUT);
   }
 }
 
-export class CaptureScreenshot extends PuppeteerRun {
+export class CaptureScreenshot extends BasePuppeteerOperation {
   async insertData({ layout, meta, custom }: DataWithLayout) {
     await this.page.evaluateOnNewDocument(
       async (layout, meta, custom) => {
-        window.NextBannerPayload = {
+        window.NextBannerData = {
           layout,
           meta,
           custom,
@@ -88,8 +90,6 @@ export class CaptureScreenshot extends PuppeteerRun {
   }
 
   async capture(route: string) {
-    const { width, height } = getConfig();
-
     await this.page.setViewport({
       width,
       height,
@@ -106,10 +106,10 @@ export class CaptureScreenshot extends PuppeteerRun {
 }
 
 function getOutput(route: string) {
-  const outputFolder = `public/${OUTPUT_DIR}`;
+  const outputFolder = `public/${outputDir}`;
   const indexFixedRoute = route === "/" ? "index" : route.replace("/", "");
 
-  const file = `${outputFolder}/${indexFixedRoute}.png`;
+  const file = `${outputFolder}/${indexFixedRoute}.jpg`;
   const folder = file.replace(/\/[^/]+$/, "");
 
   return {

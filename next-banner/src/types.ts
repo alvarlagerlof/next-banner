@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    NextBannerPayload: DataWithLayout;
+    NextBannerData: DataWithLayout;
     NextBannerConfig: BannerConfig;
   }
 }
@@ -22,6 +22,9 @@ export type DataWithLayout = Data & { layout: string };
 export interface BannerConfig {
   domain: string;
   excludePages: [];
+  nextDir: string;
+  layoutDir: string;
+  outputDir: string;
   width: number;
   height: number;
   concurrency: number;

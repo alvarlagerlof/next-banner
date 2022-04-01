@@ -9,10 +9,11 @@ import getNextServer from "./runtime/nextServer";
 import getRoutes from "./routes";
 
 import { CaptureScreenshot, ExtractData } from "./operation";
-import { LAYOUT_DIR } from "../constants";
-import { getConfig } from "./config";
+import { getConfig } from "../config";
 
 (async function generate() {
+  const { layoutDir, concurrency } = getConfig();
+
   await task("Starting", async ({ task }) => {
     return await task.group(
       (task) => [
@@ -44,7 +45,7 @@ import { getConfig } from "./config";
           const logs: LogsWithRoute = [];
 
           async function doWork(iterator) {
-            for (const [index, route] of iterator) {
+            for (const [, route] of iterator) {
               const nestedTask = await task(`Route: ${route}`, async () => {
                 const extractData = new ExtractData(await browser.newPage());
                 await extractData.loadUrl(`http://localhost:${server.port}${route}`);
@@ -53,7 +54,7 @@ import { getConfig } from "./config";
 
                 const captureScreenshot = new CaptureScreenshot(await browser.newPage());
                 await captureScreenshot.insertData({ layout, meta, custom });
-                await captureScreenshot.loadUrl(`http://localhost:${server.port}/${LAYOUT_DIR}/${layout}`);
+                await captureScreenshot.loadUrl(`http://localhost:${server.port}/${layoutDir}/${layout}`);
                 await captureScreenshot.capture(route);
                 await captureScreenshot.close();
 
@@ -70,7 +71,6 @@ import { getConfig } from "./config";
 
           // Starts n workers sharing the same iterator
           const iterator = routes.entries();
-          const { concurrency } = getConfig();
           const workers = new Array(concurrency).fill(iterator).map(doWork);
           await Promise.allSettled(workers);
 

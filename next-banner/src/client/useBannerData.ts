@@ -5,10 +5,10 @@ export function useBannerData(): Data {
   const [data, setData] = useState<Data>({ meta: {}, custom: {} });
 
   useEffect(() => {
-    if (typeof window !== "undefined" && typeof window.NextBannerPayload !== "undefined") {
+    if (typeof window !== "undefined" && typeof window.NextBannerData !== "undefined") {
       setData({
-        meta: window.NextBannerPayload.meta,
-        custom: window.NextBannerPayload.custom,
+        meta: window.NextBannerData.meta,
+        custom: window.NextBannerData.custom,
       });
     }
   }, []);
