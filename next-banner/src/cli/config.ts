@@ -10,11 +10,14 @@ const defaultConfig: Partial<BannerConfig> = {
   excludePages: [],
   width: 1200,
   height: 630,
-  concurrency: 5,
+  concurrency: 10,
 };
 
 function getConfig(): BannerConfig {
   const config = loadFile<Partial<BannerConfig>>(getPath(`./${CONFIG_FILE}`));
+
+  // console.log("is", config);
+
   return mergeWithDefault(defaultConfig, config);
 }
 
@@ -29,4 +32,4 @@ function mergeWithDefault(
   return merge(current, next) as BannerConfig;
 }
 
-export default getConfig;
+export { getConfig, mergeWithDefault, defaultConfig };

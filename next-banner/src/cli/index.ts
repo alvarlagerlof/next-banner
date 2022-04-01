@@ -2,7 +2,7 @@
 
 import task from "tasuku";
 
-import { Logs, LogsWithRoute } from "./types";
+import { LogsWithRoute } from "./types";
 
 import getBrowser from "./runtime/browser";
 import getNextServer from "./runtime/nextServer";
@@ -10,7 +10,7 @@ import getRoutes from "./routes";
 
 import { CaptureScreenshot, ExtractData } from "./operation";
 import { LAYOUT_DIR } from "../constants";
-import getConfig from "./config";
+import { getConfig } from "./config";
 
 (async function generate() {
   await task("Starting", async ({ task }) => {
@@ -70,6 +70,9 @@ import getConfig from "./config";
 
           // Starts n workers sharing the same iterator
           const iterator = routes.entries();
+
+          // console.log("cli index", getConfig());
+
           const { concurrency } = getConfig();
           const workers = new Array(concurrency).fill(iterator).map(doWork);
           await Promise.allSettled(workers);

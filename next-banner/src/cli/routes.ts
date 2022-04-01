@@ -1,5 +1,5 @@
 import { getPath, loadFile } from "./file";
-import getConfig from "./config";
+import { getConfig } from "./config";
 import { BuildManifest, NextManifest, PreRenderManifest } from "./types";
 import { LAYOUT_DIR as BANNER_DIR } from "../constants";
 
@@ -8,20 +8,14 @@ const config = getConfig();
 async function getRoutes(): Promise<string[]> {
   const MANIFESETS: NextManifest = {
     build: loadFile<BuildManifest>(getPath(".next", "build-manifest.json")),
-    preRender: loadFile<PreRenderManifest>(
-      getPath(getPath(".next", "prerender-manifest.json"))
-    ),
+    preRender: loadFile<PreRenderManifest>(getPath(getPath(".next", "prerender-manifest.json"))),
   };
 
-  const staticRoutes: string[] = Object.keys(
-    MANIFESETS?.build?.pages ?? []
-  ).map((key) => {
+  const staticRoutes: string[] = Object.keys(MANIFESETS?.build?.pages ?? []).map((key) => {
     return key as string;
   });
 
-  const dynamicRoutes: string[] = Object.keys(
-    MANIFESETS?.preRender?.routes ?? []
-  ).map((key) => {
+  const dynamicRoutes: string[] = Object.keys(MANIFESETS?.preRender?.routes ?? []).map((key) => {
     return key as string;
   });
 
@@ -30,13 +24,7 @@ async function getRoutes(): Promise<string[]> {
 
 async function filter(routes: string[]): Promise<string[]> {
   const builtIn = (route: string): boolean => {
-    return ![
-      "/_app",
-      "/_error",
-      "/500",
-      "/404",
-      ...config.excludePages,
-    ].includes(route);
+    return !["/_app", "/_error", "/500", "/404", ...config.excludePages].includes(route);
   };
 
   const dynamic = (route: string): boolean => {
