@@ -18,7 +18,7 @@ const defaultConfig: BannerConfig = {
 };
 
 async function getConfig(): Promise<BannerConfig> {
-  return (await loadFile<BannerConfig>(getPath(`./${CONFIG_FILE}`))) as BannerConfig;
+  return (await loadFile<BannerConfig>(getPath(`./${CONFIG_FILE}`))) ?? defaultConfig;
 }
 
 type CombinedConfig = { nextBanner: Partial<BannerConfig> } & NextConfig;
