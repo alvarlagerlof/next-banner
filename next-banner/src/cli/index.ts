@@ -70,9 +70,6 @@ import { getConfig } from "./config";
 
           // Starts n workers sharing the same iterator
           const iterator = routes.entries();
-
-          // console.log("cli index", getConfig());
-
           const { concurrency } = getConfig();
           const workers = new Array(concurrency).fill(iterator).map(doWork);
           await Promise.allSettled(workers);

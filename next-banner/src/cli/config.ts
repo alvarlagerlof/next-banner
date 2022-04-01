@@ -16,8 +16,6 @@ const defaultConfig: Partial<BannerConfig> = {
 function getConfig(): BannerConfig {
   const config = loadFile<Partial<BannerConfig>>(getPath(`./${CONFIG_FILE}`));
 
-  // console.log("is", config);
-
   return mergeWithDefault(defaultConfig, config);
 }
 
