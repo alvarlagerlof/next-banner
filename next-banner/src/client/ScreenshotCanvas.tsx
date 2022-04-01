@@ -7,14 +7,12 @@ interface ScreenshotCanvasProps {
   children: React.ReactNode;
 }
 
-export default function ScreenshotCanvas({
-  style,
-  className,
-  children,
-}: ScreenshotCanvasProps): JSX.Element {
-  const { publicRuntimeConfig } = getConfig();
-  const width = publicRuntimeConfig.nextBannerOptions.width;
-  const height = publicRuntimeConfig.nextBannerOptions.height;
+export default function ScreenshotCanvas({ style, className, children }: ScreenshotCanvasProps): JSX.Element {
+  const {
+    publicRuntimeConfig: {
+      nextBannerOptions: { width, height },
+    },
+  } = getConfig();
 
   return (
     <div
