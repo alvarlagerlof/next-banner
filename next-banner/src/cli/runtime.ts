@@ -1,6 +1,9 @@
 import puppeteer, { Browser } from "puppeteer";
+import { spawn } from "child_process";
+import getPort from "get-port";
+import { ChildProcess } from "child_process";
 
-async function getBrowser(): Promise<Browser> {
+async function startBrowser(): Promise<Browser> {
   const minimal_args = [
     "--autoplay-policy=user-gesture-required",
     "--disable-background-networking",
@@ -40,7 +43,7 @@ async function getBrowser(): Promise<Browser> {
   ];
 
   const browser = await puppeteer.launch({
-    headless: true,
+    // eadless: false,
     // devtools: true,
     args: minimal_args,
   });
@@ -48,4 +51,38 @@ async function getBrowser(): Promise<Browser> {
   return browser;
 }
 
-export default getBrowser;
+export interface NextServer {
+  port: number;
+  serverProcess: ChildProcess;
+}
+
+async function startNextServer(): Promise<NextServer> {
+  const port = await getPort();
+
+  return new Promise((resolve, reject) => {
+    const serverProcess = spawn("yarn", ["start", "-p", port.toString()], {});
+
+    serverProcess.stdout?.on("data", (data) => {
+      if (data.toString().includes("started server on")) {
+        resolve({
+          serverProcess,
+          port,
+        });
+      }
+    });
+
+    serverProcess.stderr?.on("data", (data) => {
+      reject(new Error(`stderr: ${data}`));
+    });
+
+    serverProcess.on("error", (error) => {
+      reject(new Error(`error: ${error.message}`));
+    });
+
+    serverProcess.on("close", (code) => {
+      reject(new Error(`child process exited with code ${code}`));
+    });
+  });
+}
+
+export { startBrowser, startNextServer };
