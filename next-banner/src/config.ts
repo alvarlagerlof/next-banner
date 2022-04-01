@@ -26,14 +26,15 @@ type CombinedConfig = { nextBanner: Partial<BannerConfig> } & NextConfig;
 /**
  * Sets layout and custom data for the banner.
  * @constructor
- * @param {CombinedConfig} options - Next.js and Banner configuration
+ * @param {CombinedConfig} config - Next.js and Banner configuration
  */
 
-function withBannerOptions(options: CombinedConfig) {
+function withBannerConfig(config: CombinedConfig) {
   const file = getPath(CONFIG_FILE);
-  const merged = merge(defaultConfig, options.nextBanner);
+  const merged = merge(defaultConfig, config.nextBanner);
   const json = JSON.stringify(merged, null, 2);
 
+  // Write config to file to be able to use it in the cli
   try {
     fs.writeFileSync(file, json);
   } catch (err) {
@@ -41,12 +42,12 @@ function withBannerOptions(options: CombinedConfig) {
   }
 
   return {
-    ...options,
+    ...config,
     publicRuntimeConfig: {
-      ...options.publicRuntimeConfig,
+      ...config.publicRuntimeConfig,
       nextBannerOptions: merged,
     },
   };
 }
 
-export { getConfig, withBannerOptions };
+export { getConfig, withBannerConfig };

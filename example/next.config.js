@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 
-const { withBannerOptions } = require("next-banner");
+const { withBannerConfig } = require("next-banner");
 
-module.exports = withBannerOptions({
+module.exports = withBannerConfig({
   nextBanner: {
     domain: "example.com",
   },
