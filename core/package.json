@@ -75,7 +75,7 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "get-port-please": "^2.4.3",
+    "get-port": "^6.1.2",
     "merge-anything": "^5.0.2",
     "puppeteer": "^13.5.1",
     "tasuku": "^1.0.2"

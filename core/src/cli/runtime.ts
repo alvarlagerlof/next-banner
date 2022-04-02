@@ -1,6 +1,6 @@
 import puppeteer, { Browser } from "puppeteer";
 import { spawn } from "child_process";
-import { getPort } from "get-port-please";
+import getPort from "get-port";
 import { ChildProcess } from "child_process";
 
 async function startBrowser(): Promise<Browser> {
