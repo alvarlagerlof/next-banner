@@ -8,7 +8,7 @@ interface BannerMetaProps {
   children: React.ReactNode;
 }
 
-export default function BannerMeta({ children }: BannerMetaProps): JSX.Element {
+export default function NextBannerMeta({ children }: BannerMetaProps): JSX.Element {
   const { asPath } = useRouter();
 
   const {
