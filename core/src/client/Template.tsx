@@ -3,13 +3,11 @@ import { ScreenshotCanvas } from ".";
 import { useBannerData } from ".";
 
 interface TemplateProps {
-  siteName?: string;
   backgroundColor?: string;
   textColor?: string;
 }
 
 export default function Template({
-  siteName = "Placeholder site name",
   backgroundColor = "#d9ebff",
   textColor = "#000000",
 }: TemplateProps): JSX.Element {
@@ -35,16 +33,6 @@ export default function Template({
         }}
       >
         <img src="/favicon.ico" alt="" style={{ width: "50px", height: "50px" }} />
-        <p
-          style={{
-            fontSize: "2.4em",
-            fontWeight: 700,
-            color: textColor,
-            margin: 0,
-          }}
-        >
-          {siteName}
-        </p>
       </div>
 
       <p
