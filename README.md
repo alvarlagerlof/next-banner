@@ -1,8 +1,6 @@
 ![Logo](banner.png)
 
-**READ: I AM IM THE PROCESS OF MAKING A NEW API. It's working but not pushed and documenting. It's much simpler to implement. If you want to know more, contact me.**
-
-# Next Opengraph Image
+# Next Banner
 
 Generate opengraph images (og:image) at build using Puppeteer.
 
@@ -45,107 +43,118 @@ Add this to your scripts in package.json
 
 ### Configuration
 
-The config file is called `next-banner.json` and may be placed at the root of your directory. You do not need it unless you want to change any of the options.
+Edit `next.config.js` to wrap wrap the config with `withNextBanner`. The domain property is needed for some social media sites to render the images.
 
-```json
-{
-  "sourceDir": ".next",
-  "excludePages": [],
-  "width": 1200,
-  "height": 630
-}
-```
 
-### Setup on pages
+```js
+const { withNextBanner } = require("next-banner");
 
-First, you need to import and use the `useOgImage` hook on every page. If you have many, I recommend making a wrapper around that takes in your desired data and uses the hook.
-
-The base url is needed because some social media platforms prefix the domain to the url and fail to load the og:image.
-
-You may also want to add `<meta name="twitter:card" content="summary_large_image">` in your `_document` or `_app` to make the image larger in the preview.
-
-```jsx
-// Step 1
-import { useOgImage } from "next-banner";
-
-export default function Home() {
-  // Step 2
-  const ogImage = useOgImage({
-    baseUrl: "https://example.com"
-  });
-
-  return (
-    <div>
-      <Head>
-        <title>...</title>
-        <meta name="description" content="..." />
-        <link rel="icon" href="/favicon.ico" />
-
-        // Step 3
-        <meta {...ogImage} />
-      </Head>
-      ...
-  )
-}
-```
-
-By default, the page title and meta description tag will be picked up, included, and sent as data to the layout pages. If you want to include custom data, use the hook like this.
-
-```jsx
-const ogImage = useOgImage({
-  baseUrl: "https://example.com",
-  data: {
-    /* anything here */
+module.exports = withNextBanner({
+  nextBanner: {
+    domain: "example.com",
   },
+  // ... normal Next.js config here.
 });
-```
 
-You can also specify a custom layout like this.
-
-```jsx
-const ogImage = useOgImage({
-  baseUrl: "https://example.com",
-  layout: "blogpost",
-});
 ```
 
 ### Layout files
 
-Create a folder called `_banner` in your `/pages` folder. Then create a file called `default.js` there.
+Create a folder called `next-banner-layouts/` in your `pages/` folder. Then create a file called `default.js` there and add the following code:
 
-An example of a layout file looks like this. Notice the fixed CSS position and size. If you have styles in your `_app` (which affects all pages) you may need something like this.
+```js
+import { Template } from "next-banner";
 
-The placeholder is used in development and should match what is returned from the hook. In production, it returns whatever data was extracted from the actual or the useOgImage hook data.
+export default Template;
+```
 
+
+### Custom layotus
+
+To use a custom layout you first need to declare that a page should render another layout using hte `setBannerData` hook.
+
+
+pages/post.jsx
 ```jsx
-export default function Default() {
-  const { title, description } = useData({
-    placeholder: {
-      title: "Placeholder title",
-      description: "Placeholder description",
-    },
-  });
+import { setBannerData } from "next-banner";
+
+function PostPage() {
+  setBannerData({
+    layout: "post" // This is the name of the layout file.
+  })
 
   return (
-    <div
-      style={{
-        padding: "100px",
-        background: "#ededed",
-        width: "1200px",
-        height: "630px",
-        position: "fixed",
-        top: "0",
-        left: "0",
-      }}
-    >
-      <img src="/vercel.svg" alt="" style={{ marginBottom: "70px" }} />
+    ...
+  )
+}
 
-      <div>
-        <h1 style={{ fontSize: "5em" }}>{title}</h1>
-        <h2 style={{ fontSize: "2em" }}>{description}</h2>
-      </div>
+```
+
+Then you need a layout file. Notice the default (`=`) parameters in the desctructuring. This helps during local development. In production, the hook will return the real data. But locally, data has not been extracted from the pages.
+
+pages/next-banner-layouts/post.jsx
+```jsx
+export default function PostLayout() {
+  const {
+    title = "Placeholder title",
+    description = "Placeholder description"
+  } = useBannerData();
+
+  return (
+    <ScreenshotCanvas>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          gap: "20px",
+          marginBlockEnd: "30px",
+        }}
+      >
+        <img src="/favicon.ico" alt="" style={{ marginBottom: "70px" }} />
+
+        <div>
+          <h1 style={{ fontSize: "5em" }}>{title}</h1>
+          <h2 style={{ fontSize: "2em" }}>{description}</h2>
+        </div>
     </div>
+  </ScreenshotCanvas>
   );
+}
+```
+
+### Custom data
+
+If you want to add any extra data besides the meta title and description, you can do so with a the `setBannerData` on the normal (non-layout) page.
+
+```jsx
+import { setBannerData } from "next-banner";
+
+function ImagePage() {
+  setBannerData({
+    custom: {
+      image: "https://example.com/image.jpg"
+    }
+  })
+}
+
+```
+
+It can then be accessed in layout files using `useBannerData`.
+
+```jsx
+import { useBannerData } from "next-banner"
+
+function ImageLayout() {
+  const {
+    custom: {
+      image
+    }
+  } = useBannerData()
+
+  return (
+    ... // Your layout here.
+  )
 }
 ```
 
