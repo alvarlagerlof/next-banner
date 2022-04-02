@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import task from "tasuku";
-import fs from "node:fs";
 
 import { startBrowser, startNextServer } from "./runtime";
 import readRoutes from "./routes";
