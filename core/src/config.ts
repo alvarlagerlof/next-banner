@@ -10,7 +10,7 @@ const defaultConfig: BannerConfig = {
   nextDir: ".next",
   excludePages: [],
   layoutDir: "next-banner-layouts",
-  outputDir: "next-banner-output",
+  outputDir: "next-banner-generated",
   width: 1200,
   height: 630,
   concurrency: 10,
