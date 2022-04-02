@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "outDir": "dist ",
+    "outDir": "dist",
     "jsx": "react",
     "isolatedModules": true,
     "useUnknownInCatchVariables": false
