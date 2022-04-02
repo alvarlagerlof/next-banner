@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Data } from "../types";
 
-export function useBannerData(): Data {
+export default function useBannerData(): Data {
   const [data, setData] = useState<Data>({ meta: {}, custom: {} });
 
   useEffect(() => {
-    if (typeof window !== "undefined" && typeof window.NextBannerData !== "undefined") {
+    if (typeof globalThis !== "undefined" && typeof globalThis.NextBannerData !== "undefined") {
       setData({
-        meta: window.NextBannerData.meta,
-        custom: window.NextBannerData.custom,
+        meta: globalThis.NextBannerData.meta,
+        custom: globalThis.NextBannerData.custom,
       });
     }
   }, []);

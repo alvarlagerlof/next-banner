@@ -59,13 +59,13 @@ export class ExtractData extends BasePuppeteerOperation {
 
   private async extractCustom(): Promise<Custom> {
     return await this.page.evaluate(() => {
-      return (window.NextBannerData?.custom as Custom) ?? ({} as Custom);
+      return (globalThis.NextBannerData?.custom as Custom) ?? ({} as Custom);
     });
   }
 
   private async extractLayout(): Promise<string> {
     return await this.page.evaluate((DEFAULT_LAYOUT) => {
-      return (window.NextBannerData?.layout as string) ?? DEFAULT_LAYOUT;
+      return (globalThis.NextBannerData?.layout as string) ?? DEFAULT_LAYOUT;
     }, DEFAULT_LAYOUT);
   }
 }
@@ -74,7 +74,7 @@ export class CaptureScreenshot extends BasePuppeteerOperation {
   async insertData({ layout, meta, custom }: DataWithLayout) {
     await this.page.evaluateOnNewDocument(
       async (layout, meta, custom) => {
-        window.NextBannerData = {
+        globalThis.NextBannerData = {
           layout,
           meta,
           custom,

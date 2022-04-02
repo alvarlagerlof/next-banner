@@ -17,6 +17,7 @@ export default function ScreenshotCanvas({ style, className, children }: Screens
   return (
     <div
       className={className}
+      id="next-banner-screenshot-canvas"
       style={{
         width,
         height,

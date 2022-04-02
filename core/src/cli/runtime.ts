@@ -1,6 +1,6 @@
 import puppeteer, { Browser } from "puppeteer";
 import { spawn } from "child_process";
-import getPort from "get-port";
+import { getPort } from "get-port-please";
 import { ChildProcess } from "child_process";
 
 async function startBrowser(): Promise<Browser> {
@@ -8,7 +8,7 @@ async function startBrowser(): Promise<Browser> {
     "--autoplay-policy=user-gesture-required",
     "--disable-background-networking",
     "--disable-background-timer-throttling",
-    "--disable-backgrounding-occluded-windows",
+    "--disable-backgrounding-occluded-globalThiss",
     "--disable-breakpad",
     "--disable-client-side-phishing-detection",
     "--disable-component-update",

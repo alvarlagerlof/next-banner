@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-    braches:
+    braaaaches:
       - main
       - beta
       - next
@@ -29,8 +29,8 @@ jobs:
       - name: Lint
         run: yarn lint
 
-      # - name: Test
-      #   run: yarn lint
+      - name: Test
+        run: yarn test
 
   publish:
     name: "Publish Module to NPM"

@@ -1,5 +1,5 @@
 declare global {
-  interface Window {
+  interface globalThis {
     NextBannerData: DataWithLayout;
     NextBannerConfig: BannerConfig;
   }

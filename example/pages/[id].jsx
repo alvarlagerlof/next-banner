@@ -3,8 +3,11 @@ import Head from "next/head";
 import { setBannerData } from "next-banner";
 
 export default function Post({ title, body, image }) {
-  setBannerData("post", {
-    image,
+  setBannerData({
+    layout: "post",
+    custom: {
+      image,
+    },
   });
 
   return (
