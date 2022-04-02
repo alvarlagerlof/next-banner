@@ -8,7 +8,6 @@ import readRoutes from "./routes";
 
 import { CaptureScreenshot, ExtractData } from "./operation";
 import { getConfig } from "../config";
-import { getPath } from "./file";
 
 export type LogsWithRoute = Array<{ route: string; message: string }>;
 
