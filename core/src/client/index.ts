@@ -1,4 +1,4 @@
-import Provider from "./Provider";
+import BannerMeta from "./BannerMeta";
 import Template from "./Template";
 import ScreenshotCanvas from "./ScreenshotCanvas";
 
@@ -7,4 +7,4 @@ import setBannerData from "./setBannerData";
 
 import { withNextBanner } from "../config";
 
-export { Provider, Template, ScreenshotCanvas, useBannerData, setBannerData, withNextBanner };
+export { BannerMeta, Template, ScreenshotCanvas, useBannerData, setBannerData, withNextBanner };

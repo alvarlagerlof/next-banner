@@ -4,11 +4,11 @@ import { useRouter } from "next/router";
 
 import getConfig from "next/config";
 
-interface ProviderProps {
+interface BannerMetaProps {
   children: React.ReactNode;
 }
 
-export default function Provider({ children }: ProviderProps): JSX.Element {
+export default function BannerMeta({ children }: BannerMetaProps): JSX.Element {
   const { asPath } = useRouter();
 
   const {
