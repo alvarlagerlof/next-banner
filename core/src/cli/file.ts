@@ -1,22 +1,17 @@
 import path from "path";
-import fs from "fs";
+import fs from "fs/promises";
 
 function getPath(...pathSegment: string[]): string {
   return path.resolve(process.cwd(), ...pathSegment);
 }
 
-function loadFile<T>(path: string): Promise<T | undefined> {
-  return new Promise((resolve, reject) => {
-    fs.readFile(path, (err, file) => {
-      if (err || !file) {
-        reject(err);
-      }
-
-      const json: T = JSON.parse(file.toString()) as T;
-
-      resolve(json);
-    });
-  });
+async function loadFile<T>(path: string): Promise<T | undefined> {
+  try {
+    const file = await fs.readFile(path);
+    return JSON.parse(file.toString()) as T;
+  } catch (e) {
+    throw Error(e);
+  }
 }
 
 export { getPath, loadFile };
