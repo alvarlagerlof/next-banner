@@ -18,7 +18,7 @@ const defaultConfig: BannerConfig = {
 };
 
 async function getConfig(): Promise<BannerConfig> {
-  return (await loadFile<BannerConfig>(getPath(`./${CONFIG_FILE}`))) ?? defaultConfig;
+  return (await loadFile<BannerConfig>(getPath(`./${CONFIG_FILE}`))) as BannerConfig;
 }
 
 type CombinedConfig = { nextBanner: Partial<BannerConfig> } & NextConfig;
@@ -30,12 +30,13 @@ type CombinedConfig = { nextBanner: Partial<BannerConfig> } & NextConfig;
  */
 
 function withBannerConfig(config: CombinedConfig) {
-  const file = getPath(CONFIG_FILE);
-  const merged = merge(defaultConfig, config.nextBanner);
-  const json = JSON.stringify(merged, null, 2);
-
   // Write config to file to be able to use it in the cli
+  const merged = merge(defaultConfig, config.nextBanner);
+
   try {
+    const file = getPath(CONFIG_FILE);
+    const json = JSON.stringify(merged, null, 2);
+
     fs.writeFileSync(file, json);
   } catch (err) {
     console.error(err);

@@ -8,7 +8,7 @@ function getPath(...pathSegment: string[]): string {
 function loadFile<T>(path: string): Promise<T | undefined> {
   return new Promise((resolve, reject) => {
     fs.readFile(path, (err, file) => {
-      if (err) {
+      if (err || !file) {
         reject(err);
       }
 

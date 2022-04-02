@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 
 import task from "tasuku";
+import fs from "node:fs";
 
 import { startBrowser, startNextServer } from "./runtime";
 import readRoutes from "./routes";
 
 import { CaptureScreenshot, ExtractData } from "./operation";
 import { getConfig } from "../config";
+import { getPath } from "./file";
+import { CONFIG_FILE } from "../constants";
 
 export type LogsWithRoute = Array<{ route: string; message: string }>;
 
@@ -75,6 +78,9 @@ export type LogsWithRoute = Array<{ route: string; message: string }>;
 
           // Shut down processes
         }).finally(async () => {
+          fs.unlink(getPath(CONFIG_FILE), (err) => {
+            if (err) throw err;
+          });
           await browser.close();
           server.serverProcess.kill("SIGINT");
         });
