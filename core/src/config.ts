@@ -3,7 +3,6 @@ import fs from "node:fs";
 import { BannerConfig } from "./types";
 import { loadFile } from "./cli/file";
 import { getPath } from "./cli/file";
-import { CONFIG_FILE } from "./constants";
 import { NextConfig } from "next/types";
 
 const defaultConfig: BannerConfig = {
@@ -17,6 +16,8 @@ const defaultConfig: BannerConfig = {
   concurrency: 10,
 };
 
+const CONFIG_FILE = "node_modules/.next-banner.json";
+
 async function getConfig(): Promise<BannerConfig> {
   return (await loadFile<BannerConfig>(getPath(`./${CONFIG_FILE}`))) as BannerConfig;
 }
@@ -29,21 +30,24 @@ type CombinedConfig = { nextBanner: Partial<BannerConfig> } & NextConfig;
  * @param {CombinedConfig} config - Next.js and Banner configuration
  */
 
-function withBannerConfig(config: CombinedConfig) {
+function withNextBanner(config: CombinedConfig) {
   // Write config to file to be able to use it in the cli
   const merged = merge(defaultConfig, config.nextBanner);
 
-  try {
-    const file = getPath(CONFIG_FILE);
-    const json = JSON.stringify(merged, null, 2);
-
-    fs.writeFileSync(file, json);
-  } catch (err) {
-    console.error(err);
-  }
-
   return {
     ...config,
+    webpack: (webpackConfig) => {
+      try {
+        const file = getPath(CONFIG_FILE);
+        const json = JSON.stringify(merged, null, 2);
+
+        fs.writeFileSync(file, json);
+      } catch (err) {
+        console.error(err);
+      }
+
+      return webpackConfig;
+    },
     publicRuntimeConfig: {
       ...config.publicRuntimeConfig,
       nextBannerOptions: merged,
@@ -51,4 +55,4 @@ function withBannerConfig(config: CombinedConfig) {
   };
 }
 
-export { getConfig, withBannerConfig };
+export { getConfig, withNextBanner };

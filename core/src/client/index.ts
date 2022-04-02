@@ -5,6 +5,6 @@ import ScreenshotCanvas from "./ScreenshotCanvas";
 import { useBannerData } from "./useBannerData";
 import setBannerData from "./setBannerData";
 
-import { withBannerConfig } from "../config";
+import { withNextBanner } from "../config";
 
-export { Provider, Template, ScreenshotCanvas, useBannerData, setBannerData, withBannerConfig };
+export { Provider, Template, ScreenshotCanvas, useBannerData, setBannerData, withNextBanner };

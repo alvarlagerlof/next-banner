@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 
-const { withBannerConfig } = require("next-banner");
+const { withNextBanner } = require("next-banner");
 
-module.exports = withBannerConfig({
+module.exports = withNextBanner({
   nextBanner: {
     domain: "next-banner-alvarlagerlof.vercel.app",
   },
