@@ -2,26 +2,26 @@
 
 # Next Banner
 
-Generate opengraph images (og:image) at build using Puppeteer.
+Generate Open Graph images (og:image) at build using Puppeteer.
 
-## What is an opengraph image?
+## What is an Open Graph image?
 
 Open Graph is a protocol for structured metadata for websites. Part of that is a specification for preview images referred to as "og:image". When using that, your website gets a nice preview in social media and messaging apps. For an example, check out [ogimage.gallery](https://www.ogimage.gallery/).
 
 ## Why this library?
 
-You might think you can design an images in Figma. This is entirely doable, but quickly becomes tedious if you have a lot of pages (like blog posts) or want to change the design. Generating images is much more effective.
+You might just design images in Figma. This is doable, but quickly becomes tedious if you have a lot of pages (like blog posts) or want to change the design. Generating images is much more effective.
 
-Most currently existing solutions run on-demand either in a serverless function or in a service. This is wasteful and could be expensive if demand is high. For example, cold starting puppeteer to take a screenshot of the page can take 8s per visitor. To counteract this, a CDN can be used, which further increases the amount of things needing setup.
+Most currently existing solutions run on-demand either in a serverless function or in a service. This is wasteful and could be expensive if demand is high. For example, cold starting Puppeteer to take a screenshot of the page can take 8s per visitor. To counteract this, a CDN can be used, which further increases the amount of things needing setup.
 
 With next-banner, none of that is needed. In true Jamstack fashion, this library generates images at build, using existing infrastructure that you already have.
 
 ## Features
 
 - **Speed.** It uses Puppeteer to render pages, but only on instance, meaning there is only one cold start. On an M1, 100 pages are rendered and captured in 18s.
-- **Simple setup.** Does not require you to touch puppeteer, CDNs, or serverless functions.
+- **Simple setup.** Does not require you to touch Puppeteer, CDNs, or serverless functions.
 - **Render using React.** Your images are captured pages that you code in React just like you are used to. No SVGs or special template languages.
-- **Multuple layouts.** You could have one layout for a start page and another for blog posts.
+- **Multiple layouts.** You could have one layout for a start page and another for blog posts.
 - **Pass any data.** Page title and meta description is passed to the layout pages by default, but you can include any data in any structure you want.
 
 ## Usage
@@ -87,7 +87,7 @@ export default Template;
 ```
 
 
-### Custom layotus
+### Custom layouts
 
 To use a custom layout you first need to declare that a page should render another layout using hte `setBannerData` hook.
 
@@ -108,7 +108,7 @@ function PostPage() {
 
 ```
 
-Then you need a layout file. Notice the default (`=`) parameters in the desctructuring. This helps during local development. In production, the hook will return the real data. But locally, data has not been extracted from the pages.
+Then you need a layout file. Notice the default (`=`) parameters in the destructuring. This helps during local development. In production, the hook will return the real data. But locally, data has not been extracted from the pages.
 
 pages/next-banner-layouts/post.jsx
 ```jsx
