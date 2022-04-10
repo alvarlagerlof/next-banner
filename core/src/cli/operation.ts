@@ -19,6 +19,7 @@ class BasePuppeteerOperation {
 
   async loadUrl(url: string) {
     await this.page.goto(url, {
+      timeout: 0,
       waitUntil: "networkidle0",
     });
   }
