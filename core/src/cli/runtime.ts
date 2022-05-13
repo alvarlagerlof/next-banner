@@ -1,7 +1,6 @@
 import puppeteer, { Browser } from "puppeteer";
-import { spawn } from "child_process";
+import { spawn, ChildProcess } from "cross-spawn";
 import getPort from "get-port";
-import { ChildProcess } from "child_process";
 
 async function startBrowser(): Promise<Browser> {
   const minimal_args = [
@@ -43,7 +42,7 @@ async function startBrowser(): Promise<Browser> {
   ];
 
   const browser = await puppeteer.launch({
-    // eadless: false,
+    // headless: false,
     // devtools: true,
     args: minimal_args,
   });
