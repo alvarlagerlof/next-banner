@@ -10,7 +10,7 @@ export interface Meta {
   description?: string;
 }
 
-export type Custom = Record<string, any>;
+export type Custom = Record<string, never>;
 
 export interface Data {
   meta: Meta;
