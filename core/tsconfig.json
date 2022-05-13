@@ -12,7 +12,8 @@
     "outDir": "dist",
     "jsx": "react",
     "isolatedModules": true,
-    "useUnknownInCatchVariables": false
+    "useUnknownInCatchVariables": false,
+    "skipLibCheck": true
   },
   "exclude": ["example", "example-ts", "node_modules", "dist"]
 }
