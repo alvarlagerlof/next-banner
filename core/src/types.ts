@@ -12,7 +12,9 @@ export interface Meta {
 
 /* This is the data object that is being passed from React
 into Puppeteer and then into the window.NextBannerData to be
-read by the layout files being screenshoted */
+read by the layout files being screenshoted
+
+Any is the right type because we do not have any idea what the type is */
 
 /* eslint-disable-next-line */
 export type Custom = Record<string, any>;
