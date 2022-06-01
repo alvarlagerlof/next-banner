@@ -4417,18 +4417,10 @@ http-proxy-agent@^5.0.0:
     agent-base "6"
     debug "4"
 
-https-proxy-agent@5.0.1:
+https-proxy-agent@5.0.1, https-proxy-agent@^5.0.0:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-5.0.1.tgz#c59ef224a04fe8b754f3db0063a25ea30d0005d6"
   integrity sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==
-  dependencies:
-    agent-base "6"
-    debug "4"
-
-https-proxy-agent@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-5.0.0.tgz#e2a90542abb68a762e0a0850f6c9edadfd8506b2"
-  integrity sha512-EkYm5BcKUGiduxzSt3Eppko+PiNWNEpa4ySk9vTC6wDsQJW9rHSa+UhGNJoRYp7bz6Ht1eaRIa6QaJqO5rCFbA==
   dependencies:
     agent-base "6"
     debug "4"
@@ -6627,10 +6619,10 @@ punycode@^2.1.0:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-puppeteer@^14.1.0:
-  version "14.1.0"
-  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-14.1.0.tgz#319560e20ff451890158d7146c79ab589c6e7031"
-  integrity sha512-T3eB4f6k9HVttYvyy8drGIKb04M+vxhepqM7qqcVCBTNT3T6M9cUaJT4k7P+a6wSonObJSJUP98JkPDQG+3fJw==
+puppeteer@^14.1.2:
+  version "14.1.2"
+  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-14.1.2.tgz#bde2ca5585fb56ed906bccced898d551778f5c5d"
+  integrity sha512-Nsyy1f7pT2KyBb15u8DHi4q3FfrIqOptAV0r4Bd1lAp2pHz8T0o4DO+On1yWZ7jFbcx1w3AqZ/e7nKqnc3Vwyg==
   dependencies:
     cross-fetch "3.1.5"
     debug "4.3.4"
