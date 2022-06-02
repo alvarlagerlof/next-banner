@@ -1,6 +1,5 @@
 import fs from "node:fs/promises";
 import { spawn } from "node:child_process";
-import { startBrowser } from "../src/cli/runtime";
 
 jest.setTimeout(30 * 1000);
 

@@ -26,11 +26,9 @@ jobs:
         working-directory: ./core
         run: yarn lint
 
-      # Currently not working in CI
-      # - name: Test
-      #   run: |
-      #     cd ./core
-      #     yarn test
+      - name: Test
+        working-directory: ./core
+        run: yarn test
 
   publish:
     name: "Publish Module to NPM"
