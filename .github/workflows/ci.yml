@@ -27,8 +27,7 @@ jobs:
         run: yarn lint
 
       - name: Test
-        working-directory: ./core
-        run: yarn test
+        run: yarn --cwd ./core test
 
   publish:
     name: "Publish Module to NPM"
