@@ -1,5 +1,4 @@
 {
-  "jest": {
-    "transform": {}
-  }
+  "verbose": true,
+  "silent": false
 }

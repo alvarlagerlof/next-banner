@@ -42,8 +42,7 @@ async function startBrowser(): Promise<Browser> {
   ];
 
   const browser = await puppeteer.launch({
-    // headless: false,
-    // devtools: true,
+    executablePath: process.env.PUPPETEER_EXEC_PATH,
     args: minimal_args,
   });
 

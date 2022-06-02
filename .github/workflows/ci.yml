@@ -7,27 +7,36 @@ on:
       - next
 jobs:
   test:
-    name: Build, lint, and test on Node ${{ matrix.node }}
+    name: Build, lint, and test on Node
     runs-on: ubuntu-latest
-
+    container:
+      image: ghcr.io/alvarlagerlof/action-node-yarn-chromium:latest 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-
-      - name: Install deps and build (with cache)
-        uses: bahmutov/npm-install@v1
+      - name: Install
+        run: yarn install
 
       - name: Lint
         working-directory: ./core
         run: yarn lint
 
+      - name: Link
+        working-directory: ./core
+        run: yarn link
+
+      - name: Link to test
+        working-directory: ./example
+        run: yarn link next-banner
+
+      - name: Build
+        working-directory: ./core
+        run: yarn build
+
       - name: Test
-        run: yarn --cwd ./core test
+        working-directory: ./core
+        run: yarn test
 
   publish:
     name: "Publish Module to NPM"

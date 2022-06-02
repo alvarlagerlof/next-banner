@@ -19,7 +19,12 @@ const defaultConfig: BannerConfig = {
 const CONFIG_FILE = "node_modules/.next-banner.json";
 
 async function getConfig(): Promise<BannerConfig> {
-  return (await loadFile<BannerConfig>(getPath(`./${CONFIG_FILE}`))) as BannerConfig;
+  try {
+    const file = await loadFile<BannerConfig>(getPath(`./${CONFIG_FILE}`));
+    return file as BannerConfig;
+  } catch (e) {
+    return defaultConfig;
+  }
 }
 
 type CombinedConfig = { nextBanner: Partial<BannerConfig> } & NextConfig;
