@@ -10,7 +10,7 @@ jobs:
     name: Build, lint, and test on Node
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/alvarlagerlof/action-node-yarn-chromium:latest 
+      image: ghcr.io/alvarlagerlof/action-node-yarn-chromium:latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
