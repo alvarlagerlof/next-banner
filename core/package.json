@@ -64,7 +64,7 @@
     "esbuild": "^0.14.39",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react": "^7.30.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
     "next": "12.1.6",
