@@ -1,10 +1,7 @@
 name: CI
-on:
-  push:
-    branches:
-      - main
-      - beta
-      - next
+
+on: [push, pull_request]
+
 jobs:
   test:
     name: Build, lint, and test on Node
@@ -42,7 +39,7 @@ jobs:
     name: "Publish Module to NPM"
     needs: test
     runs-on: ubuntu-latest
-
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next'
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
