@@ -114,8 +114,10 @@ pages/next-banner-layouts/post.jsx
 ```jsx
 export default function PostLayout() {
   const {
-    title = "Placeholder title",
-    description = "Placeholder description"
+    meta: {
+      title = "Placeholder title",
+      description = "Placeholder description"
+    }
   } = useBannerData();
 
   return (
