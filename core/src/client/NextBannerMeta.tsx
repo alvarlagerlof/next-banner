@@ -9,7 +9,9 @@ interface BannerMetaProps {
 }
 
 export default function NextBannerMeta({ children }: BannerMetaProps): JSX.Element {
-  const { asPath } = useRouter();
+  const { asPath, locale, basePath, pathname } = useRouter();
+
+  console.log({ basePath, pathname, asPath });
 
   const {
     publicRuntimeConfig: {
@@ -17,8 +19,24 @@ export default function NextBannerMeta({ children }: BannerMetaProps): JSX.Eleme
     },
   } = getConfig();
 
-  // Replace "/" with "index"
-  const url = `${domain}/${outputDir}/${asPath == "/" ? "index" : asPath.replace("/", "")}.jpg`;
+  let url = `${domain}/${outputDir}`;
+
+  if (locale) {
+    url += `/${locale}`;
+  }
+
+  url += asPath;
+
+  // remove #anchors
+  url = url.replace(/#[a-zA-Z-]*/, "");
+
+  // add "index" to if on root page
+  if (asPath === "/") {
+    url.slice(0, -1);
+    url += "index";
+  }
+
+  url += ".jpg";
 
   return (
     <>
