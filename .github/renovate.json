@@ -1,7 +1,6 @@
 {
   "timezone": "Europe/Stockholm",
   "rangeStrategy": "pin",
-  "automerge": true,
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true,
@@ -10,14 +9,14 @@
   },
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "digest"]
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     },
     {
       "matchUpdateTypes": ["major"],
       "schedule": ["every weekend"],
       "groupName": "dependencies",
-      "groupSlug": "all-major",
-      "automerge": "false"
+      "groupSlug": "all-major"
     }
   ]
 }
