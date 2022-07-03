@@ -1,6 +1,7 @@
 {
   "timezone": "Europe/Stockholm",
   "rangeStrategy": "pin",
+  "separateMinorPatch": true,
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true,
@@ -9,7 +10,7 @@
   },
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "pin"],
+      "matchUpdateTypes": ["minor", "patch", "pin"],
       "automerge": true
     },
     {
