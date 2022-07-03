@@ -1,40 +1,19 @@
-name: CI
+name: Publish
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - next
+      - beta
+
+  workflow_run:
+    workflows: ["Test"]
+    branches: [main]
+    types:
+      - completed
 
 jobs:
-  test:
-    name: Build, lint, and test on Node
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/alvarlagerlof/action-node-yarn-chromium:latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: Install
-        run: yarn install
-
-      - name: Lint
-        working-directory: ./core
-        run: yarn lint
-
-      - name: Link
-        working-directory: ./core
-        run: yarn link
-
-      - name: Link to test
-        working-directory: ./example
-        run: yarn link next-banner
-
-      - name: Build
-        working-directory: ./core
-        run: yarn build
-
-      - name: Test
-        working-directory: ./core
-        run: yarn test
-
   publish:
     name: "Publish Module to NPM"
     needs: test
