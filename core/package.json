@@ -69,8 +69,8 @@
     "jest-environment-jsdom": "28.1.0",
     "next": "12.2.0",
     "prettier": "2.6.2",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "rimraf": "3.0.2",
     "semantic-release": "19.0.2",
     "typescript": "4.7.4"
