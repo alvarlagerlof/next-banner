@@ -1,14 +1,9 @@
 name: Publish
 
 on:
-  push:
-    branches:
-      - main
-      - next
-      - beta
   workflow_run:
     workflows: ["Test"]
-    branches: [main]
+    branches: [main, next, beta]
     types:
       - completed
 
