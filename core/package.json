@@ -59,7 +59,7 @@
     "@typescript-eslint/parser": "5.30.4",
     "babel-jest": "28.1.2",
     "commitizen": "4.2.4",
-    "concurrently": "7.1.0",
+    "concurrently": "7.2.2",
     "cz-conventional-changelog": "3.3.0",
     "esbuild": "0.14.39",
     "eslint": "8.15.0",
