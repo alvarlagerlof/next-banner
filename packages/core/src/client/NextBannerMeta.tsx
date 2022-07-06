@@ -24,6 +24,7 @@ export default function NextBannerMeta({ children }: BannerMetaProps): JSX.Eleme
     <>
       <Head>
         <meta property="og:image" content={url} />
+        <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
 
       {children}
