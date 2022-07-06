@@ -30,13 +30,12 @@ jobs:
       - name: Copy files for publishing
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next'
         run: |
-          cp README.md ./pacakges/core
-          cp LICENSE ./pacakges/core
+          cp README.md ./packages/core
+          cp LICENSE ./packages/core
 
       - name: Deploy to NPM
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next'
-        working-directory: ./pacakges/core
-        run: npx semantic-release@17
+        run: yarn run multi-semantic-release --ignore-private --tag-format=v${version}
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
           GH_TOKEN: ${{secrets.GH_TOKEN}}

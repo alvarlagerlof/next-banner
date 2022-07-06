@@ -1,3 +1,17 @@
 {
-  "branches": ["main", "next", "beta"]
+  "branches": [
+    "main",
+    "next",
+    "beta"
+  ],
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits"
+      }
+    ],
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/npm"
+  ]
 }

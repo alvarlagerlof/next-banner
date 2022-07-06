@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "next": "12.2.0",
-    "next-banner": "workspace:1.0.0-semantic-release",
+    "next-banner": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/node": "18.0.3",
     "@types/react": "18.0.15",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.0",
     "jest": "^28.1.2",
