@@ -16,11 +16,13 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/node": "18.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@types/node": "18.0.1",
     "@types/react": "18.0.15",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.0",
     "jest": "^28.1.2",
+    "semantic-release-monorepo": "^7.0.5",
     "typescript": "4.7.4"
   }
 }

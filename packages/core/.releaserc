@@ -1,3 +1,18 @@
 {
-  "branches": ["main", "next", "beta"]
+  "branches": [
+    "main",
+    "next",
+    "beta"
+  ],
+  "plugins": [
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "dist/**",
+          "package.json"
+        ]
+      }
+    ]
+  ]
 }
