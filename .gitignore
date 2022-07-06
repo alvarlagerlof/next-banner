@@ -1,6 +1,14 @@
-*.log
 .DS_Store
 node_modules
-.cache
+.next
 dist
-example/public/next-banner-generated
+packages/example/public/next-banner-generated/**
+.turbo
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

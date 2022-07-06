@@ -1,0 +1,26 @@
+{
+  "name": "example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next-banner",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest"
+  },
+  "dependencies": {
+    "next": "12.2.0",
+    "next-banner": "workspace:1.0.0-semantic-release",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.0.3",
+    "@types/react": "18.0.15",
+    "eslint": "8.19.0",
+    "eslint-config-next": "12.2.0",
+    "jest": "^28.1.2",
+    "typescript": "4.7.4"
+  }
+}
