@@ -2667,6 +2667,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:18.0.3":
+  version: 18.0.3
+  resolution: "@types/node@npm:18.0.3"
+  checksum: 5dec59fbbc1186c808b53df1ca717dad034dbd6a901c75f5b052c845618b531b05f27217122c6254db99529a68618e4cfc534ae3dbf4e88754e9e572df80defa
+  languageName: node
+  linkType: hard
+
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.1
   resolution: "@types/normalize-package-data@npm:2.4.1"
@@ -8145,7 +8152,7 @@ __metadata:
     "@testing-library/jest-dom": 5.16.4
     "@testing-library/react": 13.3.0
     "@types/jest": 28.1.4
-    "@types/node": 18.0.1
+    "@types/node": 18.0.3
     "@types/react": 18.0.15
     "@types/react-dom": 18.0.6
     "@typescript-eslint/eslint-plugin": 5.30.5
@@ -8165,7 +8172,7 @@ __metadata:
     merge-anything: 5.0.2
     next: 12.2.0
     prettier: 2.7.1
-    puppeteer: 15.3.0
+    puppeteer: 15.3.1
     react: 18.2.0
     react-dom: 18.2.0
     rimraf: 3.0.2
@@ -9225,9 +9232,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer@npm:15.3.0":
-  version: 15.3.0
-  resolution: "puppeteer@npm:15.3.0"
+"puppeteer@npm:15.3.1":
+  version: 15.3.1
+  resolution: "puppeteer@npm:15.3.1"
   dependencies:
     cross-fetch: 3.1.5
     debug: 4.3.4
@@ -9241,7 +9248,7 @@ __metadata:
     tar-fs: 2.1.1
     unbzip2-stream: 1.4.3
     ws: 8.8.0
-  checksum: 69881dcdb5f81e7335b5ee3333326339e71cb4487646b690fa5da4f2c3542197f0d22178720704eb36a4f4d159ddc6eee92cb409d739352591aa3bd7cc253681
+  checksum: 0840482f4aad0854a5af0ff7b90c19a685bd8ead7d0ea8a371ac24fc93078f98c43918c9f205989b0d8d658e44c593ad345f68e763653f9483c2d0447fefee40
   languageName: node
   linkType: hard
 
