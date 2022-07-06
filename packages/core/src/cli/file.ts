@@ -6,12 +6,8 @@ function getPath(...pathSegment: string[]): string {
 }
 
 async function loadFile<T>(path: string): Promise<T | undefined> {
-  try {
-    const file = await fs.readFile(path);
-    return JSON.parse(file.toString()) as T;
-  } catch (e) {
-    throw Error(e);
-  }
+  const file = await fs.readFile(path);
+  return JSON.parse(file.toString()) as T;
 }
 
 export { getPath, loadFile };

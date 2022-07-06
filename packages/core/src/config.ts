@@ -16,13 +16,14 @@ const defaultConfig: BannerConfig = {
   concurrency: 10,
 };
 
-const CONFIG_FILE = "node_modules/.next-banner.json";
+const CONFIG_FILE = ".next/next-banner.json";
 
 async function getConfig(): Promise<BannerConfig> {
   try {
     const file = await loadFile<BannerConfig>(getPath(`./${CONFIG_FILE}`));
     return file as BannerConfig;
   } catch (e) {
+    console.log("found error, using default config");
     return defaultConfig;
   }
 }
@@ -45,6 +46,11 @@ function withNextBanner(config: CombinedConfig) {
       try {
         const file = getPath(CONFIG_FILE);
         const json = JSON.stringify(merged, null, 2);
+
+        // const folder = getPath(CONFIG_FILE.substring(0, CONFIG_FILE.lastIndexOf("/")));
+        // if (!fs.existsSync(folder)) {
+        //   fs.mkdirSync(folder, { recursive: true });
+        // }
 
         fs.writeFileSync(file, json);
       } catch (err) {
