@@ -12,20 +12,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Restore Turbo Cache
-        id: turbo-cache
-        uses: actions/cache@v2
-        with:
-            path: .turbo
-            key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
-            restore-keys: |
-                turbo-${{ github.job }}-${{ github.ref_name }}-
-
       - name: Install
         run: yarn install --immutable
 
       - name: Turbo build, lint, test
         run: yarn deploy --cache-dir=".turbo"
+        env:
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+          TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 
       - name: Copy files for publishing
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next'
