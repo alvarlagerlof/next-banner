@@ -11,7 +11,7 @@ import { getConfig } from "../config";
 export type LogsWithRoute = Array<{ route: string; message: string }>;
 
 (async function generate() {
-  await task("Startup", async ({ task }) => {
+  await task("Startup next-banner", async ({ task }) => {
     return await task.group(
       (task) => [
         task("Browser", async ({ setError }) => {
