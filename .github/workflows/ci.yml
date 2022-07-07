@@ -18,27 +18,3 @@ jobs:
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-
-  release-please:
-    runs-on: ubuntu-latest
-    needs: ci
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Run release-please
-        uses: google-github-actions/release-please-action@v3
-        id: release
-        with:
-          release-type: node
-          package-name: next-banner
-
-      - name: Copy files for publishing
-        run: |
-          cp README.md ./packages/core
-          cp LICENSE ./packages/core
-
-      - name: NPM publush
-        run: npm publish
-        if: ${{ steps.release.outputs.release_created }}
-        working-directory: packages/cores
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
