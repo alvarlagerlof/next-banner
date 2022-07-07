@@ -20,23 +20,3 @@ jobs:
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-
-      - name: Copy files for publishing
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next'
-        run: |
-          cp README.md ./packages/core
-          cp LICENSE ./packages/core
-
-      - name: Run release-please
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next'
-        uses: google-github-actions/release-please-action@v3
-        with:
-          release-type: node
-          package-name: next-banner
-
-      - name: NPM publish
-        run: npm publish
-        working-directory: packages/core
-        if:  ${{ steps.release.outputs.release_created }}
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
