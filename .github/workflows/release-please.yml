@@ -31,16 +31,3 @@ jobs:
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-
-      - name: Copy files for publishing
-        if: ${{ steps.release.outputs.release_created }}
-        run: |
-          cp README.md ./packages/core
-          cp LICENSE ./packages/core
-
-      - name: NPM publush
-        run: npm publish
-        if: ${{ steps.release.outputs.release_created }}
-        working-directory: packages/cores
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

@@ -9,9 +9,11 @@
     "test": "turbo run test",
     "lint": "turbo run lint",
     "dev": "turbo run dev",
-    "ci": "turbo run ci"
+    "version": "cp README.md packages/core && cp LICENSE packages/core",
+    "release": "turbo run release && np"
   },
   "devDependencies": {
+    "np": "*",
     "turbo": "^1.3.1"
   },
   "packageManager": "yarn@3.2.1",
