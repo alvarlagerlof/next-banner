@@ -32,7 +32,7 @@ jobs:
         uses: google-github-actions/release-please-action@v3
         with:
           release-type: node
-          package-name: release-please-action
+          package-name: next-banner
 
       - name: NPM publish
         uses: actions/checkout@v2
@@ -40,6 +40,7 @@ jobs:
 
       - name: Publish
         run: npm publish
+        working-directory: packages/core
         if:  ${{ steps.release.outputs.release_created }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
