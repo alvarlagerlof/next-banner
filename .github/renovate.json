@@ -10,15 +10,11 @@
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true,
-      "semanticCommitType": "deps",
-      "semanticCommitScope": "package"
+      "automerge": true
     },
     {
       "matchUpdateTypes": ["major"],
-      "schedule": ["every weekend"],
-      "semanticCommitType": "deps",
-      "semanticCommitScope": "package"
+      "schedule": ["every weekend"]
     }
   ]
 }
