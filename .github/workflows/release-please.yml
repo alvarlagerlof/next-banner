@@ -18,18 +18,22 @@ jobs:
           package-name: next-banner
 
       - name: Checkout repo
+        if: ${{ steps.release.outputs.release_created }}
         uses: actions/checkout@v3
 
       - name: Install
+        if: ${{ steps.release.outputs.release_created }}
         run: yarn install --immutable
 
       - name: Turbo build, lint, test
+        if: ${{ steps.release.outputs.release_created }}
         run: yarn ci --cache-dir=".turbo"
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 
       - name: Copy files for publishing
+        if: ${{ steps.release.outputs.release_created }}
         run: |
           cp README.md ./packages/core
           cp LICENSE ./packages/core
