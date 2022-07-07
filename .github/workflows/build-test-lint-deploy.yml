@@ -29,13 +29,17 @@ jobs:
 
       - name: Run release-please
         uses: google-github-actions/release-please-action@v3
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next'
         with:
           release-type: node
           package-name: release-please-action
 
-      # - name: Deploy to NPM
-      #   if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next'
-      #   run: yarn run multi-semantic-release --ignore-private --tag-format 'v${version}'
-      #   env:
-      #     NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-      #     GH_TOKEN: ${{secrets.GH_TOKEN}}
+      - name: Check out release output
+        uses: actions/checkout@v2
+        if:  ${{ steps.release.outputs.release_created }} && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next')
+
+      - name: Publish
+        run: npm publish
+        if:  ${{ steps.release.outputs.release_created }} && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next')
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
