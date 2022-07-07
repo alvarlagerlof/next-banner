@@ -27,9 +27,15 @@ jobs:
           cp README.md ./packages/core
           cp LICENSE ./packages/core
 
-      - name: Deploy to NPM
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next'
-        run: yarn run multi-semantic-release --ignore-private --tag-format 'v${version}'
-        env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-          GH_TOKEN: ${{secrets.GH_TOKEN}}
+      - name: Run release-please
+        uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          package-name: release-please-action
+
+      # - name: Deploy to NPM
+      #   if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next'
+      #   run: yarn run multi-semantic-release --ignore-private --tag-format 'v${version}'
+      #   env:
+      #     NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+      #     GH_TOKEN: ${{secrets.GH_TOKEN}}
