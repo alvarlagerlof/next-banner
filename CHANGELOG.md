@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/alvarlagerlof/next-banner/compare/v1.2.1...v1.2.2) (2022-07-07)
+
+
+### Bug Fixes
+
+* add working dir ([4247555](https://github.com/alvarlagerlof/next-banner/commit/424755591eabe378782f13c0711ca1b39e6acdfd))
+
 ## [1.2.1](https://github.com/alvarlagerlof/next-banner/compare/v1.2.0...v1.2.1) (2022-07-07)
 
 
