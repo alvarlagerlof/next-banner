@@ -15,7 +15,7 @@
       "dependsOn": ["build"],
       "outputs": []
     },
-    "ci": {
+    "release": {
       "dependsOn": ["build", "test", "lint"],
       "outputs": []
     },
