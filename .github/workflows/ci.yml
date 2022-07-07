@@ -35,8 +35,8 @@ jobs:
           cp README.md ./packages/core
           cp LICENSE ./packages/core
 
-      - run: npm publish
-        working-directory: 
+      - run: npm publishing
+        working-directory: packages/cores
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         if: ${{ steps.release.outputs.release_created }}
