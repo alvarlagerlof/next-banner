@@ -1,4 +1,5 @@
 {
   "packages/core": "v1.1.8",
-  "boostrap-sha": "32dc3a27a038caa67fd8a613c89c6dba0bb76bf7"
+  "boostrap-sha": "32dc3a27a038caa67fd8a613c89c6dba0bb76bf7",
+  ".": "1.2.0"
 }
