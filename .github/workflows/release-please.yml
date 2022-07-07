@@ -1,4 +1,4 @@
-name: CI
+name: Run release-please
 
 on:
   push:
@@ -8,7 +8,6 @@ on:
 jobs:
   release-please:
     runs-on: ubuntu-latest
-    needs: ci
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Run release-please
