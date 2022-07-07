@@ -28,18 +28,18 @@ jobs:
           cp LICENSE ./packages/core
 
       - name: Run release-please
-        uses: google-github-actions/release-please-action@v3
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next'
+        uses: google-github-actions/release-please-action@v3
         with:
           release-type: node
           package-name: release-please-action
 
-      - name: Check out release output
+      - name: NPM publish
         uses: actions/checkout@v2
-        if:  ${{ steps.release.outputs.release_created }} && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next')
+        if:  ${{ steps.release.outputs.release_created }}
 
       - name: Publish
         run: npm publish
-        if:  ${{ steps.release.outputs.release_created }} && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/next')
+        if:  ${{ steps.release.outputs.release_created }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
