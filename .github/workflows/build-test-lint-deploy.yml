@@ -35,10 +35,6 @@ jobs:
           package-name: next-banner
 
       - name: NPM publish
-        uses: actions/checkout@v2
-        if:  ${{ steps.release.outputs.release_created }}
-
-      - name: Publish
         run: npm publish
         working-directory: packages/core
         if:  ${{ steps.release.outputs.release_created }}
