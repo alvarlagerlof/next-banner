@@ -1,6 +1,7 @@
 name: CI
 
-on: [push]
+on:
+  push:
 
 jobs:
   ci:
@@ -28,15 +29,16 @@ jobs:
         id: release
         with:
           release-type: node
-          package-name: test-release-please
+          package-name: next-banner
 
       - name: Copy files for publishing
         run: |
           cp README.md ./packages/core
           cp LICENSE ./packages/core
 
-      - run: npm publishing
+      - name: NPM publush
+        run: npm publish
+        if: ${{ steps.release.outputs.release_created }}
         working-directory: packages/cores
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-        if: ${{ steps.release.outputs.release_created }}
