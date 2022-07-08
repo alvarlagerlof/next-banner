@@ -1,5 +1,12 @@
 
 
+### [1.2.8](https://github.com/alvarlagerlof/next-banner/compare/v1.2.7...v1.2.8) (2022-07-08)
+
+
+### Build changes
+
+* disable yarn immutable installs ([30354c5](https://github.com/alvarlagerlof/next-banner/commit/30354c58d4ce33b71f6761386eac896c5251cedb))
+
 ### [1.2.7](https://github.com/alvarlagerlof/next-banner/compare/v1.2.6...v1.2.7) (2022-07-08)
 
 ### [1.2.6](https://github.com/alvarlagerlof/next-banner/compare/v1.2.5...v1.2.6) (2022-07-08)
