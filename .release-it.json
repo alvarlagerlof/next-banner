@@ -15,6 +15,14 @@
       "preset": {
         "name": "conventionalcommits",
         "types": [
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          },
           { "type": "build", "hidden": false, "section": "Build Changes" }
         ]
       }
