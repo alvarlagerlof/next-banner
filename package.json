@@ -9,9 +9,9 @@
     "test": "turbo run test",
     "lint": "turbo run lint",
     "dev": "turbo run dev",
-    "version": "cp README.md packages/core && cp LICENSE packages/core",
     "ci": "turbo run ci",
-    "release": "release-it --ci"
+    "prepare-release": "cp README.md packages/core && cp LICENSE packages/core",
+    "release": "yarn prepare-release && release-it --ci"
   },
   "devDependencies": {
     "@release-it/conventional-changelog": "^5.0.0",
