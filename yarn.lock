@@ -9367,6 +9367,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"monorepo-root@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "monorepo-root@workspace:."
+  dependencies:
+    "@release-it/conventional-changelog": ^5.0.0
+    release-it: ^15.1.1
+    release-it-yarn-workspaces: "workspace:*"
+    turbo: ^1.3.1
+  languageName: unknown
+  linkType: soft
+
 "mri@npm:^1.1.0":
   version: 1.2.0
   resolution: "mri@npm:1.2.0"
@@ -11338,17 +11349,6 @@ __metadata:
   checksum: cdc7f6eacb17927f2a075117a823e1c5951792c6498ebcce81ca8203454a811d4cf8900314154d3259bb8f0b42ab17f67396a8694a54cae3283326e57ad250cd
   languageName: node
   linkType: hard
-
-"root@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "root@workspace:."
-  dependencies:
-    "@release-it/conventional-changelog": ^5.0.0
-    release-it: ^15.1.1
-    release-it-yarn-workspaces: "workspace:*"
-    turbo: ^1.3.1
-  languageName: unknown
-  linkType: soft
 
 "rsvp@npm:^4.7.0, rsvp@npm:^4.8.4":
   version: 4.8.5
