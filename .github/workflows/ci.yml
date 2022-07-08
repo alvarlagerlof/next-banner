@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
 
       - name: Install
-        run: yarn install --immutable --immutable-cache
+        run: yarn install
 
       - name: Turbo build, lint, test
         run: yarn ci --cache-dir=".turbo"
