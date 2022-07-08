@@ -1,5 +1,12 @@
 
 
+### [1.2.10](https://github.com/alvarlagerlof/next-banner/compare/v1.2.9...v1.2.10) (2022-07-08)
+
+
+### Bug Fixes
+
+* add more types to change log ([0dc731a](https://github.com/alvarlagerlof/next-banner/commit/0dc731ad38086c99a59c3a3da696dd802da46d48))
+
 ### [1.2.9](https://github.com/alvarlagerlof/next-banner/compare/v1.2.8...v1.2.9) (2022-07-08)
 
 ### [1.2.8](https://github.com/alvarlagerlof/next-banner/compare/v1.2.7...v1.2.8) (2022-07-08)
