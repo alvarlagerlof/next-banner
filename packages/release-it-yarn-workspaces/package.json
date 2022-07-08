@@ -16,11 +16,7 @@
   "files": [
     "index.js"
   ],
-  "scripts": {
-    "lintNOT:js": "eslint .",
-    "testNOT": "npm-run-all lint:js test:jest",
-    "test:jest": "NODE_OPTIONS=--experimental-vm-modules yarn jest"
-  },
+  "scripts": {},
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
