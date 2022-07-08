@@ -15,7 +15,7 @@
       "preset": {
         "name": "conventionalcommits",
         "types": [
-          { "type": "build", "hidden": false, "section": "Build changes" }
+          { "type": "build", "hidden": false, "section": "Build Changes" }
         ]
       }
     }
