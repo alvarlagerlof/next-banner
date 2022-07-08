@@ -1,5 +1,12 @@
 
 
+### [1.2.1](https://github.com/alvarlagerlof/next-banner/compare/v1.2.0...v1.2.1) (2022-07-08)
+
+
+### Bug Fixes
+
+* remove scripts ([9f1f3db](https://github.com/alvarlagerlof/next-banner/commit/9f1f3dbef3824594c1884ee51e4c57b7ed13bdbf))
+
 ## [1.2.0](https://github.com/alvarlagerlof/next-banner/compare/v1.1.8...v1.2.0) (2022-07-08)
 
 
