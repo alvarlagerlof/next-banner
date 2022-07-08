@@ -11,8 +11,13 @@
       "publish": true
     },
     "@release-it/conventional-changelog": {
-      "preset": "conventionalcommits",
-      "infile": "CHANGELOG.md"
+      "infile": "CHANGELOG.md",
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          { "type": "build", "hidden": false, "section": "Build changes" }
+        ]
+      }
     }
   },
   "npm": false
