@@ -10,12 +10,14 @@
     "lint": "turbo run lint",
     "dev": "turbo run dev",
     "version": "cp README.md packages/core && cp LICENSE packages/core",
-    "release": "turbo run release && release-it"
+    "release": "turbo run release && release-it --ci --dry-run"
   },
   "devDependencies": {
+    "@release-it/conventional-changelog": "^5.0.0",
     "release-it": "^15.1.1",
+    "release-it-yarn-workspaces": "workspace:*",
     "turbo": "^1.3.1"
   },
   "packageManager": "yarn@3.2.1",
-  "version": "1.2.0"
+  "version": "1.2.1"
 }

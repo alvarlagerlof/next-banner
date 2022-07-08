@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+    tags:
+      - '*'
+
+jobs:
+  build:
+    name: "Node ${{ matrix.node-version }}"
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: install dependencies
+      run: yarn install --non-interactive --frozen-lockfile
+    - run: yarn test
+
+  release-it-compat:
+    name: "release-it@${{ matrix.release-it-version }}"
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        release-it-version: ["14.0.0", "14.1.0", "14.2.0"]
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 14
+    - name: install dependencies
+      run: yarn install --non-interactive --frozen-lockfile
+    - run: yarn add --dev release-it@${{ matrix.release-it-version }}
+    - run: yarn test
