@@ -7,7 +7,8 @@
   },
   "plugins": {
     "release-it-yarn-workspaces": {
-      "publish": false
+      "publish": false,
+      "workspaces": ["packages/core"]
     },
     "@release-it/conventional-changelog": {
       "preset": "conventionalcommits",
