@@ -1,14 +1,14 @@
 {
   "git": {
-    "commitMessage": "chore: release v${version}"
+    "commitMessage": "chore: release v${version}",
+    "requireCleanWorkingDir": false
   },
   "github": {
     "release": true
   },
   "plugins": {
     "release-it-yarn-workspaces": {
-      "publish": false,
-      "workspaces": ["packages/core"]
+      "publish": true
     },
     "@release-it/conventional-changelog": {
       "preset": "conventionalcommits",

@@ -4,6 +4,7 @@ node_modules
 dist
 packages/example/public/next-banner-generated/**
 .turbo
+.npmrc
 
 .yarn/*
 !.yarn/cache

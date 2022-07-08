@@ -1,6 +1,6 @@
 {
   "name": "next-banner",
-  "version": "1.2.1",
+  "version": "0.0.1",
   "description": "Generate Open Graph images for Next.js on build",
   "repository": {
     "type": "git",
