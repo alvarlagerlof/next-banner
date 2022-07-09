@@ -4711,10 +4711,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-indent@npm:6.0.0":
-  version: 6.0.0
-  resolution: "detect-indent@npm:6.0.0"
-  checksum: 0c38f362016e2d07af1c65b1ecd6ad8a91f06bfdd11383887c867a495ad286d04be2ab44027ac42444704d523982013115bd748c1541df7c9396ad76b22aaf5d
+"detect-indent@npm:6.1.0":
+  version: 6.1.0
+  resolution: "detect-indent@npm:6.1.0"
+  checksum: ab953a73c72dbd4e8fc68e4ed4bfd92c97eb6c43734af3900add963fd3a9316f3bc0578b018b24198d4c31a358571eff5f0656e81a1f3b9ad5c547d58b2d093d
   languageName: node
   linkType: hard
 
@@ -5666,7 +5666,7 @@ __metadata:
     eslint-config-next: 12.2.2
     jest: 28.1.2
     next: 12.2.2
-    next-banner: 1.2.16
+    next-banner: 1.2.17
     react: 18.2.0
     react-dom: 18.2.0
     typescript: 4.7.4
@@ -9488,7 +9488,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-banner@1.2.16, next-banner@workspace:packages/core":
+"next-banner@1.2.17, next-banner@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "next-banner@workspace:packages/core"
   dependencies:
@@ -11047,7 +11047,7 @@ __metadata:
   dependencies:
     "@jest/globals": 28.1.2
     broccoli-test-helper: 2.0.0
-    detect-indent: 6.0.0
+    detect-indent: 6.1.0
     detect-newline: 3.1.0
     eslint: 8.19.0
     eslint-config-prettier: 8.5.0

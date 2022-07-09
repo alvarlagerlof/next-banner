@@ -1,5 +1,12 @@
 
 
+### [1.2.18](https://github.com/alvarlagerlof/next-banner/compare/v1.2.17...v1.2.18) (2022-07-09)
+
+
+### Build Changes
+
+* **deps:** update dependency detect-indent to v6.1.0 ([7c44ec0](https://github.com/alvarlagerlof/next-banner/commit/7c44ec02c513f1e66e5813a6543264e2be5a1ff6))
+
 ### [1.2.17](https://github.com/alvarlagerlof/next-banner/compare/v1.2.16...v1.2.17) (2022-07-09)
 
 
