@@ -2335,6 +2335,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"colorette@npm:^2.0.16":
+  version: 2.0.19
+  resolution: "colorette@npm:2.0.19"
+  checksum: 888cf5493f781e5fcf54ce4d49e9d7d698f96ea2b2ef67906834bb319a392c667f9ec69f4a10e268d2946d13a9503d2d19b3abaaaf174e3451bfe91fb9d82427
+  languageName: node
+  linkType: hard
+
 "combined-stream@npm:^1.0.8":
   version: 1.0.8
   resolution: "combined-stream@npm:1.0.8"
@@ -2351,10 +2358,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^6.0.0":
-  version: 6.1.0
-  resolution: "commander@npm:6.1.0"
-  checksum: 658d4d650a409805c6eed772857f84df10e1a800178ebc1dc1cd2228fbd063a5ce478b6cf2e484d50ae51c125bca8526a794b45f1563225e702dd11a5b3dd146
+"commander@npm:^6.2.0":
+  version: 6.2.1
+  resolution: "commander@npm:6.2.1"
+  checksum: d7090410c0de6bc5c67d3ca41c41760d6d268f3c799e530aafb73b7437d1826bbf0d2a3edac33f8b57cc9887b4a986dce307fa5557e109be40eadb7c43b21742
   languageName: node
   linkType: hard
 
@@ -2531,7 +2538,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^4.0.0, debug@npm:^4.3.2, debug@npm:^4.3.3":
+"debug@npm:^4.0.0, debug@npm:^4.2.0, debug@npm:^4.3.2, debug@npm:^4.3.3":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
   dependencies:
@@ -3323,9 +3330,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^4.0.3":
-  version: 4.0.3
-  resolution: "execa@npm:4.0.3"
+"execa@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "execa@npm:4.1.0"
   dependencies:
     cross-spawn: ^7.0.0
     get-stream: ^5.0.0
@@ -3336,7 +3343,7 @@ __metadata:
     onetime: ^5.1.0
     signal-exit: ^3.0.2
     strip-final-newline: ^2.0.0
-  checksum: e76102eeab4727bdad930c33df5fd8621fbd77930061e3a815307e132dc8eb1d103631917ea3ed7d2e5257b9c74c7dcf6980b5f7fbcd0d1cf6cbcb83a3bc226f
+  checksum: e30d298934d9c52f90f3847704fd8224e849a081ab2b517bbc02f5f7732c24e56a21f14cb96a08256deffeb2d12b2b7cb7e2b014a12fb36f8d3357e06417ed55
   languageName: node
   linkType: hard
 
@@ -3503,15 +3510,6 @@ __metadata:
   dependencies:
     bser: 2.1.1
   checksum: 8510230778ab3a51c27dffb1b76ef2c24fab672a42742d3c0a45c2e9d1e5f20210b1fbca33486088da4a9a3958bde96b5aec0a63aac9894b4e9df65c88b2cbd6
-  languageName: node
-  linkType: hard
-
-"figures@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "figures@npm:3.2.0"
-  dependencies:
-    escape-string-regexp: ^1.0.5
-  checksum: 85a6ad29e9aca80b49b817e7c89ecc4716ff14e3779d9835af554db91bac41c0f289c418923519392a1e582b4d10482ad282021330cd045bb7b80c84152f2a2b
   languageName: node
   linkType: hard
 
@@ -5840,19 +5838,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:10.4.2":
-  version: 10.4.2
-  resolution: "lint-staged@npm:10.4.2"
+"lint-staged@npm:10.5.4":
+  version: 10.5.4
+  resolution: "lint-staged@npm:10.5.4"
   dependencies:
     chalk: ^4.1.0
     cli-truncate: ^2.1.0
-    commander: ^6.0.0
+    commander: ^6.2.0
     cosmiconfig: ^7.0.0
-    debug: ^4.1.1
+    debug: ^4.2.0
     dedent: ^0.7.0
     enquirer: ^2.3.6
-    execa: ^4.0.3
-    listr2: ^2.6.0
+    execa: ^4.1.0
+    listr2: ^3.2.2
     log-symbols: ^4.0.0
     micromatch: ^4.0.2
     normalize-path: ^3.0.0
@@ -5861,25 +5859,28 @@ __metadata:
     stringify-object: ^3.3.0
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 2afef81fbcbca68ed390f831201b21df12c3386d27fcc9d81128fb95b7f7f0f1243a61ae45635d1b6f5077ae6e983aa8c855f6941b365273ec074ea1d106c57e
+  checksum: 4cc65f6c0a22dc091d0bbdfa6c15cd6e9b7d0d1e7603f5441bf9ac62f3a760fa36b0bda2db4c31b4084f28ba47cd4d0a176c3c3b314a97de8326e050d20b1635
   languageName: node
   linkType: hard
 
-"listr2@npm:^2.6.0":
-  version: 2.6.2
-  resolution: "listr2@npm:2.6.2"
+"listr2@npm:^3.2.2":
+  version: 3.14.0
+  resolution: "listr2@npm:3.14.0"
   dependencies:
-    chalk: ^4.1.0
     cli-truncate: ^2.1.0
-    figures: ^3.2.0
-    indent-string: ^4.0.0
+    colorette: ^2.0.16
     log-update: ^4.0.0
     p-map: ^4.0.0
-    rxjs: ^6.6.2
+    rfdc: ^1.3.0
+    rxjs: ^7.5.1
     through: ^2.3.8
+    wrap-ansi: ^7.0.0
   peerDependencies:
     enquirer: ">= 2.3.0 < 3"
-  checksum: 8944d5e2d4c8b548276b28ab71f1fff2fdb16cd6b08586c26ce5456a7a3d1f4014e1182405872602951ce4f4ca2d416a494054ef70ff39ce7b961a6b927c2628
+  peerDependenciesMeta:
+    enquirer:
+      optional: true
+  checksum: fdb8b2d6bdf5df9371ebd5082bee46c6d0ca3d1e5f2b11fbb5a127839855d5f3da9d4968fce94f0a5ec67cac2459766abbb1faeef621065ebb1829b11ef9476d
   languageName: node
   linkType: hard
 
@@ -7883,7 +7884,7 @@ __metadata:
     husky: 4.3.8
     jest: 28.1.2
     jest-environment-node: 28.1.2
-    lint-staged: 10.4.2
+    lint-staged: 10.5.4
     lodash: 4.17.21
     npm-run-all: 4.1.5
     prettier: 2.1.2
@@ -8150,6 +8151,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rfdc@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "rfdc@npm:1.3.0"
+  checksum: fb2ba8512e43519983b4c61bd3fa77c0f410eff6bae68b08614437bc3f35f91362215f7b4a73cbda6f67330b5746ce07db5dd9850ad3edc91271ad6deea0df32
+  languageName: node
+  linkType: hard
+
 "rimraf@npm:^2.2.8, rimraf@npm:^2.5.4, rimraf@npm:^2.6.2, rimraf@npm:^2.6.3":
   version: 2.7.1
   resolution: "rimraf@npm:2.7.1"
@@ -8200,16 +8208,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^6.6.2":
-  version: 6.6.3
-  resolution: "rxjs@npm:6.6.3"
-  dependencies:
-    tslib: ^1.9.0
-  checksum: c7206389f5a91f89c2248aa9ef5ce73f979524c676e557ec2088b10ec138d91fd653ebee6cdb65532b6c05278eb3c8364ccd6feb9a499092d67731318cf05977
-  languageName: node
-  linkType: hard
-
-"rxjs@npm:^7.5.5":
+"rxjs@npm:^7.5.1, rxjs@npm:^7.5.5":
   version: 7.5.5
   resolution: "rxjs@npm:7.5.5"
   dependencies:
@@ -9186,13 +9185,6 @@ __metadata:
     quick-temp: ^0.1.5
     walk-sync: ^0.3.3
   checksum: af76c496653dea16c125cf16a7313814d453ce51d7d9ac3aafc9b4d60150c25477c7228a9821b8479951ef70d7bf2f7950c206cbc2e9843e57692d69c2221503
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^1.9.0":
-  version: 1.14.1
-  resolution: "tslib@npm:1.14.1"
-  checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
   languageName: node
   linkType: hard
 
