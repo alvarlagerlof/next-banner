@@ -1,5 +1,12 @@
 
 
+### [1.2.12](https://github.com/alvarlagerlof/next-banner/compare/v1.2.11...v1.2.12) (2022-07-09)
+
+
+### Build Changes
+
+* **deps:** update dependency husky to v4.3.8 ([1223f9b](https://github.com/alvarlagerlof/next-banner/commit/1223f9b25a8e43592acc13648a2abd39a926b423))
+
 ### [1.2.11](https://github.com/alvarlagerlof/next-banner/compare/v1.2.10...v1.2.11) (2022-07-09)
 
 
