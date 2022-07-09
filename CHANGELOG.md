@@ -1,5 +1,12 @@
 
 
+### [1.2.14](https://github.com/alvarlagerlof/next-banner/compare/v1.2.13...v1.2.14) (2022-07-09)
+
+
+### Build Changes
+
+* **deps:** update dependency semver to v7.3.7 ([a924bda](https://github.com/alvarlagerlof/next-banner/commit/a924bda6ff83be36612672877f62e0bb72050162))
+
 ### [1.2.13](https://github.com/alvarlagerlof/next-banner/compare/v1.2.12...v1.2.13) (2022-07-09)
 
 
