@@ -1,5 +1,12 @@
 
 
+### [1.2.15](https://github.com/alvarlagerlof/next-banner/compare/v1.2.14...v1.2.15) (2022-07-09)
+
+
+### Build Changes
+
+* **deps:** update dependency sinon to v9.2.4 ([b8d54f6](https://github.com/alvarlagerlof/next-banner/commit/b8d54f6972b07335951602edf34c1f0d96c41969))
+
 ### [1.2.14](https://github.com/alvarlagerlof/next-banner/compare/v1.2.13...v1.2.14) (2022-07-09)
 
 
