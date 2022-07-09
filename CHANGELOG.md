@@ -1,5 +1,12 @@
 
 
+### [1.2.11](https://github.com/alvarlagerlof/next-banner/compare/v1.2.10...v1.2.11) (2022-07-09)
+
+
+### Build Changes
+
+* **deps:** pin dependencies ([1a53419](https://github.com/alvarlagerlof/next-banner/commit/1a534191c10e70e6545ac699e468bed9c18b2f0a))
+
 ### [1.2.10](https://github.com/alvarlagerlof/next-banner/compare/v1.2.9...v1.2.10) (2022-07-08)
 
 
