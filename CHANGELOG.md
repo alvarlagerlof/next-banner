@@ -1,5 +1,12 @@
 
 
+### [1.2.19](https://github.com/alvarlagerlof/next-banner/compare/v1.2.18...v1.2.19) (2022-07-09)
+
+
+### Build Changes
+
+* **deps:** update dependency lint-staged to v10.5.4 ([7ea6496](https://github.com/alvarlagerlof/next-banner/commit/7ea64969cb72486b62ca2436e6ae36c5ec372d23))
+
 ### [1.2.18](https://github.com/alvarlagerlof/next-banner/compare/v1.2.17...v1.2.18) (2022-07-09)
 
 
