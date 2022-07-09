@@ -1068,7 +1068,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sinonjs/commons@npm:^1, @sinonjs/commons@npm:^1.6.0, @sinonjs/commons@npm:^1.7.0, @sinonjs/commons@npm:^1.8.1":
+"@sinonjs/commons@npm:^1.6.0, @sinonjs/commons@npm:^1.7.0, @sinonjs/commons@npm:^1.8.1":
   version: 1.8.1
   resolution: "@sinonjs/commons@npm:1.8.1"
   dependencies:
@@ -1095,24 +1095,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sinonjs/formatio@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "@sinonjs/formatio@npm:5.0.1"
-  dependencies:
-    "@sinonjs/commons": ^1
-    "@sinonjs/samsam": ^5.0.2
-  checksum: 6f751c79a272f491395de1ae3821000526ac487b96d92ca3b4ec9e965ad64df6beac1fb8e5a03017dc9f4b18e8624170899ea3a6af628b8d32e3eb25e8c7e9ed
-  languageName: node
-  linkType: hard
-
-"@sinonjs/samsam@npm:^5.0.2, @sinonjs/samsam@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "@sinonjs/samsam@npm:5.2.0"
+"@sinonjs/samsam@npm:^5.3.1":
+  version: 5.3.1
+  resolution: "@sinonjs/samsam@npm:5.3.1"
   dependencies:
     "@sinonjs/commons": ^1.6.0
     lodash.get: ^4.4.2
     type-detect: ^4.0.8
-  checksum: 4e049c0d5290c906d6294ccfa263c7f88de8e35ae2fea9761b7a7be6bcfd2d00a954f7fe8a1521829ffb8f02303ae2d091e7642479e8325ac3d9357adfd587e1
+  checksum: 1c2c49d51b1840775980e9496707d68b936f443896f92e48150c4f7713d14904e576740e52660b602f8a53b665bd5f149c5c733758030758427ddb1621090279
   languageName: node
   linkType: hard
 
@@ -7900,7 +7890,7 @@ __metadata:
     release-it: 15.1.1
     release-it-lerna-changelog: 4.0.1
     semver: 7.3.7
-    sinon: 9.2.0
+    sinon: 9.2.4
     tmp: 0.1.0
     url-join: 4.0.1
     validate-peer-dependencies: 1.0.0
@@ -8466,18 +8456,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sinon@npm:9.2.0":
-  version: 9.2.0
-  resolution: "sinon@npm:9.2.0"
+"sinon@npm:9.2.4":
+  version: 9.2.4
+  resolution: "sinon@npm:9.2.4"
   dependencies:
     "@sinonjs/commons": ^1.8.1
     "@sinonjs/fake-timers": ^6.0.1
-    "@sinonjs/formatio": ^5.0.1
-    "@sinonjs/samsam": ^5.2.0
+    "@sinonjs/samsam": ^5.3.1
     diff: ^4.0.2
     nise: ^4.0.4
     supports-color: ^7.1.0
-  checksum: 9474da04d530902283f17b768a6f61a9df94635d2a8141d7d62a57de00eb9e8bd5f1f5d65802504e4e95ac6cce523b71f587032dce287fc15e7f9c446baea358
+  checksum: 34b881886daa4b491bb9147ccad43d662f58b45a1b6f1e8b26a405ad77041108306fac3648646335f00f702897f0ba12282588ab64de470f48f1a7678e08dc65
   languageName: node
   linkType: hard
 
