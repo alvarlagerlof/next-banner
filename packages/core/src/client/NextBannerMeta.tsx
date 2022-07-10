@@ -1,7 +1,7 @@
 import React from "react";
-import Head from "next/dist/shared/lib/head.js";
-import { useRouter } from "next/dist/client/router.js";
-import getConfig from "next/dist/build/babel/loader/get-config.js";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import getConfig from "next/config";
 
 interface BannerMetaProps {
   children: React.ReactNode;

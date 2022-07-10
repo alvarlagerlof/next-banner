@@ -21,7 +21,10 @@
   "browser": {
     "fs": false,
     "os": false,
-    "path": false
+    "path": false,
+    "react": false,
+    "react-dom": false,
+    "next": false
   },
   "files": [
     "dist",
@@ -39,7 +42,7 @@
     "build:ts:watch": "tsc --watch",
     "dev:old": "concurrently \"yarn build:esbuild:watch\" \"yarn build:ts:watch\"",
     "dev": "concurrently \"yarn build:tsup:watch\" \"yarn build:ts:watch\"",
-    "build:tsup": "rimraf dist && tsup-node src/cli src/client --format esm --no-splitting --dts",
+    "build:tsup": "rimraf dist && tsup src/cli src/client --format esm --no-splitting --dts",
     "build:tsup:watch": "yarn:build:tsup --watch",
     "build": "yarn build:tsup",
     "build:old": "yarn build:esbuild && yarn build:ts",
