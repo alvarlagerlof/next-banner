@@ -10,6 +10,7 @@
   },
   "semanticCommitType": "build",
   "semanticCommitScope": "deps",
+  "ignorePaths": ["packages/release-it-yarn-workspaces/"],
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
