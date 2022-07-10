@@ -5673,7 +5673,7 @@ __metadata:
     eslint-config-next: 12.2.2
     jest: 28.1.2
     next: 12.2.2
-    next-banner: 1.2.20
+    next-banner: 1.2.21
     react: 18.2.0
     react-dom: 18.2.0
     typescript: 4.7.4
@@ -9489,7 +9489,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-banner@1.2.20, next-banner@workspace:packages/core":
+"next-banner@1.2.21, next-banner@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "next-banner@workspace:packages/core"
   dependencies:
