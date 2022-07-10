@@ -1,5 +1,12 @@
 
 
+### [1.2.20](https://github.com/alvarlagerlof/next-banner/compare/v1.2.19...v1.2.20) (2022-07-10)
+
+
+### Build Changes
+
+* **deps:** update dependency prettier to v2.7.1 ([1f22437](https://github.com/alvarlagerlof/next-banner/commit/1f224373f78d787ef0ce06fbdf5cea5cc2da9199))
+
 ### [1.2.19](https://github.com/alvarlagerlof/next-banner/compare/v1.2.18...v1.2.19) (2022-07-09)
 
 
