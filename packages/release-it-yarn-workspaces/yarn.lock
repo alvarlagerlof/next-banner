@@ -7893,7 +7893,7 @@ __metadata:
     semver: 7.3.7
     sinon: 9.2.4
     tmp: 0.2.1
-    url-join: 4.0.1
+    url-join: 5.0.0
     validate-peer-dependencies: 1.0.0
     walk-sync: 2.2.0
   peerDependencies:
@@ -9407,13 +9407,6 @@ __metadata:
   version: 0.1.0
   resolution: "urix@npm:0.1.0"
   checksum: 4c076ecfbf3411e888547fe844e52378ab5ada2d2f27625139011eada79925e77f7fbf0e4016d45e6a9e9adb6b7e64981bd49b22700c7c401c5fc15f423303b3
-  languageName: node
-  linkType: hard
-
-"url-join@npm:4.0.1":
-  version: 4.0.1
-  resolution: "url-join@npm:4.0.1"
-  checksum: f74e868bf25dbc8be6a8d7237d4c36bb5b6c62c72e594d5ab1347fe91d6af7ccd9eb5d621e30152e4da45c2e9a26bec21390e911ab54a62d4d82e76028374ee5
   languageName: node
   linkType: hard
 
