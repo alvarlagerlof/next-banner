@@ -7894,7 +7894,7 @@ __metadata:
     sinon: 9.2.4
     tmp: 0.2.1
     url-join: 4.0.1
-    validate-peer-dependencies: 1.0.0
+    validate-peer-dependencies: 2.0.0
     walk-sync: 2.2.0
   peerDependencies:
     release-it: 15.1.1
@@ -8005,16 +8005,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve-package-path@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "resolve-package-path@npm:3.1.0"
-  dependencies:
-    path-root: ^0.1.1
-    resolve: ^1.17.0
-  checksum: 9d1d170db3b01e5439bc0918344e7b539c4dece53f68ff2b6c13e3c941bb10c2553b7ea837fef8aee25ce3dd5f404d83eac91a5f5b651a42578bd2df5a301a7e
-  languageName: node
-  linkType: hard
-
 "resolve-package-path@npm:^4.0.0":
   version: 4.0.3
   resolution: "resolve-package-path@npm:4.0.3"
@@ -8048,7 +8038,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.1.6, resolve@npm:^1.10.0, resolve@npm:^1.10.1, resolve@npm:^1.17.0":
+"resolve@npm:^1.1.6, resolve@npm:^1.10.0, resolve@npm:^1.10.1":
   version: 1.18.1
   resolution: "resolve@npm:1.18.1"
   dependencies:
@@ -8071,7 +8061,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.1.6#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.17.0#~builtin<compat/resolve>":
+"resolve@patch:resolve@^1.1.6#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.1#~builtin<compat/resolve>":
   version: 1.18.1
   resolution: "resolve@patch:resolve@npm%3A1.18.1#~builtin<compat/resolve>::version=1.18.1&hash=07638b"
   dependencies:
@@ -9487,17 +9477,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"validate-peer-dependencies@npm:1.0.0":
-  version: 1.0.0
-  resolution: "validate-peer-dependencies@npm:1.0.0"
-  dependencies:
-    resolve-package-path: ^3.1.0
-    semver: ^7.3.2
-  checksum: 2f9afd2ec79f75bfef91f015b64fbae6f489b0cbf5fc4f7a6e5728f9baf87776097840b3c8c2d5d7bd12a1140964aa1c2e6ac1e3e9713a7218e19e4e27e9f369
-  languageName: node
-  linkType: hard
-
-"validate-peer-dependencies@npm:^2.0.0":
+"validate-peer-dependencies@npm:2.0.0, validate-peer-dependencies@npm:^2.0.0":
   version: 2.0.0
   resolution: "validate-peer-dependencies@npm:2.0.0"
   dependencies:
