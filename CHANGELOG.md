@@ -1,5 +1,12 @@
 
 
+### [1.2.21](https://github.com/alvarlagerlof/next-banner/compare/v1.2.20...v1.2.21) (2022-07-10)
+
+
+### Build Changes
+
+* **deps:** update dependency tmp to v0.2.1 ([6c457c7](https://github.com/alvarlagerlof/next-banner/commit/6c457c73098f0523e5f53b13a2bf74952476c733))
+
 ### [1.2.20](https://github.com/alvarlagerlof/next-banner/compare/v1.2.19...v1.2.20) (2022-07-10)
 
 

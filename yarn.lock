@@ -5673,7 +5673,7 @@ __metadata:
     eslint-config-next: 12.2.2
     jest: 28.1.2
     next: 12.2.2
-    next-banner: 1.2.19
+    next-banner: 1.2.20
     react: 18.2.0
     react-dom: 18.2.0
     typescript: 4.7.4
@@ -9489,7 +9489,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-banner@1.2.19, next-banner@workspace:packages/core":
+"next-banner@1.2.20, next-banner@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "next-banner@workspace:packages/core"
   dependencies:
@@ -11056,7 +11056,7 @@ __metadata:
     release-it-lerna-changelog: 4.0.1
     semver: 7.3.7
     sinon: 9.2.4
-    tmp: 0.1.0
+    tmp: 0.2.1
     url-join: 4.0.1
     validate-peer-dependencies: 1.0.0
     walk-sync: 2.2.0
@@ -11339,7 +11339,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^2.2.8, rimraf@npm:^2.5.4, rimraf@npm:^2.6.2, rimraf@npm:^2.6.3":
+"rimraf@npm:^2.2.8, rimraf@npm:^2.5.4, rimraf@npm:^2.6.2":
   version: 2.7.1
   resolution: "rimraf@npm:2.7.1"
   dependencies:
@@ -12404,16 +12404,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tmp@npm:0.1.0":
-  version: 0.1.0
-  resolution: "tmp@npm:0.1.0"
-  dependencies:
-    rimraf: ^2.6.3
-  checksum: 6bab8431de9d245d4264bd8cd6bb216f9d22f179f935dada92a11d1315572c8eb7c3334201e00594b4708608bd536fad3a63bfb037e7804d827d66aa53a1afcd
-  languageName: node
-  linkType: hard
-
-"tmp@npm:^0.2.1":
+"tmp@npm:0.2.1, tmp@npm:^0.2.1":
   version: 0.2.1
   resolution: "tmp@npm:0.2.1"
   dependencies:
