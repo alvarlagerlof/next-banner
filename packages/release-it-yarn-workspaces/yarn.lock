@@ -2734,10 +2734,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-indent@npm:6.1.0":
-  version: 6.1.0
-  resolution: "detect-indent@npm:6.1.0"
-  checksum: ab953a73c72dbd4e8fc68e4ed4bfd92c97eb6c43734af3900add963fd3a9316f3bc0578b018b24198d4c31a358571eff5f0656e81a1f3b9ad5c547d58b2d093d
+"detect-indent@npm:7.0.0":
+  version: 7.0.0
+  resolution: "detect-indent@npm:7.0.0"
+  checksum: 71da5b82e5343662b7c3ff348d23674f7f1fc91500615018bf6ef4ccd57a5a35f285287c25179ce0603c39a36782dd5bce5f888bb72efb98ff699646dbad9008
   languageName: node
   linkType: hard
 
@@ -7875,7 +7875,7 @@ __metadata:
   dependencies:
     "@jest/globals": 28.1.2
     broccoli-test-helper: 2.0.0
-    detect-indent: 6.1.0
+    detect-indent: 7.0.0
     detect-newline: 3.1.0
     eslint: 8.19.0
     eslint-config-prettier: 8.5.0
