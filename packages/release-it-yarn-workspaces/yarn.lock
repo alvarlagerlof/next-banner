@@ -7894,7 +7894,7 @@ __metadata:
     sinon: 9.2.4
     tmp: 0.2.1
     url-join: 4.0.1
-    validate-peer-dependencies: 1.0.0
+    validate-peer-dependencies: 1.2.0
     walk-sync: 2.2.0
   peerDependencies:
     release-it: 15.1.1
@@ -9487,13 +9487,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"validate-peer-dependencies@npm:1.0.0":
-  version: 1.0.0
-  resolution: "validate-peer-dependencies@npm:1.0.0"
+"validate-peer-dependencies@npm:1.2.0":
+  version: 1.2.0
+  resolution: "validate-peer-dependencies@npm:1.2.0"
   dependencies:
     resolve-package-path: ^3.1.0
     semver: ^7.3.2
-  checksum: 2f9afd2ec79f75bfef91f015b64fbae6f489b0cbf5fc4f7a6e5728f9baf87776097840b3c8c2d5d7bd12a1140964aa1c2e6ac1e3e9713a7218e19e4e27e9f369
+  checksum: a48f4841ff87edf1c0b3dd6e49d197169d654d6206495714ba687112fc30136674c1f0d44d89b935cf15aeb7692024a268af78c6c9ca0a1dad08e72cc7118566
   languageName: node
   linkType: hard
 

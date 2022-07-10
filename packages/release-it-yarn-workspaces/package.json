@@ -29,7 +29,7 @@
     "detect-newline": "3.1.0",
     "semver": "7.3.7",
     "url-join": "4.0.1",
-    "validate-peer-dependencies": "1.0.0",
+    "validate-peer-dependencies": "1.2.0",
     "walk-sync": "2.2.0"
   },
   "devDependencies": {
