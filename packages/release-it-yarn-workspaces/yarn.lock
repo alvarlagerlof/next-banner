@@ -1264,6 +1264,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/minimatch@npm:^3.0.4":
+  version: 3.0.5
+  resolution: "@types/minimatch@npm:3.0.5"
+  checksum: c41d136f67231c3131cf1d4ca0b06687f4a322918a3a5adddc87ce90ed9dbd175a3610adee36b106ae68c0b92c637c35e02b58c8a56c424f71d30993ea220b92
+  languageName: node
+  linkType: hard
+
 "@types/ms@npm:*":
   version: 0.7.31
   resolution: "@types/ms@npm:0.7.31"
@@ -6112,7 +6119,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"matcher-collection@npm:^2.0.0":
+"matcher-collection@npm:^2.0.1":
   version: 2.0.1
   resolution: "matcher-collection@npm:2.0.1"
   dependencies:
@@ -7895,7 +7902,7 @@ __metadata:
     tmp: 0.2.1
     url-join: 4.0.1
     validate-peer-dependencies: 1.0.0
-    walk-sync: 2.2.0
+    walk-sync: 3.0.0
   peerDependencies:
     release-it: 15.1.1
   languageName: unknown
@@ -9519,15 +9526,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"walk-sync@npm:2.2.0":
-  version: 2.2.0
-  resolution: "walk-sync@npm:2.2.0"
+"walk-sync@npm:3.0.0":
+  version: 3.0.0
+  resolution: "walk-sync@npm:3.0.0"
   dependencies:
-    "@types/minimatch": ^3.0.3
+    "@types/minimatch": ^3.0.4
     ensure-posix-path: ^1.1.0
-    matcher-collection: ^2.0.0
+    matcher-collection: ^2.0.1
     minimatch: ^3.0.4
-  checksum: e579b574f769977a739607d4feba40ded8931ff641f26964ea5a10a280d648d1c1aca260e9ab60288f16d69500ff33687d3ba5fa4dbd427090123189f0f0c9b6
+  checksum: b8701fc893003e4dac62d4fae8e7f411081fb18a9350632e078e9b61880e9a0c7b532385162c8e0b0fb3070f022cf70ac64518bde709b0dec58c13a833182cbc
   languageName: node
   linkType: hard
 
