@@ -1,5 +1,12 @@
 
 
+### [1.2.29](https://github.com/alvarlagerlof/next-banner/compare/v1.2.28...v1.2.29) (2022-07-13)
+
+
+### Build Changes
+
+* **deps:** update dependency jest to v28.1.3 ([e2e4b13](https://github.com/alvarlagerlof/next-banner/commit/e2e4b1371e9cb6c98e8da7f569cdd67989a33eda))
+
 ### [1.2.28](https://github.com/alvarlagerlof/next-banner/compare/v1.2.27...v1.2.28) (2022-07-13)
 
 
