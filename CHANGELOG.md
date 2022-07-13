@@ -1,5 +1,12 @@
 
 
+### [1.2.27](https://github.com/alvarlagerlof/next-banner/compare/v1.2.26...v1.2.27) (2022-07-13)
+
+
+### Build Changes
+
+* **deps:** update dependency @types/jest to v28.1.5 ([036aa6e](https://github.com/alvarlagerlof/next-banner/commit/036aa6e5eef51b96fb5a3971dd10a7236e288dbb))
+
 ### [1.2.26](https://github.com/alvarlagerlof/next-banner/compare/v1.2.25...v1.2.26) (2022-07-12)
 
 
