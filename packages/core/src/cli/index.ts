@@ -11,112 +11,95 @@ import { getConfig } from "../config";
 export type LogsWithRoute = Array<{ route: string; message: string }>;
 
 (async function generate() {
-  await task("Starting up next-banner", async ({ task }) => {
-    return await task.group(
+  const { state } = await task("next-banner", async ({ task, setError }) => {
+    const [{ result: browser }, { result: server }, { result: routes }] = await task.group(
       (task) => [
-        task("Browser", async ({ setError }) => {
-          try {
-            return await startBrowser();
-          } catch (e) {
-            setError(e);
-          }
+        task("Starting browser", async ({}) => {
+          return await startBrowser();
         }),
 
-        task("Next.js server", async ({ setError }) => {
-          try {
-            return await startNextServer();
-          } catch (e) {
-            setError(e);
-          }
+        task("Starting Next.js server", async ({}) => {
+          return await startNextServer();
         }),
 
-        task("Routes", async ({ setError }) => {
-          try {
-            return await readRoutes();
-          } catch (e) {
-            setError(e);
-          }
+        task("Getting routes", async ({}) => {
+          return await readRoutes();
         }),
       ],
       {
         concurrency: 3,
-        stopOnError: true,
+        stopOnError: false,
       }
     );
-  }).then(async ({ result: [browser, server, routes] }) => {
-    if (
-      browser.state === "success" &&
-      server.state === "success" &&
-      routes.state === "success" &&
-      browser.result &&
-      server.result &&
-      routes.result
-    ) {
-      await task("Screenshot pages", async ({ task, setStatus, setOutput }) => {
+
+    await task("Screenshoting pages", async ({ task, setStatus, setOutput }) => {
+      try {
         let counter = 0;
         const logs: LogsWithRoute = [];
         const { layoutDir, concurrency } = await getConfig();
 
         async function doWork(iterator) {
-          for (const [, route] of iterator) {
-            const nestedTask = await task(`Route: ${route}`, async () => {
-              const extractData = new ExtractData(await browser!.result!.newPage());
-              await extractData.loadUrl(`http://localhost:${server!.result!.port}${route}`);
-              const { layout, meta, custom } = await extractData.extract();
-              await extractData.close();
+          try {
+            for (const [, route] of iterator) {
+              const nestedTask = await task(`Route: ${route}`, async ({}) => {
+                try {
+                  const extractData = new ExtractData(await browser!.newPage());
+                  await extractData.loadUrl(`http://localhost:${server!.port}${route}`);
+                  const { layout, meta, custom } = await extractData.extract();
+                  await extractData.close();
 
-              const captureScreenshot = new CaptureScreenshot(await browser!.result!.newPage());
-              await captureScreenshot.insertData({ layout, meta, custom });
-              await captureScreenshot.loadUrl(
-                `http://localhost:${server!.result!.port}/${layoutDir}/${layout}`
-              );
-              await captureScreenshot.capture(route);
-              await captureScreenshot.close();
+                  const captureScreenshot = new CaptureScreenshot(await browser!.newPage());
+                  await captureScreenshot.insertData({ layout, meta, custom });
+                  await captureScreenshot.loadUrl(`http://localhost:${server!.port}/${layoutDir}/${layout}`);
+                  await captureScreenshot.capture(route);
+                  await captureScreenshot.close();
 
-              // Add route to logs array
-              const combined = [...extractData.logs, ...captureScreenshot.logs];
-              const withRoute: LogsWithRoute = combined.map((log) => ({ route, message: log }));
-              logs.push(...withRoute);
-              setOutput(renderLogs(logs));
-            });
-            setStatus(`${++counter}/${routes!.result!.length}`);
-            nestedTask.clear();
+                  // Add route to logs array
+                  const combined = [...extractData.logs, ...captureScreenshot.logs];
+                  const withRoute: LogsWithRoute = combined.map((log) => ({ route, message: log }));
+                  logs.push(...withRoute);
+                  setOutput(renderLogs(logs));
+                } catch (e) {
+                  setError(e);
+                }
+              });
+              setStatus(`${++counter}/${routes!.length}`);
+              nestedTask.clear();
+            }
+          } catch (e) {
+            setError(e);
           }
         }
 
         // Starts n workers sharing the same iterator
-        const iterator = routes!.result!.entries();
+        const iterator = routes!.entries();
         const workers = new Array(concurrency).fill(iterator).map(doWork);
         await Promise.allSettled(workers);
-      });
+      } catch (e) {
+        setError(e);
+      }
+    });
 
-      await task("Shutdown", async ({ task }) => {
-        return await task.group(
-          (task) => [
-            task("Browser", async ({ setError }) => {
-              try {
-                await browser!.result!.close();
-              } catch (e) {
-                setError(e);
-              }
-            }),
+    await task.group(
+      (task) => [
+        task("Stopping browser", async ({}) => {
+          await browser!.close();
+        }),
 
-            task("Next.js server", async ({ setError }) => {
-              try {
-                server?.result?.serverProcess.kill("SIGINT");
-              } catch (e) {
-                setError(e);
-              }
-            }),
-          ],
-          {
-            concurrency: 2,
-            stopOnError: true,
-          }
-        );
-      });
-    }
+        task("Stopping Next.js server", async ({}) => {
+          server?.serverProcess.kill("SIGINT");
+        }),
+      ],
+      {
+        concurrency: 2,
+        stopOnError: false,
+      }
+    );
   });
+
+  if (state == "error") {
+    process.exit(1);
+  }
 
   process.exit();
 })();
