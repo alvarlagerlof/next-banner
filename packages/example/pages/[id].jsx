@@ -52,7 +52,7 @@ async function fetchPosts() {
     )
   )
     .filter((_, index) => {
-      return index < 20;
+      return index < 5;
     })
     .map((item, index) => {
       return { ...item, image: `https://placem.at/people?w=${400 + index}` };
