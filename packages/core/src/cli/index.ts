@@ -14,15 +14,15 @@ export type LogsWithRoute = Array<{ route: string; message: string }>;
   const { state } = await task("next-banner", async ({ task, setError }) => {
     const [{ result: browser }, { result: server }, { result: routes }] = await task.group(
       (task) => [
-        task("Starting browser", async ({}) => {
+        task("Starting browser", async () => {
           return await startBrowser();
         }),
 
-        task("Starting Next.js server", async ({}) => {
+        task("Starting Next.js server", async () => {
           return await startNextServer();
         }),
 
-        task("Getting routes", async ({}) => {
+        task("Getting routes", async () => {
           return await readRoutes();
         }),
       ],
@@ -38,10 +38,12 @@ export type LogsWithRoute = Array<{ route: string; message: string }>;
         const logs: LogsWithRoute = [];
         const { layoutDir, concurrency } = await getConfig();
 
-        async function doWork(iterator) {
+        // Starts n workers sharing the same iterator
+        const iterator = routes!.entries();
+        const workers = new Array(concurrency).fill(iterator).map(async (iterator) => {
           try {
             for (const [, route] of iterator) {
-              const nestedTask = await task(`Route: ${route}`, async ({}) => {
+              const nestedTask = await task(`Route: ${route}`, async () => {
                 try {
                   const extractData = new ExtractData(await browser!.newPage());
                   await extractData.loadUrl(`http://localhost:${server!.port}${route}`);
@@ -69,11 +71,7 @@ export type LogsWithRoute = Array<{ route: string; message: string }>;
           } catch (e) {
             setError(e);
           }
-        }
-
-        // Starts n workers sharing the same iterator
-        const iterator = routes!.entries();
-        const workers = new Array(concurrency).fill(iterator).map(doWork);
+        });
         await Promise.allSettled(workers);
       } catch (e) {
         setError(e);
@@ -82,11 +80,11 @@ export type LogsWithRoute = Array<{ route: string; message: string }>;
 
     await task.group(
       (task) => [
-        task("Stopping browser", async ({}) => {
+        task("Stopping browser", async () => {
           await browser!.close();
         }),
 
-        task("Stopping Next.js server", async ({}) => {
+        task("Stopping Next.js server", async () => {
           server?.serverProcess.kill("SIGINT");
         }),
       ],
