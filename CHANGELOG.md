@@ -1,5 +1,18 @@
 
 
+### [1.2.33](https://github.com/alvarlagerlof/next-banner/compare/v1.2.32...v1.2.33) (2022-07-16)
+
+
+### Bug Fixes
+
+* lint errors ([6574148](https://github.com/alvarlagerlof/next-banner/commit/6574148f4aca06e0c73d22c68fee180b4a0c9e19))
+* proper exit code on error ([75c7de0](https://github.com/alvarlagerlof/next-banner/commit/75c7de0829a0ddcdc3b21e85895c66e57c53e92b))
+
+
+### Build Changes
+
+* yarn lock ([342c700](https://github.com/alvarlagerlof/next-banner/commit/342c7000d499355536a17661a3d9134f3eae7d68))
+
 ### [1.2.32](https://github.com/alvarlagerlof/next-banner/compare/v1.2.31...v1.2.32) (2022-07-14)
 
 
