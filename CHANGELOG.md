@@ -1,5 +1,7 @@
 
 
+### [1.2.40](https://github.com/alvarlagerlof/next-banner/compare/v1.2.39...v1.2.40) (2022-07-17)
+
 ### [1.2.39](https://github.com/alvarlagerlof/next-banner/compare/v1.2.38...v1.2.39) (2022-07-17)
 
 
