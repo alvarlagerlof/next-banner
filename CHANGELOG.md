@@ -1,5 +1,12 @@
 
 
+### [1.2.43](https://github.com/alvarlagerlof/next-banner/compare/v1.2.42...v1.2.43) (2022-07-18)
+
+
+### Build Changes
+
+* **deps:** update dependency @babel/preset-env to v7.18.9 ([f61de9a](https://github.com/alvarlagerlof/next-banner/commit/f61de9af878297d46de4559b86cba79b15de6540))
+
 ### [1.2.42](https://github.com/alvarlagerlof/next-banner/compare/v1.2.41...v1.2.42) (2022-07-18)
 
 
