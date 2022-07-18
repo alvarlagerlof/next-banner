@@ -1,5 +1,12 @@
 
 
+### [1.2.42](https://github.com/alvarlagerlof/next-banner/compare/v1.2.41...v1.2.42) (2022-07-18)
+
+
+### Build Changes
+
+* **deps:** update dependency @babel/core to v7.18.9 ([5aafb29](https://github.com/alvarlagerlof/next-banner/commit/5aafb29dfd186842abe9f58e46ec6d89ad17b9db))
+
 ### [1.2.41](https://github.com/alvarlagerlof/next-banner/compare/v1.2.40...v1.2.41) (2022-07-18)
 
 
