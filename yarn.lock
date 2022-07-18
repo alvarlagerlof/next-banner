@@ -2888,7 +2888,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:5.30.6, @typescript-eslint/parser@npm:^5.21.0":
+"@typescript-eslint/parser@npm:5.30.7":
+  version: 5.30.7
+  resolution: "@typescript-eslint/parser@npm:5.30.7"
+  dependencies:
+    "@typescript-eslint/scope-manager": 5.30.7
+    "@typescript-eslint/types": 5.30.7
+    "@typescript-eslint/typescript-estree": 5.30.7
+    debug: ^4.3.4
+  peerDependencies:
+    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: f0b2da3cfd047d241f0bd3065a36afe008214aa9e8cd05e9f92d8b0e4b9ec19d3651d0e4a3995b8cb34b553cccb4b0d02d18c0cfbe11f53acd85923dd68366d5
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/parser@npm:^5.21.0":
   version: 5.30.6
   resolution: "@typescript-eslint/parser@npm:5.30.6"
   dependencies:
@@ -6045,7 +6062,7 @@ __metadata:
     eslint-config-next: 12.2.2
     jest: 28.1.3
     next: 12.2.2
-    next-banner: 1.2.43
+    next-banner: 1.2.44
     react: 18.2.0
     react-dom: 18.2.0
     typescript: 4.7.4
@@ -9943,7 +9960,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-banner@1.2.43, next-banner@workspace:packages/core":
+"next-banner@1.2.44, next-banner@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "next-banner@workspace:packages/core"
   dependencies:
@@ -9958,7 +9975,7 @@ __metadata:
     "@types/react": 18.0.15
     "@types/react-dom": 18.0.6
     "@typescript-eslint/eslint-plugin": 5.30.7
-    "@typescript-eslint/parser": 5.30.6
+    "@typescript-eslint/parser": 5.30.7
     babel-jest: 28.1.3
     concurrently: 7.2.2
     cross-spawn: 7.0.3
