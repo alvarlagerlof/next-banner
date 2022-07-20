@@ -1,5 +1,12 @@
 
 
+### [1.2.47](https://github.com/alvarlagerlof/next-banner/compare/v1.2.46...v1.2.47) (2022-07-20)
+
+
+### Build Changes
+
+* **deps:** update dependency release-it to v15.1.3 ([0252dfa](https://github.com/alvarlagerlof/next-banner/commit/0252dfa19e54e80792b0d1972714b0ab1261fba5))
+
 ### [1.2.46](https://github.com/alvarlagerlof/next-banner/compare/v1.2.45...v1.2.46) (2022-07-19)
 
 
