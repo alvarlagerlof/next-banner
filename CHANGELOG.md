@@ -1,5 +1,13 @@
 
 
+### [1.2.49](https://github.com/alvarlagerlof/next-banner/compare/v1.2.48...v1.2.49) (2022-07-21)
+
+
+### Build Changes
+
+* **deps:** update dependency turbo to v1.3.3 ([6c8a9bf](https://github.com/alvarlagerlof/next-banner/commit/6c8a9bf957204f151e865044b89b646734bf231b))
+* **deps:** update yarn to v3.2.2 ([2ad5c7a](https://github.com/alvarlagerlof/next-banner/commit/2ad5c7aabbfd630cc89b49a9fed24eaa072676a4))
+
 ### [1.2.48](https://github.com/alvarlagerlof/next-banner/compare/v1.2.47...v1.2.48) (2022-07-20)
 
 
