@@ -1,5 +1,12 @@
 
 
+### [1.2.53](https://github.com/alvarlagerlof/next-banner/compare/v1.2.52...v1.2.53) (2022-07-22)
+
+
+### Build Changes
+
+* **deps:** update dependency next to v12.2.3 ([ca6e9ca](https://github.com/alvarlagerlof/next-banner/commit/ca6e9ca452ae8254e6c97b23788162c703adc229))
+
 ### [1.2.52](https://github.com/alvarlagerlof/next-banner/compare/v1.2.51...v1.2.52) (2022-07-22)
 
 
