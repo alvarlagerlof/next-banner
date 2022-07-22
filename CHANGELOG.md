@@ -1,5 +1,12 @@
 
 
+### [1.2.52](https://github.com/alvarlagerlof/next-banner/compare/v1.2.51...v1.2.52) (2022-07-22)
+
+
+### Build Changes
+
+* **deps:** update dependency eslint-config-next to v12.2.3 ([6f7ef2b](https://github.com/alvarlagerlof/next-banner/commit/6f7ef2b7335be6875c88253f57adc3a0db95df64))
+
 ### [1.2.51](https://github.com/alvarlagerlof/next-banner/compare/v1.2.50...v1.2.51) (2022-07-21)
 
 
