@@ -2,7 +2,7 @@
 
 import task from "tasuku";
 
-import { startBrowser, startNextServer } from "./runtime";
+import { startBrowser } from "./runtime";
 import readRoutes from "./routes";
 
 import { CaptureScreenshot, ExtractData } from "./operation";
@@ -12,14 +12,10 @@ export type LogsWithRoute = Array<{ route: string; message: string }>;
 
 (async function generate() {
   const { state } = await task("next-banner", async ({ task, setError }) => {
-    const [{ result: browser }, { result: server }, { result: routes }] = await task.group(
+    const [{ result: browser }, { result: routes }] = await task.group(
       (task) => [
         task("Starting browser", async () => {
           return await startBrowser();
-        }),
-
-        task("Starting Next.js server", async () => {
-          return await startNextServer();
         }),
 
         task("Getting routes", async () => {
@@ -78,21 +74,9 @@ export type LogsWithRoute = Array<{ route: string; message: string }>;
       }
     });
 
-    await task.group(
-      (task) => [
-        task("Stopping browser", async () => {
-          await browser!.close();
-        }),
-
-        task("Stopping Next.js server", async () => {
-          server?.serverProcess.kill("SIGINT");
-        }),
-      ],
-      {
-        concurrency: 2,
-        stopOnError: false,
-      }
-    );
+    await task("Stopping browser", async () => {
+      await browser.close();
+    });
   });
 
   if (state == "error") {

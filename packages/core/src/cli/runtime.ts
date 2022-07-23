@@ -1,6 +1,4 @@
 import puppeteer, { Browser } from "puppeteer";
-import { spawn, ChildProcess } from "cross-spawn";
-import getPort, { portNumbers } from "get-port";
 
 async function startBrowser(): Promise<Browser> {
   const minimal_args = [
@@ -50,38 +48,4 @@ async function startBrowser(): Promise<Browser> {
   return browser;
 }
 
-export interface NextServer {
-  port: number;
-  serverProcess: ChildProcess;
-}
-
-async function startNextServer(): Promise<NextServer> {
-  const port = await getPort({ port: portNumbers(3000, 6000) });
-
-  return new Promise((resolve, reject) => {
-    const serverProcess = spawn("yarn", ["start", "-p", port.toString()], {});
-
-    serverProcess.stdout?.on("data", (data) => {
-      if (data.toString().includes("started server on")) {
-        resolve({
-          serverProcess,
-          port,
-        });
-      }
-    });
-
-    serverProcess.stderr?.on("data", (data) => {
-      reject(new Error(`stderr: ${data}`));
-    });
-
-    serverProcess.on("error", (error) => {
-      reject(new Error(`error: ${error.message}`));
-    });
-
-    serverProcess.on("close", (code) => {
-      reject(new Error(`child process exited with code ${code}`));
-    });
-  });
-}
-
-export { startBrowser, startNextServer };
+export { startBrowser };
