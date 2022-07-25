@@ -1,5 +1,12 @@
 
 
+### [1.2.59](https://github.com/alvarlagerlof/next-banner/compare/v1.2.58...v1.2.59) (2022-07-25)
+
+
+### Build Changes
+
+* **deps:** update dependency @typescript-eslint/eslint-plugin to v5.31.0 ([166f38d](https://github.com/alvarlagerlof/next-banner/commit/166f38d5f8fbace9dda81a77656a85fe6324e91e))
+
 ### [1.2.58](https://github.com/alvarlagerlof/next-banner/compare/v1.2.57...v1.2.58) (2022-07-25)
 
 
