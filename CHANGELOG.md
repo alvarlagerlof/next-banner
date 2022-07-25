@@ -1,5 +1,12 @@
 
 
+### [1.2.60](https://github.com/alvarlagerlof/next-banner/compare/v1.2.59...v1.2.60) (2022-07-25)
+
+
+### Build Changes
+
+* **deps:** update dependency @typescript-eslint/parser to v5.31.0 ([a18f5f2](https://github.com/alvarlagerlof/next-banner/commit/a18f5f265b996f59d6db49b8a2a676666e237957))
+
 ### [1.2.59](https://github.com/alvarlagerlof/next-banner/compare/v1.2.58...v1.2.59) (2022-07-25)
 
 
