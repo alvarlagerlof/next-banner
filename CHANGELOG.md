@@ -1,5 +1,12 @@
 
 
+### [1.2.62](https://github.com/alvarlagerlof/next-banner/compare/v1.2.61...v1.2.62) (2022-07-27)
+
+
+### Bug Fixes
+
+* run ci on pull request ([e5dfb3f](https://github.com/alvarlagerlof/next-banner/commit/e5dfb3f7bce408106041cee1fe4122325f87a561))
+
 ### [1.2.61](https://github.com/alvarlagerlof/next-banner/compare/v1.2.60...v1.2.61) (2022-07-26)
 
 
