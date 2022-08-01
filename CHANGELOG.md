@@ -1,5 +1,12 @@
 
 
+### [1.2.68](https://github.com/alvarlagerlof/next-banner/compare/v1.2.67...v1.2.68) (2022-08-01)
+
+
+### Build Changes
+
+* **deps:** lock file maintenance ([bc5f372](https://github.com/alvarlagerlof/next-banner/commit/bc5f3728751d5ccfd1a8e5e79dd66be65e88ffbd))
+
 ### [1.2.67](https://github.com/alvarlagerlof/next-banner/compare/v1.2.66...v1.2.67) (2022-07-31)
 
 
