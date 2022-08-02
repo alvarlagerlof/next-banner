@@ -17,7 +17,7 @@
     "@release-it/conventional-changelog": "5.0.0",
     "release-it": "15.2.0",
     "release-it-yarn-workspaces": "workspace:*",
-    "turbo": "1.4.0"
+    "turbo": "1.4.2"
   },
   "packageManager": "yarn@3.2.2",
   "version": "1.2.72"
