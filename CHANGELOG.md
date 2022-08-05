@@ -1,5 +1,12 @@
 
 
+### [1.2.78](https://github.com/alvarlagerlof/next-banner/compare/v1.2.77...v1.2.78) (2022-08-05)
+
+
+### Build Changes
+
+* **deps:** update dependency @types/node to v18.6.4 ([aa3fbc8](https://github.com/alvarlagerlof/next-banner/commit/aa3fbc85f6a857fd07f9325ed904b0785556fb58))
+
 ### [1.2.77](https://github.com/alvarlagerlof/next-banner/compare/v1.2.76...v1.2.77) (2022-08-05)
 
 
