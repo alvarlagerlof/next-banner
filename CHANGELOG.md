@@ -1,5 +1,12 @@
 
 
+### [1.2.77](https://github.com/alvarlagerlof/next-banner/compare/v1.2.76...v1.2.77) (2022-08-05)
+
+
+### Build Changes
+
+* **deps:** update dependency @testing-library/jest-dom to v5.16.5 ([0195189](https://github.com/alvarlagerlof/next-banner/commit/019518994ca85e1f578f33a8f52789e918aeb208))
+
 ### [1.2.76](https://github.com/alvarlagerlof/next-banner/compare/v1.2.75...v1.2.76) (2022-08-04)
 
 
