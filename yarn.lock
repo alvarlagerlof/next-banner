@@ -6024,7 +6024,7 @@ __metadata:
     eslint-config-next: 12.2.4
     jest: 28.1.3
     next: 12.2.4
-    next-banner: 1.2.78
+    next-banner: 1.2.79
     react: 18.2.0
     react-dom: 18.2.0
     typescript: 4.7.4
@@ -9997,7 +9997,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-banner@1.2.78, next-banner@workspace:packages/core":
+"next-banner@1.2.79, next-banner@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "next-banner@workspace:packages/core"
   dependencies:
@@ -10026,7 +10026,7 @@ __metadata:
     merge-anything: 5.0.2
     next: 12.2.4
     prettier: 2.7.1
-    puppeteer: 15.5.0
+    puppeteer: 16.1.0
     react: 18.2.0
     react-dom: 18.2.0
     rimraf: 3.0.2
@@ -11205,9 +11205,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer@npm:15.5.0":
-  version: 15.5.0
-  resolution: "puppeteer@npm:15.5.0"
+"puppeteer@npm:16.1.0":
+  version: 16.1.0
+  resolution: "puppeteer@npm:16.1.0"
   dependencies:
     cross-fetch: 3.1.5
     debug: 4.3.4
@@ -11220,8 +11220,8 @@ __metadata:
     rimraf: 3.0.2
     tar-fs: 2.1.1
     unbzip2-stream: 1.4.3
-    ws: 8.8.0
-  checksum: 2bc9e230b397f6b0c42eb5ba4e9179879b3d52f64d767a0bffbb266ecd5f8268ee982fd643c09362e29248e8f9566607c128bf7f60ec625b7605c9e609871788
+    ws: 8.8.1
+  checksum: fca08c33f1096f15b7461326f28725f463e458190844b09dc34f55dee86b6455f0078497c861cdf0af8931797c1f60a64389f531ca9c0758ce68427d27736596
   languageName: node
   linkType: hard
 
@@ -14013,22 +14013,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:8.8.0":
-  version: 8.8.0
-  resolution: "ws@npm:8.8.0"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ^5.0.2
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: 6ceed1ca1cb800ef60c7fc8346c7d5d73d73be754228eb958765abf5d714519338efa20ffe674167039486eb3a813aae5a497f8d319e16b4d96216a31df5bd95
-  languageName: node
-  linkType: hard
-
-"ws@npm:^8.2.3":
+"ws@npm:8.8.1, ws@npm:^8.2.3":
   version: 8.8.1
   resolution: "ws@npm:8.8.1"
   peerDependencies:
