@@ -76,7 +76,7 @@
     "cross-spawn": "7.0.3",
     "get-port": "6.1.2",
     "merge-anything": "5.0.2",
-    "puppeteer": "15.5.0",
+    "puppeteer": "16.1.0",
     "tasuku": "2.0.0"
   }
 }
