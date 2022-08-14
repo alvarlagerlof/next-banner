@@ -1,5 +1,12 @@
 
 
+### [1.2.95](https://github.com/alvarlagerlof/next-banner/compare/v1.2.94...v1.2.95) (2022-08-14)
+
+
+### Build Changes
+
+* **deps:** update dependency eslint to v8.22.0 ([978315f](https://github.com/alvarlagerlof/next-banner/commit/978315f4106a6e25e45ad9c44004d8d4a5fe0b42))
+
 ### [1.2.94](https://github.com/alvarlagerlof/next-banner/compare/v1.2.93...v1.2.94) (2022-08-13)
 
 
