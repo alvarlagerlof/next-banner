@@ -1,5 +1,12 @@
 
 
+### [1.2.102](https://github.com/alvarlagerlof/next-banner/compare/v1.2.101...v1.2.102) (2022-08-16)
+
+
+### Build Changes
+
+* **deps:** update dependency puppeteer to v16.1.1 ([12b50cb](https://github.com/alvarlagerlof/next-banner/commit/12b50cb0bf4ff50277f3b1704aabed6ea1672473))
+
 ### [1.2.101](https://github.com/alvarlagerlof/next-banner/compare/v1.2.100...v1.2.101) (2022-08-16)
 
 
