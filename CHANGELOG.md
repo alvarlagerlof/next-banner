@@ -1,5 +1,7 @@
 
 
+### [1.2.104](https://github.com/alvarlagerlof/next-banner/compare/v1.2.103...v1.2.104) (2022-08-17)
+
 ### [1.2.103](https://github.com/alvarlagerlof/next-banner/compare/v1.2.102...v1.2.103) (2022-08-16)
 
 
