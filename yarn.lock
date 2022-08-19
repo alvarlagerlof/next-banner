@@ -5955,7 +5955,7 @@ __metadata:
     eslint-config-next: 12.2.5
     jest: 28.1.3
     next: 12.2.5
-    next-banner: 1.2.104
+    next-banner: 1.2.105
     react: 18.2.0
     react-dom: 18.2.0
     typescript: 4.7.4
@@ -9907,7 +9907,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-banner@1.2.104, next-banner@workspace:packages/core":
+"next-banner@1.2.105, next-banner@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "next-banner@workspace:packages/core"
   dependencies:
@@ -9936,7 +9936,7 @@ __metadata:
     merge-anything: 5.0.2
     next: 12.2.5
     prettier: 2.7.1
-    puppeteer: 16.1.1
+    puppeteer: 16.2.0
     react: 18.2.0
     react-dom: 18.2.0
     rimraf: 3.0.2
@@ -10861,7 +10861,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pkg-dir@npm:4.2.0, pkg-dir@npm:^4.2.0":
+"pkg-dir@npm:^4.2.0":
   version: 4.2.0
   resolution: "pkg-dir@npm:4.2.0"
   dependencies:
@@ -11115,23 +11115,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer@npm:16.1.1":
-  version: 16.1.1
-  resolution: "puppeteer@npm:16.1.1"
+"puppeteer@npm:16.2.0":
+  version: 16.2.0
+  resolution: "puppeteer@npm:16.2.0"
   dependencies:
     cross-fetch: 3.1.5
     debug: 4.3.4
     devtools-protocol: 0.0.1019158
     extract-zip: 2.0.1
     https-proxy-agent: 5.0.1
-    pkg-dir: 4.2.0
     progress: 2.0.3
     proxy-from-env: 1.1.0
     rimraf: 3.0.2
     tar-fs: 2.1.1
     unbzip2-stream: 1.4.3
     ws: 8.8.1
-  checksum: 19ab48370fc13bd525e2992c11e12f1e46d379b9d15dfd45f31ee568a16f1e8f08f0a98aca652bd1090bdb52d1891202e1b13c2e00c339c16a8c09e864e433f4
+  checksum: b0f96f27e48e421410800b2a61ba8d45b3d4f60295a0d5189dfa0c442eedeea4b936cfe2c7cf00ba92057b9f42a1f000e5d843d0288137b0f76800a57ccbafdc
   languageName: node
   linkType: hard
 
