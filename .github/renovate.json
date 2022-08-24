@@ -12,6 +12,10 @@
   "semanticCommitScope": "deps",
   "ignorePaths": ["packages/release-it-yarn-workspaces/"],
   "ignoreDeps": ["esbuild"],
+  "schedule": ["every weekend"],
+  "vulnerabilityAlerts": {
+    "schedule": null
+  },
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
@@ -19,7 +23,6 @@
     },
     {
       "matchUpdateTypes": ["major"],
-      "schedule": ["every weekend"]
     }
   ]
 }
