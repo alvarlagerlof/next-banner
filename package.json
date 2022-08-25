@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@release-it/conventional-changelog": "5.1.0",
-    "release-it": "15.3.0",
+    "release-it": "15.4.0",
     "release-it-yarn-workspaces": "workspace:*",
     "turbo": "1.4.3"
   },
