@@ -1,5 +1,12 @@
 
 
+### [1.2.123](https://github.com/alvarlagerlof/next-banner/compare/v1.2.122...v1.2.123) (2022-08-25)
+
+
+### Build Changes
+
+* **deps:** update dependency merge-anything to v5.0.4 ([eb019b3](https://github.com/alvarlagerlof/next-banner/commit/eb019b3a5bd03fb34e729a9709def910dcf86216))
+
 ### [1.2.122](https://github.com/alvarlagerlof/next-banner/compare/v1.2.121...v1.2.122) (2022-08-24)
 
 
