@@ -1,5 +1,13 @@
 
 
+### [1.2.126](https://github.com/alvarlagerlof/next-banner/compare/v1.2.125...v1.2.126) (2022-08-27)
+
+
+### Build Changes
+
+* **deps:** update dependency babel-jest to v29 ([9feaf87](https://github.com/alvarlagerlof/next-banner/commit/9feaf87b000d4783707653c36923eb880adf5593))
+* **deps:** update dependency jest-environment-jsdom to v29 ([bae8bca](https://github.com/alvarlagerlof/next-banner/commit/bae8bca418fadb47031e5b9fa5a5d55060d54f5a))
+
 ### [1.2.125](https://github.com/alvarlagerlof/next-banner/compare/v1.2.124...v1.2.125) (2022-08-27)
 
 
