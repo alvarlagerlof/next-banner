@@ -5373,10 +5373,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"devtools-protocol@npm:0.0.1019158":
-  version: 0.0.1019158
-  resolution: "devtools-protocol@npm:0.0.1019158"
-  checksum: 3b40771d231597dea5d502e708ac1ea1225214d4e007e12f7f82fb1966b76d9980665481f8495df444e3632d86b0361e2625502b5ef918884a4ed7fe57518723
+"devtools-protocol@npm:0.0.1036444":
+  version: 0.0.1036444
+  resolution: "devtools-protocol@npm:0.0.1036444"
+  checksum: 6975c8def95a5e1a4207d6deb05322e335d6a37bdaa3e589cbd5bde40fbbe3ab0df2cfedb1b3ad2785401f208c150fd489a6a065a4624b56e4c0c4c1bfd89172
   languageName: node
   linkType: hard
 
@@ -10881,7 +10881,7 @@ __metadata:
     merge-anything: 5.0.4
     next: 12.2.5
     prettier: 2.7.1
-    puppeteer: 16.2.0
+    puppeteer: 17.1.0
     react: 18.2.0
     react-dom: 18.2.0
     rimraf: 3.0.2
@@ -12088,13 +12088,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer@npm:16.2.0":
-  version: 16.2.0
-  resolution: "puppeteer@npm:16.2.0"
+"puppeteer@npm:17.1.0":
+  version: 17.1.0
+  resolution: "puppeteer@npm:17.1.0"
   dependencies:
     cross-fetch: 3.1.5
     debug: 4.3.4
-    devtools-protocol: 0.0.1019158
+    devtools-protocol: 0.0.1036444
     extract-zip: 2.0.1
     https-proxy-agent: 5.0.1
     progress: 2.0.3
@@ -12103,7 +12103,7 @@ __metadata:
     tar-fs: 2.1.1
     unbzip2-stream: 1.4.3
     ws: 8.8.1
-  checksum: b0f96f27e48e421410800b2a61ba8d45b3d4f60295a0d5189dfa0c442eedeea4b936cfe2c7cf00ba92057b9f42a1f000e5d843d0288137b0f76800a57ccbafdc
+  checksum: 22087d492da78c3e4840c56dfa4a114fe89421da5dcc78909de9ced6159ca0e28f755732404298455a0ac7bcede43b53cf66b4c9704cb959a9b12aaf9fdb2dbf
   languageName: node
   linkType: hard
 
