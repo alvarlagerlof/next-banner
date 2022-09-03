@@ -57,7 +57,7 @@
     "@types/react-dom": "18.0.6",
     "@typescript-eslint/eslint-plugin": "5.36.1",
     "@typescript-eslint/parser": "5.36.1",
-    "babel-jest": "29.0.1",
+    "babel-jest": "29.0.2",
     "concurrently": "7.3.0",
     "esbuild": "0.14.39",
     "eslint": "8.23.0",
