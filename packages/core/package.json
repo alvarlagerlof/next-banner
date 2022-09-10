@@ -62,7 +62,7 @@
     "esbuild": "0.14.39",
     "eslint": "8.23.0",
     "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-react": "7.31.5",
+    "eslint-plugin-react": "7.31.8",
     "jest": "29.0.2",
     "jest-environment-jsdom": "29.0.2",
     "next": "12.2.5",
