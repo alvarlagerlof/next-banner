@@ -3016,7 +3016,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:5.36.1, @typescript-eslint/parser@npm:^5.21.0":
+"@typescript-eslint/parser@npm:5.36.2":
+  version: 5.36.2
+  resolution: "@typescript-eslint/parser@npm:5.36.2"
+  dependencies:
+    "@typescript-eslint/scope-manager": 5.36.2
+    "@typescript-eslint/types": 5.36.2
+    "@typescript-eslint/typescript-estree": 5.36.2
+    debug: ^4.3.4
+  peerDependencies:
+    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: d6cc22cbc7aacb5ecebf55eb1d681cb6b964b108e147b418295c3e48701a77768cff128c16da421ae50eabb9f1296ecec7fa3cc5f2ccb63a3febf79f98b4195f
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/parser@npm:^5.21.0":
   version: 5.36.1
   resolution: "@typescript-eslint/parser@npm:5.36.1"
   dependencies:
@@ -10646,7 +10663,7 @@ __metadata:
     "@types/react": 18.0.18
     "@types/react-dom": 18.0.6
     "@typescript-eslint/eslint-plugin": 5.36.2
-    "@typescript-eslint/parser": 5.36.1
+    "@typescript-eslint/parser": 5.36.2
     babel-jest: 29.0.2
     concurrently: 7.3.0
     cross-spawn: 7.0.3
