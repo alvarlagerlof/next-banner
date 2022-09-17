@@ -6550,6 +6550,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"figures@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "figures@npm:5.0.0"
+  dependencies:
+    escape-string-regexp: ^5.0.0
+    is-unicode-supported: ^1.2.0
+  checksum: e6e8b6d1df2f554d4effae4a5ceff5d796f9449f6d4e912d74dab7d5f25916ecda6c305b9084833157d56485a0c78b37164430ddc5675bcee1330e346710669e
+  languageName: node
+  linkType: hard
+
 "file-entry-cache@npm:^6.0.1":
   version: 6.0.1
   resolution: "file-entry-cache@npm:6.0.1"
@@ -6700,7 +6710,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"form-data-encoder@npm:^2.0.1, form-data-encoder@npm:^2.1.0":
+"form-data-encoder@npm:^2.1.0":
   version: 2.1.2
   resolution: "form-data-encoder@npm:2.1.2"
   checksum: 5c6401e3ebd2ba2adfa151c9fbd1df5adae8b1dd7bca5b18ab25ad1f9b83e20ddffb6b9ff77f5006b93d7ec2032e22828c9543c0bd4b2bc5b05335c31a3ba5b9
@@ -7229,28 +7239,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"got@npm:12.3.1":
-  version: 12.3.1
-  resolution: "got@npm:12.3.1"
-  dependencies:
-    "@sindresorhus/is": ^5.2.0
-    "@szmarczak/http-timer": ^5.0.1
-    "@types/cacheable-request": ^6.0.2
-    "@types/responselike": ^1.0.0
-    cacheable-lookup: ^6.0.4
-    cacheable-request: ^7.0.2
-    decompress-response: ^6.0.0
-    form-data-encoder: ^2.0.1
-    get-stream: ^6.0.1
-    http2-wrapper: ^2.1.10
-    lowercase-keys: ^3.0.0
-    p-cancelable: ^3.0.0
-    responselike: ^2.0.0
-  checksum: 156bc4dd7300b5945a2648b18d03610a674d9d3ae54c557f85cf5026f3f6362801b561413898d5e86f554791de88841685ca48674b1fc4d462621de8d2186300
-  languageName: node
-  linkType: hard
-
-"got@npm:^12.1.0":
+"got@npm:12.4.1, got@npm:^12.1.0":
   version: 12.4.1
   resolution: "got@npm:12.4.1"
   dependencies:
@@ -7752,16 +7741,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"inquirer@npm:9.1.0":
-  version: 9.1.0
-  resolution: "inquirer@npm:9.1.0"
+"inquirer@npm:9.1.1":
+  version: 9.1.1
+  resolution: "inquirer@npm:9.1.1"
   dependencies:
     ansi-escapes: ^5.0.0
     chalk: ^5.0.1
     cli-cursor: ^4.0.0
     cli-width: ^4.0.0
     external-editor: ^3.0.3
-    figures: ^4.0.1
+    figures: ^5.0.0
     lodash: ^4.17.21
     mute-stream: 0.0.8
     ora: ^6.1.2
@@ -7771,7 +7760,7 @@ __metadata:
     strip-ansi: ^7.0.1
     through: ^2.3.6
     wrap-ansi: ^8.0.1
-  checksum: dec2a062c0710396e14712bff6e08c0f150ab1021754ab9f66d600dd828abea4263b49ddbf8d100173843cb14cbe790abb8d5d5b2ae9e11b222324638c9674f2
+  checksum: e0b945c34e4ffcb2e4446e6821726e50b2936cd8a0b53d702d8d6ab18634695b69e7481be230fb924afe69087bb7df2afaf39a41c0c2e39854a9c7028507c67d
   languageName: node
   linkType: hard
 
@@ -10545,7 +10534,7 @@ __metadata:
   resolution: "monorepo-root@workspace:."
   dependencies:
     "@release-it/conventional-changelog": 5.1.0
-    release-it: 15.4.1
+    release-it: 15.4.2
     release-it-yarn-workspaces: "workspace:*"
     turbo: 1.4.6
   languageName: unknown
@@ -12336,9 +12325,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"release-it@npm:15.4.1":
-  version: 15.4.1
-  resolution: "release-it@npm:15.4.1"
+"release-it@npm:15.4.2":
+  version: 15.4.2
+  resolution: "release-it@npm:15.4.2"
   dependencies:
     "@iarna/toml": 2.2.5
     "@octokit/rest": 19.0.4
@@ -12349,8 +12338,8 @@ __metadata:
     form-data: 4.0.0
     git-url-parse: 13.0.0
     globby: 13.1.2
-    got: 12.3.1
-    inquirer: 9.1.0
+    got: 12.4.1
+    inquirer: 9.1.1
     is-ci: 3.0.1
     lodash: 4.17.21
     mime-types: 2.1.35
@@ -12369,7 +12358,7 @@ __metadata:
     yargs-parser: 21.1.1
   bin:
     release-it: bin/release-it.js
-  checksum: 902355268ed7e532b64f5d4ebc003ca0bd45b86a88a0b3ccc1392f7d333ba0074506a9fe09c76cffb73972857b3386b846eb7ed07da0e3cd6f86ee865e00f559
+  checksum: 0eca55e511af915fd87477f0686db1e5d6a1c33e9bf7310960cf34bef8cb9d8ef3f2a40fccd8400574383133e497426dd48e23a9482c4b7b1b1e74ed33079e75
   languageName: node
   linkType: hard
 
