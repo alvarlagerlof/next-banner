@@ -2844,13 +2844,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:*, @types/jest@npm:29.0.1":
+"@types/jest@npm:*":
   version: 29.0.1
   resolution: "@types/jest@npm:29.0.1"
   dependencies:
     expect: ^29.0.0
     pretty-format: ^29.0.0
   checksum: efd30357c290b5d385382302fae927885f2a9bde0aa45d4c7f970fa6e6d750df83edef73f16d1e9a005e08a5bcd7c6ff56a43f5ac2534a517df9ad1e44dd30c4
+  languageName: node
+  linkType: hard
+
+"@types/jest@npm:29.0.3":
+  version: 29.0.3
+  resolution: "@types/jest@npm:29.0.3"
+  dependencies:
+    expect: ^29.0.0
+    pretty-format: ^29.0.0
+  checksum: 14a8ec1954540ec59f4072c3c4dbc6b5d5ff616556c98671aca26606bdf9d49616a3f269f3e488c80cd481ee19880351575c1f6895827628818e193600c121e0
   languageName: node
   linkType: hard
 
@@ -10637,7 +10647,7 @@ __metadata:
     "@babel/preset-typescript": 7.18.6
     "@testing-library/jest-dom": 5.16.5
     "@testing-library/react": 13.4.0
-    "@types/jest": 29.0.1
+    "@types/jest": 29.0.3
     "@types/node": 18.7.16
     "@types/react": 18.0.19
     "@types/react-dom": 18.0.6
