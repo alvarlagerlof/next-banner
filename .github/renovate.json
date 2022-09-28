@@ -22,7 +22,7 @@
       "automerge": true
     },
     {
-      "matchUpdateTypes": ["major"],
+      "matchUpdateTypes": ["major"]
     }
   ]
 }
