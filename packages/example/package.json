@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "1.2.126",
+  "version": "1.2.127",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "next": "12.3.1",
-    "next-banner": "1.2.126",
+    "next-banner": "1.2.127",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
