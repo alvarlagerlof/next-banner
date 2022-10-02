@@ -6,6 +6,9 @@
     "type": "git",
     "url": "https://github.com/alvarlagerlof/next-banner"
   },
+  "npm": {
+    "publish": false
+  },
   "author": "Alvar Lagerlöf",
   "license": "MIT",
   "keywords": [
