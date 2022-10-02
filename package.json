@@ -1,6 +1,9 @@
 {
   "name": "monorepo-root",
   "private": true,
+  "npm": {
+    "publish": false
+  },
   "workspaces": [
     "packages/*"
   ],
