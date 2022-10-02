@@ -11,7 +11,7 @@
     "dev": "turbo run dev",
     "ci": "turbo run ci",
     "prepare-release": "cp README.md packages/core && cp LICENSE packages/core",
-    "release": "yarn prepare-release && release-it --ci"
+    "release": "yarn prepare-release && release-it --ci --no-npm"
   },
   "devDependencies": {
     "@release-it/conventional-changelog": "5.1.0",
