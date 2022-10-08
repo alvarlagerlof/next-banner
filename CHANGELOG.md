@@ -1,5 +1,12 @@
 
 
+### [1.2.135](https://github.com/alvarlagerlof/next-banner/compare/v1.2.134...v1.2.135) (2022-10-08)
+
+
+### Build Changes
+
+* **deps:** update yarn to v3.2.4 ([c894d1d](https://github.com/alvarlagerlof/next-banner/commit/c894d1d200e224a13dbab3075bb68ec194e27e30))
+
 ### [1.2.134](https://github.com/alvarlagerlof/next-banner/compare/v1.2.133...v1.2.134) (2022-10-08)
 
 
