@@ -2497,17 +2497,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@release-it/conventional-changelog@npm:5.1.0":
-  version: 5.1.0
-  resolution: "@release-it/conventional-changelog@npm:5.1.0"
+"@release-it/conventional-changelog@npm:5.1.1":
+  version: 5.1.1
+  resolution: "@release-it/conventional-changelog@npm:5.1.1"
   dependencies:
     concat-stream: ^2.0.0
     conventional-changelog: ^3.1.25
     conventional-recommended-bump: ^6.1.0
-    semver: ^7.3.7
+    semver: 7.3.8
   peerDependencies:
-    release-it: ^15.3.0
-  checksum: 778a828880a0a2477ed1ff9df2609c8ebc3f3490c14c527a2edae9e838f642d5ffe111029305cf58fae674d26f571a6608990e3ea0e8adb49ac2852d80dc9aa0
+    release-it: ^15.4.1
+  checksum: 15ade4ab88dabea7664b28494db035707eb84acc897b51472142abcac6c6acae0e90f9db7d8c93bb1de697678e7321d31192362565c538d4f62a4e7600bc30b2
   languageName: node
   linkType: hard
 
@@ -6235,7 +6235,7 @@ __metadata:
     eslint-config-next: 12.3.1
     jest: 29.1.2
     next: 12.3.1
-    next-banner: 1.2.135
+    next-banner: 1.2.136
     react: 18.2.0
     react-dom: 18.2.0
     typescript: 4.8.4
@@ -10533,7 +10533,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "monorepo-root@workspace:."
   dependencies:
-    "@release-it/conventional-changelog": 5.1.0
+    "@release-it/conventional-changelog": 5.1.1
     release-it: 15.4.2
     release-it-yarn-workspaces: "workspace:*"
     turbo: 1.5.5
@@ -10651,7 +10651,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-banner@1.2.135, next-banner@workspace:packages/core":
+"next-banner@1.2.136, next-banner@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "next-banner@workspace:packages/core"
   dependencies:
@@ -12800,6 +12800,17 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 2fa3e877568cd6ce769c75c211beaed1f9fce80b28338cadd9d0b6c40f2e2862bafd62c19a6cff42f3d54292b7c623277bcab8816a2b5521cf15210d43e75232
+  languageName: node
+  linkType: hard
+
+"semver@npm:7.3.8":
+  version: 7.3.8
+  resolution: "semver@npm:7.3.8"
+  dependencies:
+    lru-cache: ^6.0.0
+  bin:
+    semver: bin/semver.js
+  checksum: ba9c7cbbf2b7884696523450a61fee1a09930d888b7a8d7579025ad93d459b2d1949ee5bbfeb188b2be5f4ac163544c5e98491ad6152df34154feebc2cc337c1
   languageName: node
   linkType: hard
 
