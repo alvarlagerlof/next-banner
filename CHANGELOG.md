@@ -1,5 +1,12 @@
 
 
+### [1.2.137](https://github.com/alvarlagerlof/next-banner/compare/v1.2.136...v1.2.137) (2022-10-08)
+
+
+### Build Changes
+
+* **deps:** update dependency @release-it/conventional-changelog to v5.1.1 ([9457050](https://github.com/alvarlagerlof/next-banner/commit/94570508f3a92624c232de5397da04eebe337208))
+
 ### [1.2.136](https://github.com/alvarlagerlof/next-banner/compare/v1.2.135...v1.2.136) (2022-10-08)
 
 
