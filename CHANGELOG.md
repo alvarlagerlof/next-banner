@@ -1,5 +1,12 @@
 
 
+### [1.2.142](https://github.com/alvarlagerlof/next-banner/compare/v1.2.141...v1.2.142) (2022-10-09)
+
+
+### Build Changes
+
+* **deps:** update dependency eslint-plugin-react to v7.31.9 ([171916d](https://github.com/alvarlagerlof/next-banner/commit/171916da074f9641803005488305cc2b0665dfe9))
+
 ### [1.2.141](https://github.com/alvarlagerlof/next-banner/compare/v1.2.140...v1.2.141) (2022-10-09)
 
 
