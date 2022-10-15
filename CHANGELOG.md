@@ -1,5 +1,12 @@
 
 
+### [1.2.152](https://github.com/alvarlagerlof/next-banner/compare/v1.2.151...v1.2.152) (2022-10-15)
+
+
+### Build Changes
+
+* **deps:** update dependency jest to v29.2.0 ([6196e2f](https://github.com/alvarlagerlof/next-banner/commit/6196e2fd92b9c12eaa24f09825e0a26c8e24d42a))
+
 ### [1.2.151](https://github.com/alvarlagerlof/next-banner/compare/v1.2.150...v1.2.151) (2022-10-15)
 
 
