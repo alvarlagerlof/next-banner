@@ -1,5 +1,12 @@
 
 
+### [1.2.145](https://github.com/alvarlagerlof/next-banner/compare/v1.2.144...v1.2.145) (2022-10-15)
+
+
+### Build Changes
+
+* **deps:** update dependency @babel/preset-env to v7.19.4 ([72063f1](https://github.com/alvarlagerlof/next-banner/commit/72063f16ad5cd0b279da9c91d1b11f36bb35c6af))
+
 ### [1.2.144](https://github.com/alvarlagerlof/next-banner/compare/v1.2.143...v1.2.144) (2022-10-10)
 
 
