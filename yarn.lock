@@ -1667,18 +1667,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/environment@npm:^29.1.2":
-  version: 29.1.2
-  resolution: "@jest/environment@npm:29.1.2"
-  dependencies:
-    "@jest/fake-timers": ^29.1.2
-    "@jest/types": ^29.1.2
-    "@types/node": "*"
-    jest-mock: ^29.1.2
-  checksum: 084614290016788807753965d35afe6b06c217f8b896139f766a603dc2d38ffdcb40563cf1510fd5c1168a6eaa97cc12d5bbe878c3ad25a34c942f06b1ddff23
-  languageName: node
-  linkType: hard
-
 "@jest/environment@npm:^29.2.0":
   version: 29.2.0
   resolution: "@jest/environment@npm:29.2.0"
@@ -1749,20 +1737,6 @@ __metadata:
     jest-mock: ^28.1.3
     jest-util: ^28.1.3
   checksum: cec14d5b14913a54dce64a62912c5456235f5d90b509ceae19c727565073114dae1aaf960ac6be96b3eb94789a3a758b96b72c8fca7e49a6ccac415fbc0321e1
-  languageName: node
-  linkType: hard
-
-"@jest/fake-timers@npm:^29.1.2":
-  version: 29.1.2
-  resolution: "@jest/fake-timers@npm:29.1.2"
-  dependencies:
-    "@jest/types": ^29.1.2
-    "@sinonjs/fake-timers": ^9.1.2
-    "@types/node": "*"
-    jest-message-util: ^29.1.2
-    jest-mock: ^29.1.2
-    jest-util: ^29.1.2
-  checksum: a5331ffdaaabeaded69b41f46ec85f8768fbfa5d3953be24111b2849a93626c851c6ebbb64ae718ab9ebea86c21083702985caeb2812f51941b111a9ead377e1
   languageName: node
   linkType: hard
 
@@ -6346,7 +6320,7 @@ __metadata:
     eslint-config-next: 12.3.1
     jest: 29.2.0
     next: 12.3.1
-    next-banner: 1.2.151
+    next-banner: 1.2.152
     react: 18.2.0
     react-dom: 18.2.0
     typescript: 4.8.4
@@ -8761,19 +8735,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-environment-jsdom@npm:29.1.2":
-  version: 29.1.2
-  resolution: "jest-environment-jsdom@npm:29.1.2"
+"jest-environment-jsdom@npm:29.2.0":
+  version: 29.2.0
+  resolution: "jest-environment-jsdom@npm:29.2.0"
   dependencies:
-    "@jest/environment": ^29.1.2
-    "@jest/fake-timers": ^29.1.2
-    "@jest/types": ^29.1.2
+    "@jest/environment": ^29.2.0
+    "@jest/fake-timers": ^29.2.0
+    "@jest/types": ^29.2.0
     "@types/jsdom": ^20.0.0
     "@types/node": "*"
-    jest-mock: ^29.1.2
-    jest-util: ^29.1.2
+    jest-mock: ^29.2.0
+    jest-util: ^29.2.0
     jsdom: ^20.0.0
-  checksum: 75737ab504fe6a2ed4e4973724deca46176b80380e4e5b040c8e318af56e31d5ab9679e4a2dd1a1e2a27ca6009312f9a12309c9433d645e3ec09354f52b0e287
+  peerDependencies:
+    canvas: ^2.5.0
+  peerDependenciesMeta:
+    canvas:
+      optional: true
+  checksum: 401f37f74c14a5c49775441b415fad6015a695b152d44a6587b9af85a5e0448768bf2595a59a46b410d068e70354911acea72bfbe0b44473dce3f59b68e8467d
   languageName: node
   linkType: hard
 
@@ -9000,17 +8979,6 @@ __metadata:
     "@jest/types": ^28.1.3
     "@types/node": "*"
   checksum: a573bf8e5f12f4c29c661266c31b5c6b69a28d3195b83049983bce025b2b1a0152351567e89e63b102ef817034c2a3aa97eda4e776f3bae2aee54c5765573aa7
-  languageName: node
-  linkType: hard
-
-"jest-mock@npm:^29.1.2":
-  version: 29.1.2
-  resolution: "jest-mock@npm:29.1.2"
-  dependencies:
-    "@jest/types": ^29.1.2
-    "@types/node": "*"
-    jest-util: ^29.1.2
-  checksum: 145817b10c79e8d1801dba8ae5c6e305f17f2497ed1eb9b54336fa7b448ffcafb2cc97b57cef650cc5b3f7d77a063d586b3d446bcd907161e2ca7e5d68184e8f
   languageName: node
   linkType: hard
 
@@ -10828,7 +10796,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-banner@1.2.151, next-banner@workspace:packages/core":
+"next-banner@1.2.152, next-banner@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "next-banner@workspace:packages/core"
   dependencies:
@@ -10853,7 +10821,7 @@ __metadata:
     eslint-plugin-react: 7.31.10
     get-port: 6.1.2
     jest: 29.2.0
-    jest-environment-jsdom: 29.1.2
+    jest-environment-jsdom: 29.2.0
     merge-anything: 5.0.4
     next: 12.3.1
     prettier: 2.7.1
