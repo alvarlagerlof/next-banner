@@ -1,5 +1,12 @@
 
 
+### [1.2.164](https://github.com/alvarlagerlof/next-banner/compare/v1.2.163...v1.2.164) (2022-10-22)
+
+
+### Build Changes
+
+* **deps:** update dependency concurrently to v7.5.0 ([3d149f7](https://github.com/alvarlagerlof/next-banner/commit/3d149f778e8b925f0e68e009e53ca85b0de7451e))
+
 ### [1.2.163](https://github.com/alvarlagerlof/next-banner/compare/v1.2.162...v1.2.163) (2022-10-22)
 
 
