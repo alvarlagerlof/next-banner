@@ -2932,10 +2932,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:18.11.0":
+"@types/node@npm:*":
   version: 18.11.0
   resolution: "@types/node@npm:18.11.0"
   checksum: f27f899ab428e5732f04fadadc9203f44bdf3abf56474540ee27da90e4f2ba133faf87263cada4d2271955f92ee6a142bd50683c86290fe5070c19aac44fd654
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:18.11.3":
+  version: 18.11.3
+  resolution: "@types/node@npm:18.11.3"
+  checksum: 3a2a9142d891a90a195c296149bf64a69cc0abcc42f543be911ab22b2e0ead85ff077f90af92f0f13f6e3e5e72501469200fd753dfd1101825d4646a89d3ee47
   languageName: node
   linkType: hard
 
@@ -6263,7 +6270,7 @@ __metadata:
     eslint-config-next: 12.3.1
     jest: 29.2.0
     next: 12.3.1
-    next-banner: 1.2.156
+    next-banner: 1.2.157
     react: 18.2.0
     react-dom: 18.2.0
     typescript: 4.8.4
@@ -10683,7 +10690,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-banner@1.2.156, next-banner@workspace:packages/core":
+"next-banner@1.2.157, next-banner@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "next-banner@workspace:packages/core"
   dependencies:
@@ -10694,7 +10701,7 @@ __metadata:
     "@testing-library/jest-dom": 5.16.5
     "@testing-library/react": 13.4.0
     "@types/jest": 29.1.2
-    "@types/node": 18.11.0
+    "@types/node": 18.11.3
     "@types/react": 18.0.21
     "@types/react-dom": 18.0.6
     "@typescript-eslint/eslint-plugin": 5.40.0
