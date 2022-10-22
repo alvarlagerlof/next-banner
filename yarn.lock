@@ -6374,7 +6374,7 @@ __metadata:
     eslint-config-next: 12.3.1
     jest: 29.2.1
     next: 12.3.1
-    next-banner: 1.2.164
+    next-banner: 1.2.165
     react: 18.2.0
     react-dom: 18.2.0
     typescript: 4.8.4
@@ -10862,7 +10862,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-banner@1.2.164, next-banner@workspace:packages/core":
+"next-banner@1.2.165, next-banner@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "next-banner@workspace:packages/core"
   dependencies:
@@ -10891,7 +10891,7 @@ __metadata:
     merge-anything: 5.0.4
     next: 12.3.1
     prettier: 2.7.1
-    puppeteer: 19.0.0
+    puppeteer: 19.1.0
     react: 18.2.0
     react-dom: 18.2.0
     rimraf: 3.0.2
@@ -12105,9 +12105,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:19.0.0":
-  version: 19.0.0
-  resolution: "puppeteer-core@npm:19.0.0"
+"puppeteer-core@npm:19.1.0":
+  version: 19.1.0
+  resolution: "puppeteer-core@npm:19.1.0"
   dependencies:
     cross-fetch: 3.1.5
     debug: 4.3.4
@@ -12119,19 +12119,20 @@ __metadata:
     tar-fs: 2.1.1
     unbzip2-stream: 1.4.3
     ws: 8.9.0
-  checksum: bc2a111761b1ef72ed715d72e339f0a3b74f9ae22fdac1e3b40ba2e673505143b399479f6f1bc2f701cb8b88a0a5ad13c3ba4286f508d686e7746379e749e818
+  checksum: 8c5df14503e9b5841e9ca55fe3ad9a08bd0b296089fa029609d942f435913f58d87103835fe8b284e76e0be21ca718427e0c4f068eb17e098b49bbdfc1906361
   languageName: node
   linkType: hard
 
-"puppeteer@npm:19.0.0":
-  version: 19.0.0
-  resolution: "puppeteer@npm:19.0.0"
+"puppeteer@npm:19.1.0":
+  version: 19.1.0
+  resolution: "puppeteer@npm:19.1.0"
   dependencies:
+    cosmiconfig: 7.0.1
     https-proxy-agent: 5.0.1
     progress: 2.0.3
     proxy-from-env: 1.1.0
-    puppeteer-core: 19.0.0
-  checksum: 8c52f8f53cc5ee9699c609e26baab230addb4dd37d29131afd72bf996dc3bacfaaf7c5766a85ee0e35a3f5ba22b1d26c64780a45dc82da3d3fce15e66c47026b
+    puppeteer-core: 19.1.0
+  checksum: 489a9b7379488743ea30b901bbef3346593fcb6a33bf656e84de36800ba9b71ca6eb4faa1cbfc7e956583f76bb8e42074302de3f1bf4a7d68147f0428dc1fe8b
   languageName: node
   linkType: hard
 
