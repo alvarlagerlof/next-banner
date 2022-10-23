@@ -1,5 +1,12 @@
 
 
+### [1.2.167](https://github.com/alvarlagerlof/next-banner/compare/v1.2.166...v1.2.167) (2022-10-23)
+
+
+### Build Changes
+
+* **deps:** update dependency turbo to v1.6.1 ([f7d94d4](https://github.com/alvarlagerlof/next-banner/commit/f7d94d438980bee9f634314f32ec08312625c0cf))
+
 ### [1.2.166](https://github.com/alvarlagerlof/next-banner/compare/v1.2.165...v1.2.166) (2022-10-22)
 
 
