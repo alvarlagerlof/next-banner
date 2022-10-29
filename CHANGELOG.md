@@ -1,5 +1,12 @@
 
 
+### [1.2.172](https://github.com/alvarlagerlof/next-banner/compare/v1.2.171...v1.2.172) (2022-10-29)
+
+
+### Build Changes
+
+* **deps:** update dependency @types/react-dom to v18.0.8 ([9a2c445](https://github.com/alvarlagerlof/next-banner/commit/9a2c445c1c183bc313962c1acf5a7c63b5fca546))
+
 ### [1.2.171](https://github.com/alvarlagerlof/next-banner/compare/v1.2.170...v1.2.171) (2022-10-29)
 
 
