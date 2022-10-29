@@ -1,5 +1,12 @@
 
 
+### [1.2.173](https://github.com/alvarlagerlof/next-banner/compare/v1.2.172...v1.2.173) (2022-10-29)
+
+
+### Build Changes
+
+* **deps:** update dependency babel-jest to v29.2.2 ([f2e7ff8](https://github.com/alvarlagerlof/next-banner/commit/f2e7ff838f9ce5122750baead36efb0f0c8d69f5))
+
 ### [1.2.172](https://github.com/alvarlagerlof/next-banner/compare/v1.2.171...v1.2.172) (2022-10-29)
 
 
