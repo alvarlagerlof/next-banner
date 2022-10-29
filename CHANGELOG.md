@@ -1,5 +1,12 @@
 
 
+### [1.2.175](https://github.com/alvarlagerlof/next-banner/compare/v1.2.174...v1.2.175) (2022-10-29)
+
+
+### Build Changes
+
+* **deps:** update dependency jest-environment-jsdom to v29.2.2 ([7678c24](https://github.com/alvarlagerlof/next-banner/commit/7678c24f0fa51e815bd28b0622ffc2b26ff0f828))
+
 ### [1.2.174](https://github.com/alvarlagerlof/next-banner/compare/v1.2.173...v1.2.174) (2022-10-29)
 
 
