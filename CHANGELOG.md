@@ -1,5 +1,12 @@
 
 
+### [1.2.181](https://github.com/alvarlagerlof/next-banner/compare/v1.2.180...v1.2.181) (2022-10-30)
+
+
+### Build Changes
+
+* **deps:** update dependency next to v12.3.2 ([2e420ab](https://github.com/alvarlagerlof/next-banner/commit/2e420ab3fa3b82a02889a9ca2c117e6ea6d02203))
+
 ### [1.2.180](https://github.com/alvarlagerlof/next-banner/compare/v1.2.179...v1.2.180) (2022-10-30)
 
 
