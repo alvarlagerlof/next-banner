@@ -1,5 +1,12 @@
 
 
+### [1.2.186](https://github.com/alvarlagerlof/next-banner/compare/v1.2.185...v1.2.186) (2022-11-05)
+
+
+### Build Changes
+
+* **deps:** update dependency @types/react to v18.0.25 ([bba2f90](https://github.com/alvarlagerlof/next-banner/commit/bba2f90ac138d61bca7b1b4817c93fb0b6710062))
+
 ### [1.2.185](https://github.com/alvarlagerlof/next-banner/compare/v1.2.184...v1.2.185) (2022-11-05)
 
 
