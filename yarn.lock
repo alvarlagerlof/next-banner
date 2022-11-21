@@ -2498,11 +2498,11 @@ __metadata:
   linkType: hard
 
 "@pnpm/network.ca-file@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@pnpm/network.ca-file@npm:1.0.1"
+  version: 1.0.2
+  resolution: "@pnpm/network.ca-file@npm:1.0.2"
   dependencies:
     graceful-fs: 4.2.10
-  checksum: c847d8618725b037427616ce5e8edc305ffe94759b8bb3862431d72a79011beac2d8a097796678a2369a747e490f4e19833347a2e1b4f641e2da29238f8c5535
+  checksum: d8d0884646500576bd5390464d13db1bb9a62e32a1069293e5bddb2ad8354b354b7e2d2a35e12850025651e795e6a80ce9e601c66312504667b7e3ee7b52becc
   languageName: node
   linkType: hard
 
