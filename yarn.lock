@@ -10758,7 +10758,7 @@ __metadata:
   resolution: "monorepo-root@workspace:."
   dependencies:
     "@release-it/conventional-changelog": 5.1.1
-    release-it: 15.5.1
+    release-it: 15.6.0
     release-it-yarn-workspaces: "workspace:*"
     turbo: 1.6.3
   languageName: unknown
@@ -12607,9 +12607,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"release-it@npm:15.5.1":
-  version: 15.5.1
-  resolution: "release-it@npm:15.5.1"
+"release-it@npm:15.6.0":
+  version: 15.6.0
+  resolution: "release-it@npm:15.6.0"
   dependencies:
     "@iarna/toml": 2.2.5
     "@octokit/rest": 19.0.5
@@ -12617,7 +12617,6 @@ __metadata:
     chalk: 5.1.2
     cosmiconfig: 8.0.0
     execa: 6.1.0
-    form-data: 4.0.0
     git-url-parse: 13.1.0
     globby: 13.1.2
     got: 12.5.3
@@ -12640,7 +12639,7 @@ __metadata:
     yargs-parser: 21.1.1
   bin:
     release-it: bin/release-it.js
-  checksum: 910c528a746bec60ad5f5a75f3d5efdc57cb75af721c408106980895189ea018f5a0384e461c83eccbec6e2e22f0edb47830f51c5a5596cc3b738128c3c340b0
+  checksum: b6a1ee059f46bceddf7b192b60d5baa50506f47f78e8e877ce948ac5304ed3316153c38f60354aa8de8426cabf80ab43cb19c79b49f173d9a6021399067b399e
   languageName: node
   linkType: hard
 
