@@ -1,3 +1,7 @@
+# Archived
+
+You should probably use https://github.com/vercel/satori instead. It is much faster, and renders without needing a browser, making it plausible to run dynmically. Buy iy can of course also be usied statically if you want to.
+
 ![Logo](banner.png)
 
 # Next Banner
